@@ -49,8 +49,9 @@
                             <div class="facility--main__card-content">
                                 <h5><a href="facility-details.html">{{ $facility->name }}</a></h5>
                                 @php
-                                    $facilityDesc = strlen($facility->description) > 15 ? substr($facility->description, 0, 15) . '...' : $facility->description;
-                                @endphp
+                                    $desc = strip_tags($facility->description); // Strip HTML tags.
+                                    $facilityDesc = strlen($desc) > 15 ? substr($desc, 0, 15) . '...' : $desc;
+                                 @endphp
                                 <p class="secondary-text">
                                     {{ $facilityDesc }}
                                 </p>

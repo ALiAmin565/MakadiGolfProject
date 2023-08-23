@@ -18,7 +18,7 @@
         <x-dash-board.side-bar-item icon="menu-icon mdi mdi-adjust" title="DashBoard" link="dashboard" />
         {{-- Home Page  --}}
         <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="Home Page" link="home-page.index" />
-        {{-- About --}}
+
         {{-- @php
             $arrayOne = [
                 [
@@ -73,7 +73,11 @@
         <x-dash-board.side-bar-item-array title="Facilities Pages" numberDropdown="two"
             icon="mdi mdi-information-variant menu-icon" :values=$arrayTwo /> --}}
 
+        {{-- Facilities --}}
         <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="Facilities" link="facilities.index" />
+        {{-- About --}}
+        <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="About Us" link="about-us-dashboard.index" />
+
         {{-- Gallery --}}
         {{-- <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="Gallery Page" link="GelleryPage.index" /> --}}
 
