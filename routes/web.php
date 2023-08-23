@@ -1,14 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\FrontEndController;
-use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\BannerHomePageController;
-use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\FacilityHomePageController;
-use App\Models\Facilities;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +55,8 @@ Route::resource('facilities', FacilitiesController::class);
 Route::delete('/facilities-delete-multiple', [FacilitiesController::class, 'deleteMultiple'])->name('facilities-dash-board-delete-multiple');
 Route::get('/delete-facility-image/{imageName}', [FacilitiesController::class, 'deleteSelectedImage'])->name('deleteSelectedImage');
 Route::post('/add-facility-image/{id}',[FacilitiesController::class, 'addImageFacility'] )->name('addImageFacility');
-
+// About us Section
+Route::resource('about-us-dashboard', AboutUsController::class);
 
 
 

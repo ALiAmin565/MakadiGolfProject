@@ -37,16 +37,12 @@
             <div class="row section__row align-items-center">
                 <div class="col-lg-6 col-xl-6 section__col">
                     <div class="section__content">
-                        <h5 class="section__content-sub-title">About us</h5>
+                        <h5 class="section__content-sub-title">{{ $aboutUs->sub_title }}</h5>
                         <h2 class="section__content-title">
-                            We Are The Best Golf Club In Your Local Area
+                            {{ $aboutUs->title }}
                         </h2>
                         <p class="section__content-text">
-                            We offer a lot of courses of varying difficulty and beautiful
-                            scenery that golfers of all skill levels can enjoy. You will
-                            learn golf from professionals with our competent and experienced
-                            staff. You will have a great fun with our magnificent
-                            illuminated field.
+                           {!! $aboutUs->description !!}
                         </p>
                         <div class="about__section-inner">
                             <div class="about__section-inner__single">
@@ -83,20 +79,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="section__content-cta">
+                        {{-- <div class="section__content-cta">
                             <a href="about-us.html" class="cmn-button">Read More</a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-6 col-xl-5 offset-xl-1 section__col">
                     <div class="about__thumb wow fadeInUp" data-wow-duration="0.4s">
-                        <img src="assetsFront/images/about-thumb.png" alt="Image" class="unset">
+                        <img src="assetsFront/images/{{ $aboutUs->image }}" alt="Image" class="unset">
                         <div class="about__experience">
                             <div class="about__experience-thumb">
                                 <i class="golftio-ball"></i>
                             </div>
                             <h3>
-                                <span class="odometer" data-odometer-final="30"></span>
+                                <span class="odometer" data-odometer-final="{{ $aboutUs->num_of_years }}"></span>
                                 <span>+</span>
                             </h3>
                             <p>Years of experience</p>

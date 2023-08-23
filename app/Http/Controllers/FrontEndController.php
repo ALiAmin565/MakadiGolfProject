@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutUs;
 use App\Models\Facilities;
 use Illuminate\Http\Request;
 use App\Models\BannerHomePage;
@@ -15,6 +16,7 @@ class FrontEndController extends Controller
         $banner = BannerHomePage::first();
         $facilityPage = FacilityHomePage::first();
         $facilities = Facilities::select('icon', 'name', 'description')->get();
+        $aboutUs = AboutUs::first();
         return view('FrontEnd.home', get_defined_vars());
     }
 
@@ -47,6 +49,7 @@ class FrontEndController extends Controller
     // indexAboutUs
     public function indexAboutUs()
     {
-        return view('FrontEnd.about-us');
+        $aboutUs = AboutUs::first();
+        return view('FrontEnd.about-us', get_defined_vars());
     }
 }
