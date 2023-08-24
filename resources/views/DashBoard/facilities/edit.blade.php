@@ -122,16 +122,18 @@
 
         <!-- Add Image Link -->
         @if ($facilityImages != [])
-            <br>
-            <h2>For New Photo</h2>
-            <form action="{{ route('addImageFacility', $facility->id) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="add-image-link">
-                    <input type="file" id="addImageFacility" name="images[]" accept="image/*" multiple>
-                    <a href="#" style="text-decoration: none; color:white;"> <button type="submit"
-                            class="btn btn-gradient-primary me-2">Add new photo</button></a>
-                </div>
-            </form>
+        <br>
+            <div id="uplaodNewPhoto">
+                <h2>Add New Photo</h2>
+                <form action="{{ route('addImageFacility', $facility->id) }}" method="POST" enctype="multipart/form-data" id="imageUploadForm">
+                    @csrf
+                    <div class="add-image-link">
+                        <input type="file" id="addImageFacility" name="images[]" accept="image/*" multiple>
+                        <a href="#" style="text-decoration: none; color:white;"> <button type="submit" id="submitButtonImageFacility"
+                                class="btn btn-gradient-primary me-2">Add new photo</button></a>
+                    </div>
+                </form>
+            </div>
         @endif
         <br>
         <button type="button" id="editButtonSingleFacility" class="btn btn-gradient-light me-2">Edit</button>
@@ -139,25 +141,14 @@
     @push('scripts')
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                const addImageLink = document.getElementById('addImageLink');
-                const addImageInput = document.getElementById('addImageInput');
-
-                addImageLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    addImageInput.click();
-                });
-            });
-        </script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
                 const editButtonSingleFacility = document.getElementById('editButtonSingleFacility');
                 const submitButtonSingleFacility = document.getElementById('submitButtonSingleFacility');
                 const cancelButtonSingleFacility = document.getElementById('cancelButtonSingleFacility');
+                const uplaodNewPhoto = document.getElementById('uplaodNewPhoto');
                 editButtonSingleFacility.addEventListener('click', function() {
                     enableEditing();
                 });
                 editButtonSingleFacility.style.float = 'right';
-
                 function enableEditing() {
                     const textInputsSingleFacility = document.querySelectorAll('input[type="text"]');
                     const textAreasSingleFacility = document.querySelectorAll('textarea');
@@ -167,18 +158,12 @@
                     textInputsSingleFacility.forEach(input => {
                         input.removeAttribute('readonly');
                     });
-
                     textAreasSingleFacility.forEach(textarea => {
                         textarea.removeAttribute('readonly');
                     });
-
-
                     selectIconSingleFacility.removeAttribute('disabled');
-
-
                     imageInputSingleFacility.removeAttribute('disabled');
-
-
+                    uplaodNewPhoto.style.display = 'none';
                     // Show the submit button
                     submitButtonSingleFacility.style.display = 'block';
                     submitButtonSingleFacility.style.float = 'right';
@@ -186,17 +171,13 @@
                     editButtonSingleFacility.style.display = 'none';
                     // Show the cancel button
                     cancelButtonSingleFacility.style.display = 'block';
-
                 }
-
             });
         </script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const imageInputSingleFacility = document.getElementById('SingleFacilityImage');
                 const singleFacilityImage = document.getElementById('singleFacilityImageShow');
-
-
                 imageInputSingleFacility.addEventListener('change', function(event) {
                     const selectedImage = event.target.files[0];
                     if (selectedImage) {
@@ -204,8 +185,29 @@
                         singleFacilityImage.src = imageUrl;
                     }
                 });
-
-
+            });
+        </script>
+        <script>
+            const fileInputImageFacility = document.getElementById('addImageFacility');
+            const submitButtonImageFacility = document.getElementById('submitButtonImageFacility');
+            document.getElementById('imageUploadForm').addEventListener('submit', function(event) {
+                // Check if no file is selected
+                if (fileInputImageFacility.files.length === 0) {
+                    // Prevent the default form submission
+                    event.preventDefault();
+                    // Optionally, display an alert or message to inform the user
+                    alert('Please select a file before submitting.');
+                }
+            });
+            fileInputImageFacility.addEventListener('change', function() {
+                // Check if any file is selected
+                if (fileInputImageFacility.files.length > 0) {
+                    // Enable the submit button if a file is selected
+                    submitButtonImageFacility.disabled = false;
+                } else {
+                    // Disable the submit button if no file is selected
+                    submitButtonImageFacility.disabled = true;
+                }
             });
         </script>
     @endpush

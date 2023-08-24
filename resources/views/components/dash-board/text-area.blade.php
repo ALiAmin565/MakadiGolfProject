@@ -1,19 +1,3 @@
-{{-- @props(['title', 'name', 'value', 'readonly' => false, 'disabled' => false])
-
-<div class="mb-3">
-    <label for="{{ $title }}" class="form-label">{{ $title }}</label>
-    <textarea
-        class="form-control"
-        name="{{ $name }}"
-        id="{{ $title }}"
-        placeholder="Enter Your Data"
-        rows="3"
-        @if($readonly) readonly @endif
-        @if($disabled) disabled @endif
-    >{{ $value }}</textarea>
-</div>
- --}}
-
  @props(['title', 'name', 'value', 'readonly' => false, 'disabled' => false])
 
 <div class="mb-3">

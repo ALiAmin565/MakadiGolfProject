@@ -19,64 +19,17 @@
         {{-- Home Page  --}}
         <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="Home Page" link="home-page.index" />
 
-        {{-- @php
-            $arrayOne = [
-                [
-                    'name' => 'GM Introduction',
-                    'action' => 'introduction',
-                ],
-                [
-                    'name' => 'Meet The Team',
-                    'action' => '##',
-                ],
-                [
-                    'name' => "Egypt's No.1 Golf Course",
-                    'action' => '#',
-                ],
-            ];
-        @endphp
-        <x-dash-board.side-bar-item-array title="About Pages" numberDropdown="one"
-            icon="mdi mdi-information-variant menu-icon" :values=$arrayOne /> --}}
         {{-- Facilities --}}
-        {{-- @php
-            $arrayTwo = [
-                [
-                    'name' => 'Club House',
-                    'action' => '###',
-                ],
-                [
-                    'name' => 'Food & Beverage',
-                    'action' => '##',
-                ],
-                [
-                    'name' => 'Golf Shop',
-                    'action' => '#',
-                ],
-                [
-                    'name' => 'Published Rates',
-                    'action' => '#',
-                ],
-                [
-                    'name' => 'Academy',
-                    'action' => '#',
-                ],
-                [
-                    'name' => 'Winter PGA Training Camps',
-                    'action' => '#',
-                ],
-                [
-                    'name' => 'Madinat Makadi Resort, Golf & Spa',
-                    'action' => '#',
-                ],
-            ];
-        @endphp
-        <x-dash-board.side-bar-item-array title="Facilities Pages" numberDropdown="two"
-            icon="mdi mdi-information-variant menu-icon" :values=$arrayTwo /> --}}
-
-        {{-- Facilities --}}
-        <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="Facilities" link="facilities.index" />
+        {{-- <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="Facilities" link="facilities.index" /> --}}
+        {{-- Replace facilities inside dropDown --}}
+        <x-dash-board.side-bar-item-array title="Facility Page" numberDropdown="one"
+            icon="mdi mdi-information-variant menu-icon"
+           :values="[[
+                'name' => 'Facilities',
+                'action' => 'facilities.index',
+            ]]" />
         {{-- About --}}
-        <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="About Us" link="about-us-dashboard.index" />
+        <x-dash-board.side-bar-item icon="mdi mdi-information-variant menu-icon" title="About Us Page" link="about-us-dashboard.index" />
 
         {{-- Gallery --}}
         {{-- <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="Gallery Page" link="GelleryPage.index" /> --}}
