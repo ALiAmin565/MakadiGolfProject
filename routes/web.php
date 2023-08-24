@@ -33,6 +33,7 @@ Route::get('/facility', [FrontEndController::class, 'indexFacility'])->name('Fro
 Route::get('/facility-details', [FrontEndController::class, 'indexFacilityDetailsHome'])->name('FrontEnd.facilityDetailsHome');
 Route::get('/facility-details/{id}', [FrontEndController::class, 'indexFacilityDetails'])->name('FrontEnd.facilityDetails');
 Route::get('/about-us', [FrontEndController::class, 'indexAboutUs'])->name('FrontEnd.aboutUs');
+Route::get('/contact-us', [FrontEndController::class, 'indexContactUs'])->name('FrontEnd.contactUs');
 
 
 

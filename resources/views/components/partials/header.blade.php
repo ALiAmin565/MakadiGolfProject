@@ -6,7 +6,7 @@
                 <nav class="nav">
                     <div class="nav__content">
                         <div class="nav__logo">
-                            <a href="index.html">
+                            <a href="{{ route('FrontEnd.home') }}">
                                 <img src="{{ asset('assetsFront/images/logo-light.png') }}" alt="Logo">
                             </a>
                         </div>
@@ -21,25 +21,19 @@
                             </div>
 
                             <ul class="nav__menu-items">
-                                <a href="{{ route('FrontEnd.home') }}" class="nav__menu-link">
-                                    Home
-                                </a>
-                                {{-- To Choose Selected Home Page --}}
-                                {{-- <li class="nav__menu-item nav__menu-item--dropdown">
-                                    <ul class="nav__dropdown">
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="index.html">Home One</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="index-two.html">Home
-                                                Two</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="index-three.html">Home
-                                                Three</a>
-                                        </li>
-                                    </ul>
-                                </li> --}}
+                                {{-- Home --}}
+                                <li>
+                                    <a href="{{ route('FrontEnd.home') }}" class="nav__menu-link">
+                                        Home
+                                    </a>
+                                </li>
+                                {{-- About Us --}}
+                                <li>
+                                    <a href="{{ route('FrontEnd.aboutUs') }}" class="nav__menu-link">
+                                        About Us
+                                    </a>
+                                </li>
+                                {{-- Facility --}}
                                 <li class="nav__menu-item nav__menu-item--dropdown">
                                     <a href="javascript:void(0)" class="nav__menu-link nav__menu-link--dropdown">
                                         Facility
@@ -54,52 +48,27 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="nav__menu-item nav__menu-item--dropdown">
-                                    <a href="javascript:void(0)" class="nav__menu-link nav__menu-link--dropdown">
-                                        Trainings
+                                {{-- Gallery --}}
+                                <li>
+                                    <a href="#" class="nav__menu-link">
+                                        Gallery
                                     </a>
-                                    <ul class="nav__dropdown">
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="training.html">Trainings</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="training-details.html">Training
-                                                Details</a>
-                                        </li>
-                                    </ul>
                                 </li>
-                                <li class="nav__menu-item nav__menu-item--dropdown">
-                                    <a href="javascript:void(0)" class="nav__menu-link nav__menu-link--dropdown">
-                                        Shop
+                                {{-- Contact Us --}}
+                                <li>
+                                    <a href="{{ route('FrontEnd.contactUs') }}" class="nav__menu-link">
+                                        Contact Us
                                     </a>
-                                    <ul class="nav__dropdown">
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="shop.html">Shop</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="product-details.html">Product
-                                                Details</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="cart.html">Cart</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="checkout.html">Checkout</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav"
-                                                href="payment-successfull.html">Successfull</a>
-                                        </li>
-                                    </ul>
                                 </li>
+
                                 <li class="nav__menu-item nav__menu-item--dropdown">
                                     <a href="javascript:void(0)" class="nav__menu-link nav__menu-link--dropdown">
                                         Pages
                                     </a>
                                     <ul class="nav__dropdown">
-                                        <li>
+                                        {{-- <li>
                                             <a class="nav__dropdown-item hide-nav" href="{{ route('FrontEnd.aboutUs') }}">About Us</a>
-                                        </li>
+                                        </li> --}}
                                         <li>
                                             <a class="nav__dropdown-item hide-nav" href="pricing.html">Pricing
                                                 Plan</a>
@@ -172,7 +141,8 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="nav__uncollapsed">
+                        {{-- Login System --}}
+                        {{-- <div class="nav__uncollapsed">
                             <a href="cart.html" class="cart">
                                 <i class="golftio-cart"></i>
                             </a>
@@ -185,7 +155,7 @@
                                 <span class="icon-bar middle-bar"></span>
                                 <span class="icon-bar bottom-bar"></span>
                             </button>
-                        </div>
+                        </div> --}}
                     </div>
                 </nav>
             </div>

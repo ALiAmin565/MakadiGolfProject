@@ -52,4 +52,10 @@ class FrontEndController extends Controller
         $aboutUs = AboutUs::first();
         return view('FrontEnd.about-us', get_defined_vars());
     }
+
+    // indexContactUs
+    public function indexContactUs()
+    {
+        return view('FrontEnd.contact-us');
+    }
 }
