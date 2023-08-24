@@ -139,7 +139,9 @@
         </div>
     </section>
     <!-- ==== / gallery slider section end ==== -->
-    <!-- ==== facility  section start ==== -->
+
+    {{-- Related Facility --}}
+    {{-- <!-- ==== facility  section start ==== -->
     <section class="section facility--main wow fadeInUp" data-wow-duration="0.4s">
         <div class="container">
             <div class="row">
@@ -295,7 +297,7 @@
             </div>
         </div>
     </section>
-    <!-- ==== / facility section end ==== -->
+    <!-- ==== / facility section end ==== --> --}}
 
 
 </x-layouts.app>
