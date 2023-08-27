@@ -13,30 +13,24 @@ use Illuminate\Support\Facades\Validator;
 class SubscriberController extends Controller
 {
     public function subscribe(Request $request){
-        // dd(45);
-        $validator = Validator::make($request->get(),[
-            'email' => 'required|email|unique:subscribers'
+        $validator = Validator::make($request->all(),[
+            'firstname' =>'required|string|max:255',
+            'lastname' =>'required|string|max:255',
+            'number' => 'required|numeric|digits_between:10,14',
+            'email' => 'required|email|unique:subscribers',
+            'message' => 'required|string',
         ]);
-        if($validator->fails()){
-            return new JsonResponse(
-                [
-                    'success' => false,
-                    'message' => $validator->errors()
-                ], 422
-            );
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
         }
-        $email = $request->get()['email'];
-        $subscriber = Subscriber::create([
-            'email' => $email
-        ]);
-        if($subscriber){
-            Mail::to($email)->send(new Subscribe($email));
-            return new JsonResponse(
-                [
-                    'success' => true,
-                    'message' => "Thank you for subscribing to our email, please check your inbox"
-                ], 200
-            );
+        $email = $request->all()['email'];
+        $name = $request->all()['firstname'] . ' ' . $request->all()['lastname'];
+        $subscriber = Subscriber::create($request->all());
+        if ($subscriber) {
+            Mail::to($email)->send(new Subscribe($email, $name));
+            return back()->with('success', 'Thank you for subscribing to our email, please check your inbox');
         }
     }
 }
