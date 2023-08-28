@@ -25,11 +25,21 @@
         <x-dash-board.side-bar-item-array title="Facility Page" numberDropdown="one"
             icon="mdi mdi-information-variant menu-icon"
            :values="[[
-                'name' => 'Facilities',
+                'name' => 'Edit Facilities',
                 'action' => 'facilities.index',
             ]]" />
         {{-- About --}}
         <x-dash-board.side-bar-item icon="mdi mdi-information-variant menu-icon" title="About Us Page" link="about-us-dashboard.index" />
+        {{-- Contact Us --}}
+        <x-dash-board.side-bar-item-array title="Contact Us Page" numberDropdown="two"
+            icon="mdi mdi-information-variant menu-icon"
+            :values="[[
+                'name' => 'Edit Page',
+                'action' => 'contact-us-dashboard.index',
+            ],[
+                'name' => 'List users',
+                'action' => 'getContactUsUsers.index',
+            ],]" />
 
         {{-- Gallery --}}
         {{-- <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="Gallery Page" link="GelleryPage.index" /> --}}

@@ -48,15 +48,13 @@
                     <h5>Address</h5>
                     <div class="footer__single-content">
                         <div class="footer__single-content__group">
-                            <p>(480) 555-0103</p>
-                            <p>(406) 555-0120</p>
+                           {!! $contactUs->numbers !!}
                         </div>
                         <div class="footer__single-content__group">
-                            <p>deanna.curtis@example.com</p>
-                            <p>debra.holt@example.com</p>
+                           {!! $contactUs->emails !!}
                         </div>
                         <div class="footer__single-content__group">
-                            <p>285 Great North Road, Grey Lynn, Auckland 1021</p>
+                           {!! $contactUs->location !!}
                         </div>
                     </div>
                 </div>

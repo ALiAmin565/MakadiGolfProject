@@ -215,7 +215,7 @@
                 <div class="topic-text">Send us a message</div>
                 <p>If you have any work from me or any types of quries related to my tutorial, you can send me message
                     from here. It's my pleasure to help you.</p>
-                <form action="{{ route('subscribe') }}" method="POST">
+                <form action="{{ route('user.contactUs') }}" method="POST">
                     @csrf
                     <div class="input-box">
                         <input type="text"   name="text"placeholder="Enter your name">

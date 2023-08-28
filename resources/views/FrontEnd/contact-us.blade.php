@@ -1,4 +1,4 @@
-<x-layouts.app title="Facilities">
+<x-layouts.app title="ContactUs">
     @push('styleSheet')
         <style>
             .banner--inner {
@@ -37,10 +37,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="section__header">
-                        <h2 class="section__header-title">Contact Us</h2>
-                        <p>
-                            Golftio Sports Club is a golf club with a history that goes back
-                            to XX century. From a cricket club to soccer tournaments,
+                        <h2 class="section__header-title">{{ $contactUs->title }}</h2>
+                        <p class="secondary-text">
+                          {!! $contactUs->description !!}
                         </p>
                     </div>
                 </div>
@@ -53,8 +52,9 @@
                         </div>
                         <div class="contact__item-content">
                             <h5>Call Now</h5>
-                            <p class="secondary-text">(907) 555-0101</p>
-                            <p class="secondary-text">(252) 555-0126</p>
+                            <p class="secondary-text">
+                                {!! $contactUs->numbers !!}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -65,8 +65,9 @@
                         </div>
                         <div class="contact__item-content">
                             <h5>Email Address</h5>
-                            <p class="secondary-text">sara.cruz@example.com</p>
-                            <p class="secondary-text">bill.sanders@example.com</p>
+                            <p class="secondary-text">
+                                {!! $contactUs->emails !!}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -77,9 +78,8 @@
                         </div>
                         <div class="contact__item-content">
                             <h5>Location</h5>
-                            <p class="secondary-text">Royal Ln. Mesa, New Jersey 45463</p>
-                            <p class="secondary-text">
-                                Thornridge Cir. Shiloh, Hawaii 81063
+                            <p>
+                                {!! $contactUs->location !!}
                             </p>
                         </div>
                     </div>
@@ -106,6 +106,7 @@
                     <div class="contact-form__inner">
                         @if ($errors->any())
                             <div class="alert alert-danger text-center">
+                                <i class="fa-solid fa-envelope"></i>
                                 <ul>
                                     @foreach ($errors->all() as $error)
                                         <li>{{ $error }}</li>
@@ -114,11 +115,11 @@
                             </div>
                         @endif
                         @if (session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
+                            <div class="alert alert-success text-center">
+                                <i class="fa-solid fa-envelope"></i> &nbsp; {{ session('success') }}
                             </div>
                         @endif
-                        <form action="{{ route('subscribe') }}" method="post">
+                        <form action="{{ route('user.contactUs') }}" method="post">
                             @csrf
                             <div class="input-group">
                                 <div class="input-single">
@@ -163,10 +164,12 @@
     <!-- ==== google map start ==== -->
     <div class="map-wrapper">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.400800712204!2d31.01155777547872!3d30.02535727493323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14585bd743593113%3A0x6a9c2b3c2bbc4ac2!2sTravco%20Travel%20Company%20of%20Egypt!5e0!3m2!1sen!2seg!4v1692867765092!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="{{ $contactUs->google_map_link }}"
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade" width="100" height="800" style="border:0;"
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            referrerpolicy="no-referrer-when-downgrade" width="600" height="450" style="border:0;"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100"
+            height="800" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <!-- ==== / google map end ==== -->
 

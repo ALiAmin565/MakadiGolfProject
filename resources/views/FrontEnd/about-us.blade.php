@@ -1,4 +1,4 @@
-<x-layouts.app title="Facilities">
+<x-layouts.app title="AboutUs">
     @push('styleSheet')
         <style>
             .banner--inner {

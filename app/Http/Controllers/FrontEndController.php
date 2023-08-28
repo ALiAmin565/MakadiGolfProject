@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
+use App\Models\ContactUs;
 use App\Models\Facilities;
 use Illuminate\Http\Request;
 use App\Models\BannerHomePage;
@@ -56,6 +57,7 @@ class FrontEndController extends Controller
     // indexContactUs
     public function indexContactUs()
     {
-        return view('FrontEnd.contact-us');
+        $contactUs = ContactUs::first();
+        return view('FrontEnd.contact-us', get_defined_vars());
     }
 }
