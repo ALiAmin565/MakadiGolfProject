@@ -42,7 +42,7 @@
             ],]" />
 
         {{-- Gallery --}}
-        {{-- <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="Gallery Page" link="GelleryPage.index" /> --}}
+        <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="Gallery Page" link="gallery-dashboard.index" />
 
 
     </ul>

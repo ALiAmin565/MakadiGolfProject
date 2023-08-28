@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FacilitiesController;
@@ -32,6 +33,8 @@ Route::get('/facility-details', [FrontEndController::class, 'indexFacilityDetail
 Route::get('/facility-details/{id}', [FrontEndController::class, 'indexFacilityDetails'])->name('FrontEnd.facilityDetails');
 Route::get('/about-us', [FrontEndController::class, 'indexAboutUs'])->name('FrontEnd.aboutUs');
 Route::get('/contact-us', [FrontEndController::class, 'indexContactUs'])->name('FrontEnd.contactUs');
+// Gallery Section
+Route::get('/gallery', [FrontEndController::class, 'indexGallery'])->name('FrontEnd.gallery');
 
 
 
@@ -60,6 +63,7 @@ Route::resource('about-us-dashboard', AboutUsController::class);
 Route::resource('contact-us-dashboard', ContactUsController::class);
 // Subscriber Section
 Route::get('/contact-us-users', [SubscriberController::class , 'getContactUsUsers'])->name('getContactUsUsers.index');
-
+// Gallery Section
+Route::resource('gallery-dashboard', GalleryController::class);
 
 
