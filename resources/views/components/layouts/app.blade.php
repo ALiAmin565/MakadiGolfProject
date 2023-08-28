@@ -20,7 +20,7 @@
 
     {{ $slot }}
 
-    <x-partials.footer />
+    <x-partials.footer :contactUs="$contactUs" />
 
     <x-partials.back-to-top />
 

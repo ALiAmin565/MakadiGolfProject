@@ -3,12 +3,14 @@
 namespace App\View\Components\Layouts;
 
 use Closure;
-use Illuminate\Contracts\View\View;
+use App\Models\ContactUs;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class app extends Component
 {
     public $title;
+    public $contactUs;
     /**
      * Create a new component instance.
      */
@@ -16,6 +18,7 @@ class app extends Component
     {
         // if not exisit title will be empty string
         $this->title = $title ?? '' ;
+        $this->contactUs = ContactUs::first();
     }
 
 

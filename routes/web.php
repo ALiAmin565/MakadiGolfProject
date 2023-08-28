@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\FrontEndController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\BannerHomePageController;
@@ -18,18 +19,15 @@ use App\Http\Controllers\FacilityHomePageController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/contactUs', function () {
-    return view('contactUs');
-})->name('contactUs');
-Route::post('/subscribe', [SubscriberController::class, 'subscribe'])->name('subscribe');
+// Send Email Route Contact Us
+Route::post('/user-contact-us', [SubscriberController::class, 'contactUS'])->name('user.contactUs');
 
 
 
 // ================== Front End Routes ==================
 Route::get('/', [FrontEndController::class, 'index'])->name('FrontEnd.home');
 Route::get('/facility', [FrontEndController::class, 'indexFacility'])->name('FrontEnd.facility');
-// Button on Navbar Home Page
+// Buttons on Navbar Home Page
 Route::get('/facility-details', [FrontEndController::class, 'indexFacilityDetailsHome'])->name('FrontEnd.facilityDetailsHome');
 Route::get('/facility-details/{id}', [FrontEndController::class, 'indexFacilityDetails'])->name('FrontEnd.facilityDetails');
 Route::get('/about-us', [FrontEndController::class, 'indexAboutUs'])->name('FrontEnd.aboutUs');
@@ -58,6 +56,10 @@ Route::get('/delete-facility-image/{imageName}', [FacilitiesController::class, '
 Route::post('/add-facility-image/{id}',[FacilitiesController::class, 'addImageFacility'] )->name('addImageFacility');
 // About us Section
 Route::resource('about-us-dashboard', AboutUsController::class);
+// Contact us Section
+Route::resource('contact-us-dashboard', ContactUsController::class);
+// Subscriber Section
+Route::get('/contact-us-users', [SubscriberController::class , 'getContactUsUsers'])->name('getContactUsUsers.index');
 
 
 

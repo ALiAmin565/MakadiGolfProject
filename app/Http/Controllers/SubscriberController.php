@@ -12,12 +12,13 @@ use Illuminate\Support\Facades\Validator;
 
 class SubscriberController extends Controller
 {
-    public function subscribe(Request $request){
+    public function contactUS(Request $request){
         $validator = Validator::make($request->all(),[
             'firstname' =>'required|string|max:255',
             'lastname' =>'required|string|max:255',
             'number' => 'required|numeric|digits_between:10,14',
-            'email' => 'required|email|unique:subscribers',
+            // 'email' => 'required|email|unique:subscribers',
+            'email' => 'required|email',
             'message' => 'required|string',
         ]);
         if ($validator->fails()) {
@@ -32,5 +33,10 @@ class SubscriberController extends Controller
             Mail::to($email)->send(new Subscribe($email, $name));
             return back()->with('success', 'Thank you for subscribing to our email, please check your inbox');
         }
+    }
+
+    public function getContactUsUsers(){
+        $subscribers = Subscriber::paginate(10);
+        return view('DashBoard.subscribers', get_defined_vars());
     }
 }
