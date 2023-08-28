@@ -34,11 +34,11 @@
                     <h5>Quick Links</h5>
                     <div class="footer__single-content">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="facility.html">Facility</a></li>
-                            <li><a href="shop.html">Shop</a></li>
-                            <li><a href="contact-us.html">Contact</a></li>
+                            <li><a href="{{ route('FrontEnd.home') }}">Home</a></li>
+                            <li><a href="{{ route('FrontEnd.aboutUs') }}">About Us</a></li>
+                            <li><a href="{{ route('FrontEnd.facility') }}">Facility</a></li>
+                            <li><a href="{{ route('FrontEnd.gallery') }}">Gallery</a></li>
+                            <li><a href="{{ route('FrontEnd.contactUs') }}">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
+use App\Models\gallery;
 use App\Models\ContactUs;
 use App\Models\Facilities;
 use Illuminate\Http\Request;
@@ -59,5 +60,17 @@ class FrontEndController extends Controller
     {
         $contactUs = ContactUs::first();
         return view('FrontEnd.contact-us', get_defined_vars());
+    }
+
+    // indexGallery
+
+    public function indexGallery()
+    {
+        $gallery = gallery::all();
+
+        // Group the gallery data into arrays containing 2 records each
+        $groupedGallery = collect($gallery)->chunk(1);
+
+        return view('FrontEnd.gallery', compact('groupedGallery'));
     }
 }

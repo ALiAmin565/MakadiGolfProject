@@ -50,7 +50,7 @@
                                 </li>
                                 {{-- Gallery --}}
                                 <li>
-                                    <a href="#" class="nav__menu-link">
+                                    <a href="{{ route('FrontEnd.gallery') }}" class="nav__menu-link">
                                         Gallery
                                     </a>
                                 </li>
