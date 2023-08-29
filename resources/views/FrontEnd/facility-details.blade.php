@@ -1,8 +1,39 @@
 <x-layouts.app title="{{ $facility->name }}">
+    @push('styleSheet')
+        <style>
+            .banner--inner {
+                position: relative;
+            }
 
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                /* Black overlay with 0.5 opacity */
+                pointer-events: none;
+                /* Allows clicks to pass through the overlay to elements below */
+            }
+
+            .banner--inner__content h2 {
+                color: #fff;
+                /* Adjust text color for better visibility on the dark overlay */
+            }
+
+            .banner--inner__content h2 {
+                color: #fff;
+                /* Adjust text color for better visibility on the dark overlay */
+                position: relative;
+                z-index: 1;
+            }
+        </style>
+    @endpush
     <!-- ==== banner start ==== -->
     <section class="banner--inner"
-        style="  background-image: url({{ asset('assetsFront/images/facility/' . $facility->image) }});">
+        style="background-image: url({{ asset('assetsFront/images/facility/' . $facility->image) }});">
+        <div class="overlay"></div>
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">

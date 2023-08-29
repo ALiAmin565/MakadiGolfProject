@@ -40,7 +40,7 @@
                 function enableEditing() {
                     const textInputs = document.querySelectorAll('input[type="text"]');
                     const textAreas = document.querySelectorAll('textarea');
-                    const imageInput = document.querySelector('input[type="file"]');
+                    const imageInput = document.getElementById('BannerImage');
 
                     textInputs.forEach(input => {
                         input.removeAttribute('readonly');
