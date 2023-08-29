@@ -48,7 +48,7 @@
                                     <i class="{{ $facility->icon }}"></i>
                                 </div>
                                 <div class="facility__card-content">
-                                    <h5><a href="facility-details.html">{{ $facility->name }}</a></h5>
+                                    <h5><a href="{{ route('FrontEnd.facilityDetails',$facility->id) }}">{{ $facility->name }}</a></h5>
                                     @php
                                         $desc = strip_tags($facility->description); // Strip HTML tags.
                                         $facilityDesc = strlen($desc) > 15 ? substr($desc, 0, 15) . '...' : $desc;

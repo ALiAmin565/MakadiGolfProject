@@ -17,7 +17,7 @@ class FrontEndController extends Controller
     {
         $banner = BannerHomePage::first();
         $facilityPage = FacilityHomePage::first();
-        $facilities = Facilities::select('icon', 'name', 'description')->get();
+        $facilities = Facilities::select('id','icon', 'name', 'description')->get();
         $aboutUs = AboutUs::first();
         return view('FrontEnd.home', get_defined_vars());
     }

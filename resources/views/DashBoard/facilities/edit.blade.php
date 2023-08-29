@@ -38,14 +38,14 @@
             @method('PUT')
 
             {{-- Name --}}
-            <x-dash-board.text-input title="FacilityName" name="name" :value="$facility->name" :readonly="true" />
+            <x-dash-board.text-input title="FacilityName" name="name" :value="$facility->name"  />
             {{-- Description --}}
-            <x-dash-board.text-area title="FacilityDescription" name="description" :value="$facility->description" :readonly="true" />
+            <x-dash-board.text-area title="FacilityDescription" name="description" :value="$facility->description"  />
             {{-- Youtube Link --}}
             <x-dash-board.text-input title="FacilityYoutubeLink" name="youtube_link" :value="$facility->youtube_link"
-                :readonly="true" />
+                 />
             {{-- Icons --}}
-            <x-dash-board.select-icon-drop-down name="icon" label="Icons" :disabled="true">
+            <x-dash-board.select-icon-drop-down name="icon" label="Icons" >
                 <option value="golftio-file">golftio-file</option>
                 <option value="golftio-cart">golftio-cart</option>
                 <option value="golftio-flag">golftio-flag</option>
@@ -83,7 +83,7 @@
             </x-dash-board.select-icon-drop-down>
             <br>
             {{-- Image --}}
-            <x-dash-board.upload-image title="SingleFacilityImage" name="image" :disabled="true" />
+            <x-dash-board.upload-image title="SingleFacilityImage" name="image"  />
             <div class="text-center">
                 <img src="{{ asset('assetsFront/images/facility/' . $facility->image) }}" id="singleFacilityImageShow"
                     alt="" calss="m-auto" height="100px">
@@ -111,14 +111,8 @@
                 </div>
             @endif
             {{-- Submit --}}
-            <button type="submit" id="submitButtonSingleFacility" class="btn btn-gradient-primary m-2"
-                style="display: none;">Submit</button>
+            <button type="submit" class="btn btn-gradient-primary m-2" style="position: relative;right: -90%;">Submit</button>
         </form>
-
-        <button type="button" class="btn btn-gradient-danger me-2" id="cancelButtonSingleFacility"
-            style="display: none;"><a href="{{ route('facilities.edit', $facility->id) }}"
-                style="text-decoration: none; color:white;">Cancel</a></button>
-
 
         <!-- Add Image Link -->
         @if ($facilityImages != [])
@@ -134,46 +128,13 @@
                     </div>
                 </form>
             </div>
+            <div class="text-center">
+                <img src="" id="galleryImageShow" alt="" calss="m-auto" height="100px">
+            </div>
         @endif
         <br>
-        <button type="button" id="editButtonSingleFacility" class="btn btn-gradient-light me-2">Edit</button>
     </div>
     @push('scripts')
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const editButtonSingleFacility = document.getElementById('editButtonSingleFacility');
-                const submitButtonSingleFacility = document.getElementById('submitButtonSingleFacility');
-                const cancelButtonSingleFacility = document.getElementById('cancelButtonSingleFacility');
-                const uplaodNewPhoto = document.getElementById('uplaodNewPhoto');
-                editButtonSingleFacility.addEventListener('click', function() {
-                    enableEditing();
-                });
-                editButtonSingleFacility.style.float = 'right';
-                function enableEditing() {
-                    const textInputsSingleFacility = document.querySelectorAll('input[type="text"]');
-                    const textAreasSingleFacility = document.querySelectorAll('textarea');
-                    const imageInputSingleFacility = document.querySelector('input[type="file"]');
-                    const selectIconSingleFacility = document.getElementById('icon');
-
-                    textInputsSingleFacility.forEach(input => {
-                        input.removeAttribute('readonly');
-                    });
-                    textAreasSingleFacility.forEach(textarea => {
-                        textarea.removeAttribute('readonly');
-                    });
-                    selectIconSingleFacility.removeAttribute('disabled');
-                    imageInputSingleFacility.removeAttribute('disabled');
-                    uplaodNewPhoto.style.display = 'none';
-                    // Show the submit button
-                    submitButtonSingleFacility.style.display = 'block';
-                    submitButtonSingleFacility.style.float = 'right';
-                    // Hide the edit button
-                    editButtonSingleFacility.style.display = 'none';
-                    // Show the cancel button
-                    cancelButtonSingleFacility.style.display = 'block';
-                }
-            });
-        </script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const imageInputSingleFacility = document.getElementById('SingleFacilityImage');
@@ -186,8 +147,6 @@
                     }
                 });
             });
-        </script>
-        <script>
             const fileInputImageFacility = document.getElementById('addImageFacility');
             const submitButtonImageFacility = document.getElementById('submitButtonImageFacility');
             document.getElementById('imageUploadForm').addEventListener('submit', function(event) {
@@ -209,6 +168,23 @@
                     submitButtonImageFacility.disabled = true;
                 }
             });
+
+
+            document.addEventListener('DOMContentLoaded', function() {
+                    const imageAboutUs = document.getElementById('addImageFacility');
+                    const galleryImage = document.getElementById('galleryImageShow');
+
+
+                    imageAboutUs.addEventListener('change', function(event) {
+                        const selectedImage = event.target.files[0];
+                        if (selectedImage) {
+                            const imageUrl = URL.createObjectURL(selectedImage);
+                            galleryImage.src = imageUrl;
+                        }
+                    });
+
+
+                });
         </script>
     @endpush
 </x-dash-board.layouts.app>
