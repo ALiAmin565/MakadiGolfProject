@@ -207,6 +207,22 @@
     </section>
     <!-- ==== / event section end ==== -->
 
+    <!-- ==== sponsor section start ==== -->
+    <section class="section team wow fadeInUp" data-wow-duration="0.4s">
+        <div class="container">
+            <div class="team__slider--secondary">
+                @foreach ($partners as $partner)
+                    <div class="">
+                        <div class="team__slider-card__thumb" style="text-align: center;">
+                            <img src="assetsFront/images/partners/{{$partner->image}}" alt="Team" style="height: 100px !important;">
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- ==== / sponsor section end ==== -->
+
     <!-- ==== team section start ==== -->
     <section class="section team wow fadeInUp" data-wow-duration="0.4s">
         <div class="container">

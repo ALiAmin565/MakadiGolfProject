@@ -84,13 +84,24 @@ class FacilitiesController extends Controller
         return to_route('facilities.index');
     }
 
-
     public function deleteMultiple(Request $request)
     {
         $selectedFacilities = $request->input('selectedFacilities', []);
 
         foreach ($selectedFacilities as $facilityId) {
             $facility = Facilities::find($facilityId);
+            $image = $facility->image;
+            $fullImagePath = public_path('assetsFront/images/facility/') . $image;
+            if (file_exists($fullImagePath)) {
+                unlink($fullImagePath);
+            }
+            $facilityImages = FacilityImages::where('facility_id', $facilityId)->get()->pluck('image')->toArray();
+            foreach ($facilityImages as $image) {
+                $fullExistingImagePath = public_path('assetsFront/images/facility/images/') . $image;
+                if (file_exists($fullExistingImagePath)) {
+                    unlink($fullExistingImagePath);
+                }
+            }
             if ($facility) {
                 $facility->delete();
             }
@@ -104,13 +115,10 @@ class FacilitiesController extends Controller
         if (file_exists($fullExistingImagePath)) {
             unlink($fullExistingImagePath);
         }
-        // also delete from database
         $facilityImage = FacilityImages::where('image', $imageName)->first();
         $facilityImage->delete();
         return back();
     }
-
-    // addImageFacility
 
     public function addImageFacility(Request $request , $facilityId)
     {

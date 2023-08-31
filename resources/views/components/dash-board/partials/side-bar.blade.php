@@ -43,7 +43,13 @@
 
         {{-- Gallery --}}
         <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="Gallery Page" link="gallery-dashboard.index" />
-
+        {{-- Partners dropDown     --}}
+        <x-dash-board.side-bar-item-array title="Bartners" numberDropdown="three"
+            icon="mdi mdi-information-variant menu-icon"
+            :values="[[
+                'name' => 'Edit Partners',
+                'action' => 'partners.index',
+            ]]" />
 
     </ul>
 </nav>
