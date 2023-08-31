@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
 use App\Models\gallery;
+use App\Models\Partners;
 use App\Models\ContactUs;
 use App\Models\Facilities;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class FrontEndController extends Controller
         $facilityPage = FacilityHomePage::first();
         $facilities = Facilities::select('id','icon', 'name', 'description')->get();
         $aboutUs = AboutUs::first();
+        $partners = Partners::get();    
         return view('FrontEnd.home', get_defined_vars());
     }
 

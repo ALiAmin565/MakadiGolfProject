@@ -9,6 +9,7 @@ use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\BannerHomePageController;
 use App\Http\Controllers\FacilityHomePageController;
+use App\Http\Controllers\PartnersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,5 +66,7 @@ Route::resource('contact-us-dashboard', ContactUsController::class);
 Route::get('/contact-us-users', [SubscriberController::class , 'getContactUsUsers'])->name('getContactUsUsers.index');
 // Gallery Section
 Route::resource('gallery-dashboard', GalleryController::class);
-
+// Partners Section
+Route::resource('partners', PartnersController::class);
+Route::delete('/partners-dash-board-delete-multiple', [PartnersController::class, 'deleteMultiple'])->name('partners-dash-board-delete-multiple');
 
