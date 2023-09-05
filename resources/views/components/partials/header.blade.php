@@ -142,20 +142,21 @@
                             </div>
                         </div>
                         {{-- Login System --}}
-                        {{-- <div class="nav__uncollapsed">
-                            <a href="cart.html" class="cart">
+                        <div class="nav__uncollapsed">
+                            {{-- <a href="cart.html" class="cart">
                                 <i class="golftio-cart"></i>
-                            </a>
+                            </a> --}}
                             <div class="nav__uncollapsed-item d-none d-md-flex">
-                                <a href="sign-in.html" class="cmn-button cmn-button--secondary">Sign In</a>
-                                <a href="sign-up.html" class="cmn-button">Sign Up</a>
+                                {{-- <a href="sign-in.html" class="cmn-button cmn-button--secondary">Sign In</a>
+                                <a href="sign-up.html" class="cmn-button">Sign Up</a> --}}
+                                <a href="{{ route('member-ship.index') }}" class="cmn-button"> Membership </a>
                             </div>
-                            <button class="nav__bar d-block d-xl-none">
+                            {{-- <button class="nav__bar d-block d-xl-none">
                                 <span class="icon-bar top-bar"></span>
                                 <span class="icon-bar middle-bar"></span>
                                 <span class="icon-bar bottom-bar"></span>
-                            </button>
-                        </div> --}}
+                            </button> --}}
+                        </div>
                     </div>
                 </nav>
             </div>

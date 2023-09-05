@@ -4,13 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\FrontEndController;
+use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FacilitiesController;
+use App\Http\Controllers\MemberShipController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\BannerHomePageController;
 use App\Http\Controllers\FacilityHomePageController;
-use App\Http\Controllers\PartnersController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,7 +36,9 @@ Route::get('/about-us', [FrontEndController::class, 'indexAboutUs'])->name('Fron
 Route::get('/contact-us', [FrontEndController::class, 'indexContactUs'])->name('FrontEnd.contactUs');
 // Gallery Section
 Route::get('/gallery', [FrontEndController::class, 'indexGallery'])->name('FrontEnd.gallery');
-
+// Membership Section
+Route::get('/membership', [FrontEndController::class, 'indexMembership'])->name('FrontEnd.membership');
+Route::resource('member-ship', MemberShipController::class);
 
 
 
