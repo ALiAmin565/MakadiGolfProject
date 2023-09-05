@@ -75,4 +75,11 @@ class FrontEndController extends Controller
 
         return view('FrontEnd.gallery', compact('groupedGallery'));
     }
+    // indexMembership
+    
+    public function indexMembership()
+    {
+        return view('FrontEnd.membership-form');
+    }
+
 }
