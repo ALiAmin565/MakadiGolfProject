@@ -18,9 +18,9 @@ class FrontEndController extends Controller
     {
         $banner = BannerHomePage::first();
         $facilityPage = FacilityHomePage::first();
-        $facilities = Facilities::select('id','icon', 'name', 'description')->get();
+        $facilities = Facilities::select('id', 'icon', 'name', 'description')->get();
         $aboutUs = AboutUs::first();
-        $partners = Partners::get();    
+        $partners = Partners::get();
         return view('FrontEnd.home', get_defined_vars());
     }
 
@@ -36,7 +36,7 @@ class FrontEndController extends Controller
         $facility = Facilities::get()->first();
         $facilities = Facilities::select('id', 'name')->get();
         // get all images for this facility just image column and push it to array
-        $facilityId=$facility->id;
+        $facilityId = $facility->id;
         $facilityImages = FacilityImages::where('facility_id', $facilityId)->get()->pluck('image')->toArray();
         return view('FrontEnd.facility-details', get_defined_vars());
     }
@@ -76,10 +76,16 @@ class FrontEndController extends Controller
         return view('FrontEnd.gallery', compact('groupedGallery'));
     }
     // indexMembership
-    
+
     public function indexMembership()
     {
         return view('FrontEnd.membership-form');
     }
 
+    // indexBooking
+    public function indexBooking()
+    {
+        $hotels=Partners::select('title')->get();
+        return view('FrontEnd.booking-form',get_defined_vars());
+    }
 }

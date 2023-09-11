@@ -76,6 +76,16 @@
                     </div>
                 </div>
             </div>
+            <div class="team__slider--secondary">
+                @foreach ($awards as $award)
+                    <div class="">
+                        <div class="team__slider-card__thumb" style="text-align: center;">
+                            <img src="assetsFront/images/awards/{{ $award }}" alt="Team"
+                                style="height: 15% !important;">
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
         <hr>
         <div class="row">

@@ -3,12 +3,14 @@
 namespace App\View\Components\partials;
 
 use Closure;
-use Illuminate\Contracts\View\View;
+use App\Models\Award;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class footer extends Component
 {
     public $contactUs;
+    public $awards;
     /**
      * Create a new component instance.
      */
@@ -22,6 +24,7 @@ class footer extends Component
      */
     public function render(): View|Closure|string
     {
+        $this->awards = Award::get()->pluck('image')->toArray();
         return view('components.partials.footer');
     }
 }

@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AwardController;
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PartnersController;
@@ -37,9 +39,13 @@ Route::get('/contact-us', [FrontEndController::class, 'indexContactUs'])->name('
 // Gallery Section
 Route::get('/gallery', [FrontEndController::class, 'indexGallery'])->name('FrontEnd.gallery');
 // Membership Section
-Route::get('/membership', [FrontEndController::class, 'indexMembership'])->name('FrontEnd.membership');
+// Route::get('/membership', [FrontEndController::class, 'indexMembership'])->name('FrontEnd.membership');
 Route::resource('member-ship', MemberShipController::class);
+// Booking Section
+Route::get('/booking', [FrontEndController::class, 'indexBooking'])->name('FrontEnd.booking');
+Route::resource('book', BookingController::class);
 
+// ================== End Front End Routes ==================
 
 
 
@@ -71,4 +77,7 @@ Route::resource('gallery-dashboard', GalleryController::class);
 // Partners Section
 Route::resource('partners', PartnersController::class);
 Route::delete('/partners-dash-board-delete-multiple', [PartnersController::class, 'deleteMultiple'])->name('partners-dash-board-delete-multiple');
+// Awards Section
+Route::resource('awards', AwardController::class);
+Route::delete('/awards-dash-board-delete-multiple', [AwardController::class, 'deleteMultiple'])->name('awards-dash-board-delete-multiple');
 

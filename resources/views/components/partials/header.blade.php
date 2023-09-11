@@ -40,11 +40,30 @@
                                     </a>
                                     <ul class="nav__dropdown">
                                         <li>
-                                            <a class="nav__dropdown-item hide-nav" href="{{ route('FrontEnd.facility') }}">Facility</a>
+                                            <a class="nav__dropdown-item hide-nav"
+                                                href="{{ route('FrontEnd.facility') }}">Facility</a>
                                         </li>
                                         <li>
-                                            <a class="nav__dropdown-item hide-nav" href="{{ route('FrontEnd.facilityDetailsHome') }}">Facility
+                                            <a class="nav__dropdown-item hide-nav"
+                                                href="{{ route('FrontEnd.facilityDetailsHome') }}">Facility
                                                 Details</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                {{-- Golf Course --}}
+                                <li class="nav__menu-item nav__menu-item--dropdown">
+                                    <a href="javascript:void(0)" class="nav__menu-link nav__menu-link--dropdown">
+                                        Golf Course
+                                    </a>
+                                    <ul class="nav__dropdown">
+                                        <li>
+                                            <a class="nav__dropdown-item hide-nav"
+                                                href="">John Sanford</a>
+                                        </li>
+                                        <li>
+                                            <a class="nav__dropdown-item hide-nav"
+                                                href="">Full Details
+                                            </a>
                                         </li>
                                     </ul>
                                 </li>
@@ -149,7 +168,10 @@
                             <div class="nav__uncollapsed-item d-none d-md-flex">
                                 {{-- <a href="sign-in.html" class="cmn-button cmn-button--secondary">Sign In</a>
                                 <a href="sign-up.html" class="cmn-button">Sign Up</a> --}}
-                                <a href="{{ route('member-ship.index') }}" class="cmn-button"> Membership </a>
+                                <a href="{{ route('member-ship.index') }}" class="cmn-button cmn-button--secondary">
+                                    Membership </a>
+                                <a href="{{ route('book.index') }}" class="cmn-button cmn-button--secondary">Book
+                                    Now</a>
                             </div>
                             {{-- <button class="nav__bar d-block d-xl-none">
                                 <span class="icon-bar top-bar"></span>

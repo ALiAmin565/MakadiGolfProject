@@ -7,6 +7,18 @@
     <title>  {{ $title == '' ? 'Madinat Makadi Golf' : $title . ' | Madinat Makadi Golf' }}</title>
     <x-partials.style />
     @stack('styleSheet')
+    <style>
+        .images-rewardes  {
+            display: flex; /* Display images in one line */
+        }
+        .images-rewardes img  {
+            width:17%;   
+        }
+        ul.nav__menu-items > li > a , .nav__uncollapsed-item > a 
+        {
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>

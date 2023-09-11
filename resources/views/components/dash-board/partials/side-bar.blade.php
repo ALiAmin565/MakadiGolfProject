@@ -50,6 +50,14 @@
                 'name' => 'Edit Partners',
                 'action' => 'partners.index',
             ]]" />
+        {{-- Awards --}}
+        <x-dash-board.side-bar-item-array title="Awards" numberDropdown="four"
+        icon="mdi mdi-information-variant menu-icon"
+        :values="[[
+            'name' => 'Edit Awards',
+            'action' => 'awards.index',
+        ]]" />
+        
 
     </ul>
 </nav>
