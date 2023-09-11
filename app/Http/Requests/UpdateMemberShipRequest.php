@@ -22,20 +22,20 @@ class UpdateMemberShipRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'familyName' => 'required|string',
-            'firstName' => 'required|string',
-            'presentHomeAddress' => 'required|string',
-            'passportNumber' => 'required|string',
-            'cellNumber' => 'required|numeric',
-            'homeNumber' => 'required|numeric',
-            'emailAddress' => 'required|string',
-            'membershipType' => 'required|in:Ordinary,Family,Corporate,Life,Individual',
-            'residentOrTourist' => [
-                'required',
-                'array', // Ensure it's an array
-                'in:Resident,Tourist', // Validate the array values
-            ],
-            'hotelName' => 'required|string',
+            // 'familyName' => 'required|string',
+            // 'firstName' => 'required|string',
+            // 'presentHomeAddress' => 'required|string',
+            // 'passportNumber' => 'required|string',
+            // 'cellNumber' => 'required|numeric',
+            // 'homeNumber' => 'required|numeric',
+            // 'emailAddress' => 'required|string',
+            // 'membershipType' => 'required|in:Ordinary,Family,Corporate,Life,Individual',
+            // 'residentOrTourist' => [
+            //     'required',
+            //     'array', // Ensure it's an array
+            //     'in:Resident,Tourist', // Validate the array values
+            // ],
+            // 'hotelName' => 'required|string',
         ];
     }
 }

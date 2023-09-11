@@ -10,6 +10,7 @@ use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\MemberShipController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\BannerHomePageController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FacilityHomePageController;
 /*
 |--------------------------------------------------------------------------
@@ -37,9 +38,13 @@ Route::get('/contact-us', [FrontEndController::class, 'indexContactUs'])->name('
 // Gallery Section
 Route::get('/gallery', [FrontEndController::class, 'indexGallery'])->name('FrontEnd.gallery');
 // Membership Section
-Route::get('/membership', [FrontEndController::class, 'indexMembership'])->name('FrontEnd.membership');
+// Route::get('/membership', [FrontEndController::class, 'indexMembership'])->name('FrontEnd.membership');
 Route::resource('member-ship', MemberShipController::class);
+// Booking Section
+Route::get('/booking', [FrontEndController::class, 'indexBooking'])->name('FrontEnd.booking');
+Route::resource('book', BookingController::class);
 
+// ================== End Front End Routes ==================
 
 
 
