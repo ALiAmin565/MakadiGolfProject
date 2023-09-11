@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AwardController;
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\PartnersController;
@@ -10,7 +12,6 @@ use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\MemberShipController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\BannerHomePageController;
-use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FacilityHomePageController;
 /*
 |--------------------------------------------------------------------------
@@ -76,4 +77,7 @@ Route::resource('gallery-dashboard', GalleryController::class);
 // Partners Section
 Route::resource('partners', PartnersController::class);
 Route::delete('/partners-dash-board-delete-multiple', [PartnersController::class, 'deleteMultiple'])->name('partners-dash-board-delete-multiple');
+// Awards Section
+Route::resource('awards', AwardController::class);
+Route::delete('/awards-dash-board-delete-multiple', [AwardController::class, 'deleteMultiple'])->name('awards-dash-board-delete-multiple');
 

@@ -76,13 +76,15 @@
                     </div>
                 </div>
             </div>
-            <div class="images-rewardes">
-                <img src="assetsFront/images/awards/egypts-best-golf-course-2014-winner-shield-gold-removebg-preview.png" alt="Rewardes">
-                <img src="assetsFront/images/awards/egypts-best-golf-course-2015-winner-shield-gold-removebg-preview.png" alt="Rewardes">
-                <img src="assetsFront/images/awards/egypts-best-golf-course-2016-winner-shield-gold-removebg-preview.png" alt="Rewardes">
-                <img src="assetsFront/images/awards/egypts-best-golf-course-2017-winner-shield-gold-removebg-preview.png" alt="Rewardes">
-                <img src="assetsFront/images/awards/egypts-best-golf-course-2018-winner-shield-gold-removebg-preview.png" alt="Rewardes">
-                <img src="assetsFront/images/awards/egypts-best-golf-course-2019-winner-shield-gold-removebg-preview.png" alt="Rewardes">
+            <div class="team__slider--secondary">
+                @foreach ($awards as $award)
+                    <div class="">
+                        <div class="team__slider-card__thumb" style="text-align: center;">
+                            <img src="assetsFront/images/awards/{{ $award }}" alt="Team"
+                                style="height: 15% !important;">
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
         <hr>

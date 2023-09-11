@@ -14,6 +14,10 @@
         .images-rewardes img  {
             width:17%;   
         }
+        ul.nav__menu-items > li > a , .nav__uncollapsed-item > a 
+        {
+            font-size: 14px;
+        }
     </style>
 </head>
 
