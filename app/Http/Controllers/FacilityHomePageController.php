@@ -13,8 +13,8 @@ class FacilityHomePageController extends Controller
      */
     public function index()
     {
-        $facilityPage= FacilityHomePage::first();
-        return view('DashBoard.Home.facility',get_defined_vars());
+        $facilityPage = FacilityHomePage::first();
+        return view('DashBoard.Home.facility', get_defined_vars());
     }
 
     /**
@@ -54,10 +54,11 @@ class FacilityHomePageController extends Controller
      */
     public function update(UpdateFacilityHomePageRequest $request, $id)
     {
-        $facilityHomePage= FacilityHomePage::find($id);
-        abort_if(!$facilityHomePage,'404');
-        FacilityHomePage::updateModel($request,$id);
-        return to_route('home-page-facility.index');
+        $facilityHomePage = FacilityHomePage::find($id);
+        if (!$facilityHomePage)
+        abort(404);
+        FacilityHomePage::updateModel($request, $id);
+        return redirect()->route('home-page-facility.index')->with('success', 'Facility Home Page Updated Successfully');
     }
 
     /**

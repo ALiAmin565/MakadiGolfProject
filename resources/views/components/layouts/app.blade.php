@@ -16,7 +16,7 @@
         }
         ul.nav__menu-items > li > a , .nav__uncollapsed-item > a 
         {
-            font-size: 14px;
+            font-size: 16px;
         }
     </style>
 </head>

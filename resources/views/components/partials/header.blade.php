@@ -5,21 +5,22 @@
             <div class="col-lg-12">
                 <nav class="nav">
                     <div class="nav__content">
-                        <div class="nav__logo">
+                        <div class="nav__logo" style="width: 10%;">
                             <a href="{{ route('FrontEnd.home') }}">
-                                <img src="{{ asset('assetsFront/images/logo-light.png') }}" alt="Logo">
+                                <img src="{{ asset('assetsFront/images/Madinat_makadi_Golf_logo.png') }}" alt="Logo"
+                                    style="width: 100%">
                             </a>
                         </div>
                         <div class="nav__menu">
                             <div class="nav__menu-logo d-flex d-xl-none">
                                 <a href="index.html" class="text-center hide-nav">
-                                    <img src="{{ asset('assetsFront/images/logo-light.png') }}" alt="Logo">
+                                    <img src="{{ asset('assetsFront/images/Madinat_makadi_Golf_logo.png') }}"
+                                        alt="Logo">
                                 </a>
                                 <a href="javascript:void(0)" class="nav__menu-close">
                                     <i class="fa-solid fa-xmark"></i>
                                 </a>
                             </div>
-
                             <ul class="nav__menu-items">
                                 {{-- Home --}}
                                 <li>
@@ -57,12 +58,10 @@
                                     </a>
                                     <ul class="nav__dropdown">
                                         <li>
-                                            <a class="nav__dropdown-item hide-nav"
-                                                href="">John Sanford</a>
+                                            <a class="nav__dropdown-item hide-nav" href="">John Sanford</a>
                                         </li>
                                         <li>
-                                            <a class="nav__dropdown-item hide-nav"
-                                                href="">Full Details
+                                            <a class="nav__dropdown-item hide-nav" href="">Full Details
                                             </a>
                                         </li>
                                     </ul>
@@ -140,10 +139,11 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="nav__menu-item d-block d-md-none">
+                                {{-- <li class="nav__menu-item d-block d-md-none">
                                     <a href="sign-in.html" class="cmn-button cmn-button--secondary">Sign In</a>
                                     <a href="sign-up.html" class="cmn-button">Sign Up</a>
-                                </li>
+                                </li> --}}
+                                {{-- Nav in Mobile --}}
                             </ul>
                             <div class="social">
                                 <a href="#">
@@ -173,11 +173,11 @@
                                 <a href="{{ route('book.index') }}" class="cmn-button cmn-button--secondary">Book
                                     Now</a>
                             </div>
-                            {{-- <button class="nav__bar d-block d-xl-none">
+                            <button class="nav__bar d-block d-xl-none">
                                 <span class="icon-bar top-bar"></span>
                                 <span class="icon-bar middle-bar"></span>
                                 <span class="icon-bar bottom-bar"></span>
-                            </button> --}}
+                            </button>
                         </div>
                     </div>
                 </nav>

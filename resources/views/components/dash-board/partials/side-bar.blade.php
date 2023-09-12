@@ -15,24 +15,24 @@
             </a>
         </li>
         {{-- DashBoard  --}}
-        <x-dash-board.side-bar-item icon="menu-icon mdi mdi-adjust" title="DashBoard" link="dashboard" />
+        <x-dash-board.side-bar-item icon="fa-solid fa-gauge" title="DashBoard" link="dashboard" />
         {{-- Home Page  --}}
-        <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="Home Page" link="home-page.index" />
+        <x-dash-board.side-bar-item icon="fa-solid fa-house" title="Home Page" link="home-page.index" />
 
         {{-- Facilities --}}
         {{-- <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="Facilities" link="facilities.index" /> --}}
         {{-- Replace facilities inside dropDown --}}    
         <x-dash-board.side-bar-item-array title="Facility Page" numberDropdown="one"
-            icon="mdi mdi-information-variant menu-icon"
+            icon="fa-solid fa-filter"
            :values="[[
                 'name' => 'Edit Facilities',
                 'action' => 'facilities.index',
             ]]" />
         {{-- About --}}
-        <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon"  title="About Us Page" link="about-us-dashboard.index" />
+        <x-dash-board.side-bar-item  icon="fa-solid fa-circle-info"  title="About Us Page" link="about-us-dashboard.index" />
         {{-- Contact Us --}}
         <x-dash-board.side-bar-item-array title="Contact Us Page" numberDropdown="two"
-            icon="mdi mdi-information-variant menu-icon"
+            icon="fa-solid fa-address-book"
             :values="[[
                 'name' => 'Edit Page',
                 'action' => 'contact-us-dashboard.index',
@@ -42,17 +42,18 @@
             ],]" />
 
         {{-- Gallery --}}
-        <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="Gallery Page" link="gallery-dashboard.index" />
+        {{-- <i class="fa-regular fa-images"></i> --}}
+        <x-dash-board.side-bar-item icon="fa-regular fa-images" title="Gallery Page" link="gallery-dashboard.index" />
         {{-- Partners dropDown     --}}
         <x-dash-board.side-bar-item-array title="Bartners" numberDropdown="three"
-            icon="mdi mdi-information-variant menu-icon"
+            icon="fa-solid fa-handshake"
             :values="[[
                 'name' => 'Edit Partners',
                 'action' => 'partners.index',
             ]]" />
         {{-- Awards --}}
         <x-dash-board.side-bar-item-array title="Awards" numberDropdown="four"
-        icon="mdi mdi-information-variant menu-icon"
+        icon="fa-solid fa-award "
         :values="[[
             'name' => 'Edit Awards',
             'action' => 'awards.index',

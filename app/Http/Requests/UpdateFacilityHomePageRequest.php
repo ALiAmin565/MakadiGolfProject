@@ -27,4 +27,16 @@ class UpdateFacilityHomePageRequest extends FormRequest
             'description' => 'string',
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     */
+    public function messages(): array
+    {
+        return [
+            'title.string' => 'Title must be string',
+            'sub_title.string' => 'Sub Title must be string',
+            'description.string' => 'Description must be string',
+        ];
+    }
 }

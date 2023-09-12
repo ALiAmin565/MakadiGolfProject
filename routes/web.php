@@ -50,34 +50,39 @@ Route::resource('book', BookingController::class);
 
 
 // ================== Back End Routes ==================
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-// Home Page Section
-Route::get('home-page', function () {
-    return view('Dashboard.HomePageEdit');
-})->name('home-page.index');
-// Banner Home Page Section
-Route::resource('home-page-banner', BannerHomePageController::class);
-// Facility Home Page Section
-Route::resource('home-page-facility', FacilityHomePageController::class);
-// Facilities Section
-Route::resource('facilities', FacilitiesController::class);
-Route::delete('/facilities-delete-multiple', [FacilitiesController::class, 'deleteMultiple'])->name('facilities-dash-board-delete-multiple');
-Route::get('/delete-facility-image/{imageName}', [FacilitiesController::class, 'deleteSelectedImage'])->name('deleteSelectedImage');
-Route::post('/add-facility-image/{id}',[FacilitiesController::class, 'addImageFacility'] )->name('addImageFacility');
-// About us Section
-Route::resource('about-us-dashboard', AboutUsController::class);
-// Contact us Section
-Route::resource('contact-us-dashboard', ContactUsController::class);
-// Subscriber Section
-Route::get('/contact-us-users', [SubscriberController::class , 'getContactUsUsers'])->name('getContactUsUsers.index');
-// Gallery Section
-Route::resource('gallery-dashboard', GalleryController::class);
-// Partners Section
-Route::resource('partners', PartnersController::class);
-Route::delete('/partners-dash-board-delete-multiple', [PartnersController::class, 'deleteMultiple'])->name('partners-dash-board-delete-multiple');
-// Awards Section
-Route::resource('awards', AwardController::class);
-Route::delete('/awards-dash-board-delete-multiple', [AwardController::class, 'deleteMultiple'])->name('awards-dash-board-delete-multiple');
+// Add Group route with middleware auth
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/admin-dash-board', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    // Home Page Section
+    Route::get('home-page', function () {
+        return view('Dashboard.HomePageEdit');
+    })->name('home-page.index');
+    // Banner Home Page Section
+    Route::resource('home-page-banner', BannerHomePageController::class);
+    // Facility Home Page Section
+    Route::resource('home-page-facility', FacilityHomePageController::class);
+    // Facilities Section
+    Route::resource('facilities', FacilitiesController::class);
+    Route::delete('/facilities-delete-multiple', [FacilitiesController::class, 'deleteMultiple'])->name('facilities-dash-board-delete-multiple');
+    Route::get('/delete-facility-image/{imageName}', [FacilitiesController::class, 'deleteSelectedImage'])->name('deleteSelectedImage');
+    Route::post('/add-facility-image/{id}', [FacilitiesController::class, 'addImageFacility'])->name('addImageFacility');
+    // About us Section
+    Route::resource('about-us-dashboard', AboutUsController::class);
+    // Contact us Section
+    Route::resource('contact-us-dashboard', ContactUsController::class);
+    // Subscriber Section
+    Route::get('/contact-us-users', [SubscriberController::class, 'getContactUsUsers'])->name('getContactUsUsers.index');
+    // Gallery Section
+    Route::resource('gallery-dashboard', GalleryController::class);
+    // Partners Section
+    Route::resource('partners', PartnersController::class);
+    Route::delete('/partners-dash-board-delete-multiple', [PartnersController::class, 'deleteMultiple'])->name('partners-dash-board-delete-multiple');
+    // Awards Section
+    Route::resource('awards', AwardController::class);
+    Route::delete('/awards-dash-board-delete-multiple', [AwardController::class, 'deleteMultiple'])->name('awards-dash-board-delete-multiple');
+});
 
+Auth::routes();
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
