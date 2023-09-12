@@ -53,12 +53,10 @@ class BannerHomePageController extends Controller
      */
     public function update(UpdateBannerHomePageRequest $request, $id)
     {
-
         $bannerHomePage= BannerHomePage::find($id);
         abort_if(!$bannerHomePage,'404');
         BannerHomePage::updateModel($request,$id);
-        return to_route('home-page-banner.index');
-
+        return redirect()->route('home-page-banner.index')->with('success', 'Facility Home Page Updated Successfully');
     }
 
     /**

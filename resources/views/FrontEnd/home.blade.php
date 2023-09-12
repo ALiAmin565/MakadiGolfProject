@@ -2,14 +2,12 @@
     @push('styleSheet')
         <style>
             .banner--secondary {
-                background-image: -webkit-gradient(linear, left top, right top, from(#fdfffa), to(rgba(255, 255, 255, 0))), url("{{ asset('assetsFront/images/banner/' . $banner->image) }}");
-                ;
-                background-image: linear-gradient(90deg, #fdfffa 0%, rgba(255, 255, 255, 0) 100%), url({{ asset('assetsFront/images/banner/' . $banner->image) }})
+                background-image: linear-gradient(90deg, #a7a7a7 0%, rgba(255, 255, 255, 0) 100%), url({{ asset('assetsFront/images/banner/' . $banner->image) }});
             }
         </style>
     @endpush
     <!-- ==== banner section start ==== -->
-    <section class="banner--secondary" style="background-image:">
+    <section class="banner--secondary">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-6 col-xl-7">
@@ -48,7 +46,9 @@
                                     <i class="{{ $facility->icon }}"></i>
                                 </div>
                                 <div class="facility__card-content">
-                                    <h5><a href="{{ route('FrontEnd.facilityDetails',$facility->id) }}">{{ $facility->name }}</a></h5>
+                                    <h5><a
+                                            href="{{ route('FrontEnd.facilityDetails', $facility->id) }}">{{ $facility->name }}</a>
+                                    </h5>
                                     @php
                                         $desc = strip_tags($facility->description); // Strip HTML tags.
                                         $facilityDesc = strlen($desc) > 15 ? substr($desc, 0, 15) . '...' : $desc;
@@ -82,7 +82,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-5 col-xxl-5 d-none d-lg-block">
                     <div class="about--secondary__thumb dir-rtl">
-                        <img src="assetsFront/images/{{ $aboutUs->image }}" alt="{{ $aboutUs->sub_title }}" class="unset">
+                        <img src="assetsFront/images/{{ $aboutUs->image }}" alt="{{ $aboutUs->sub_title }}"
+                            class="unset">
                         <div class="about--secondary__thumb-experience">
                             <h3><span class="odometer" data-odometer-final="30"></span> <span>+</span></h3>
                             <p>Years <br> of experience</p>
@@ -90,8 +91,8 @@
                         <div class="about--secondary__modal">
                             <img src="assetsFront/images/{{ $aboutUs->image }}" alt="img">
                             <div class="play-wrapper">
-                                <a href="{{ $aboutUs->youtube_link }}" target="_blank"
-                                    title="Youtube Video Player" class="play-btn">
+                                <a href="{{ $aboutUs->youtube_link }}" target="_blank" title="Youtube Video Player"
+                                    class="play-btn">
                                     <i class="fa-solid fa-play"></i>
                                 </a>
                             </div>
@@ -214,7 +215,8 @@
                 @foreach ($partners as $partner)
                     <div class="">
                         <div class="team__slider-card__thumb" style="text-align: center;">
-                            <img src="assetsFront/images/partners/{{$partner->image}}" alt="Team" style="height: 100px !important;">
+                            <img src="assetsFront/images/partners/{{ $partner->image }}" alt="Team"
+                                style="height: 100px !important;">
                         </div>
                     </div>
                 @endforeach

@@ -28,4 +28,19 @@ class UpdateBannerHomePageRequest extends FormRequest
             'description' => 'string',
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     */
+    public function messages(): array
+    {
+        return [
+            'title.string' => 'Title must be string',
+            'sub_title.string' => 'Sub Title must be string',
+            'image.image' => 'Image must be image',
+            'image.mimes' => 'Image must be jpg,jpeg,png,bmp,gif,svg,webp',
+            'image.max' => 'Image must be less than 5MB',
+            'description.string' => 'Description must be string',
+        ];
+    }
 }
