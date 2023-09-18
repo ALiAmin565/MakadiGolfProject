@@ -2,7 +2,10 @@
     @push('styleSheet')
         <style>
             .banner--secondary {
-                background-image: linear-gradient(90deg, #a7a7a7 0%, rgba(255, 255, 255, 0) 100%), url({{ asset('assetsFront/images/banner/' . $banner->image) }});
+                /* background-image: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%), url({{ asset('assetsFront/images/banner/' . $banner->image) }}); */
+
+                background-image: -webkit-gradient(linear, left top, right top, from(#fdfffa), to(rgba(255, 255, 255, 0))),url("{{ asset('assetsFront/images/banner/' . $banner->image) }}");
+                background-image: linear-gradient(90deg, #fdfffa 0%, rgba(255, 255, 255, 0) 100%), url("{{ asset('assetsFront/images/banner/' . $banner->image) }}");
             }
         </style>
     @endpush

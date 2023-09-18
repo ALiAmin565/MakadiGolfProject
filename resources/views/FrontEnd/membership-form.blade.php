@@ -2,6 +2,10 @@
 
     @push('styleSheet')
         <style>
+            .banner--inner {
+                background-image: url('assetsFront/images/banner/her.png');
+            }
+
             .select-dropdown {
                 display: -webkit-box;
                 display: -ms-flexbox;
@@ -44,13 +48,35 @@
                 padding: 0 0.75rem;
             }
 
-            .setPos{
+            .setPos {
                 margin-top: 5% !important;
             }
-
-
         </style>
     @endpush
+    <!-- ==== banner start ==== -->
+    <section class="banner--inner">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="banner--inner__content">
+                        <h2></h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="banner--inner__breadcrumb d-flex justify-content-start justify-content-md-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item">Membership  </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==== / banner end ==== -->
     <!-- ==== contact form start ==== -->
     <section class="section contact-form wow fadeInUp setPos" data-wow-duration="0.4s">
         <div class="container">
@@ -143,13 +169,15 @@
                             </div>
 
                             <div class="input-group" style="    justify-content: space-around;">
-                                <div  style="display: flex;">
+                                <div style="display: flex;">
                                     <label for="checkbox1" style="margin: 15px;">Resident</label>
-                                    <input type="checkbox" id="checkbox1" name="residentOrTourist[]" value="Resident" class="checkbox-design">
+                                    <input type="checkbox" id="checkbox1" name="residentOrTourist[]" value="Resident"
+                                        class="checkbox-design">
                                 </div>
-                                <div  style="display: flex;">
+                                <div style="display: flex;">
                                     <label for="checkbox2" style="margin: 15px;">Tourist</label>
-                                    <input type="checkbox" id="checkbox2" name="residentOrTourist[]" value="Tourist" class="checkbox-design">
+                                    <input type="checkbox" id="checkbox2" name="residentOrTourist[]" value="Tourist"
+                                        class="checkbox-design">
                                 </div>
                             </div>
 
@@ -172,17 +200,17 @@
     <!-- ==== / contact form end ==== -->
 
     @push('scripts')
-    <script>
-        const checkbox1 = document.getElementById("checkbox1");
-        const checkbox2 = document.getElementById("checkbox2");
+        <script>
+            const checkbox1 = document.getElementById("checkbox1");
+            const checkbox2 = document.getElementById("checkbox2");
 
-        checkbox1.addEventListener("click", function() {
-            checkbox2.checked = !checkbox1.checked;
-        });
+            checkbox1.addEventListener("click", function() {
+                checkbox2.checked = !checkbox1.checked;
+            });
 
-        checkbox2.addEventListener("click", function() {
-            checkbox1.checked = !checkbox2.checked;
-        });
-    </script>
+            checkbox2.addEventListener("click", function() {
+                checkbox1.checked = !checkbox2.checked;
+            });
+        </script>
     @endpush
 </x-layouts.app>

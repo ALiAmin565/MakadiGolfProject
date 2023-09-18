@@ -1,7 +1,11 @@
-<x-layouts.app title="Membership">
+<x-layouts.app title="Booking">
 
     @push('styleSheet')
         <style>
+            .banner--inner {
+                background-image: url('assetsFront/images/banner/her.png');
+            }
+
             .select-dropdown {
                 display: -webkit-box;
                 display: -ms-flexbox;
@@ -83,7 +87,7 @@
             }
 
             input[type="number"].enter-number {
-                width: 5% !important;
+                width: 8% !important;
                 color: white;
                 text-align: center;
                 background: #9fddb3;
@@ -110,8 +114,42 @@
                 color: white;
                 border-radius: 10px;
             }
+
+            @media (max-width: 1024px),
+            (max-width: 1280px),
+            (max-width: 991px) {
+                .totalPriceCheckBox {
+                    position: relative;
+                    top: 0%;
+                    left: 0%;
+                }
+            }
         </style>
     @endpush
+    <!-- ==== banner start ==== -->
+    <section class="banner--inner">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="banner--inner__content">
+                        <h2></h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="banner--inner__breadcrumb d-flex justify-content-start justify-content-md-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item">Booking</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==== / banner end ==== -->
     <!-- ==== contact form start ==== -->
     <section class="section contact-form wow fadeInUp setPos" data-wow-duration="0.4s">
         <div class="container">
@@ -219,8 +257,8 @@
                                         title="Golf car 18 holes <small>(championship course)</small>
                                         per round"
                                         priceId="price6" />
-                                    <x-check-box-equipment id="golfCar3x18" value="15" title="Golf Car 3 x 18 Holes"
-                                        priceId="price7" />
+                                    <x-check-box-equipment id="golfCar3x18" value="15"
+                                        title="Golf Car 3 x 18 Holes" priceId="price7" />
                                     <x-check-box-equipment id="golfCar5x18" value="15"
                                         title="Golf Car 5 x 18 Holes" priceId="price8" />
                                     <x-check-box-equipment id="golfCar3x9" value="15"
@@ -288,7 +326,7 @@
                             <label for="contactPhone" class="titleCheckBox">Wished playing days and times</label>
                             <div class="input-group" id="dateTimeList">
                                 <div class="input-single" style="width: 100% !important;">
-                                    <label for="date0">Date & Time  1</label>
+                                    <label for="date0">Date & Time 1</label>
                                     <input type="datetime-local" id="date0" name="date[0]"
                                         class="form-control text-center" required>
 

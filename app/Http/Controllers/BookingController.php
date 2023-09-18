@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Partners;
 use App\Mail\Booking as MailBooking;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Booking as ModelsBooking;
@@ -15,7 +16,8 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        $hotels=Partners::select('title')->get();
+        return view('FrontEnd.booking-form',get_defined_vars());
     }
 
     /**

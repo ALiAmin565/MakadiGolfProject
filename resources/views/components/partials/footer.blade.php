@@ -4,8 +4,8 @@
         <div class="row section__row">
             <div class="col-md-6 col-lg-4 col-xl-3 section__col">
                 <div class="footer__single">
-                    <a href="index.html">
-                        <img src="assetsFront/images/logo-light.png" alt="Logo">
+                    <a href="{{ route('FrontEnd.home') }}">
+                        <img src="{{ asset('assetsFront/images/Madinat_makadi_Golf_logo.png') }}" alt="Logo" style="width:60% !important">
                     </a>
                     <div class="footer__single-content">
                         <p>
@@ -80,8 +80,8 @@
                 @foreach ($awards as $award)
                     <div class="">
                         <div class="team__slider-card__thumb" style="text-align: center;">
-                            <img src="assetsFront/images/awards/{{ $award }}" alt="Team"
-                                style="height: 15% !important;">
+                            <img src="{{ asset('assetsFront/images/awards/'.$award) }}" alt="Team"
+                                style="height: 15% !important;max-width: 60% !important;">
                         </div>
                     </div>
                 @endforeach

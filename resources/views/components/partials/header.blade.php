@@ -1,5 +1,5 @@
 <!-- ==== header start ==== -->
-<header class="header header--secondary">
+<header class="header">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -58,10 +58,10 @@
                                     </a>
                                     <ul class="nav__dropdown">
                                         <li>
-                                            <a class="nav__dropdown-item hide-nav" href="">John Sanford</a>
+                                            <a class="nav__dropdown-item hide-nav" href="{{ route('FrontEnd.johnSanford') }}">John Sanford</a>
                                         </li>
                                         <li>
-                                            <a class="nav__dropdown-item hide-nav" href="">Full Details
+                                            <a class="nav__dropdown-item hide-nav" href="{{ route('FrontEnd.johnSanfordDetails') }}">Full Details
                                             </a>
                                         </li>
                                     </ul>
@@ -139,11 +139,14 @@
                                         </li>
                                     </ul>
                                 </li>
-                                {{-- <li class="nav__menu-item d-block d-md-none">
-                                    <a href="sign-in.html" class="cmn-button cmn-button--secondary">Sign In</a>
-                                    <a href="sign-up.html" class="cmn-button">Sign Up</a>
-                                </li> --}}
-                                {{-- Nav in Mobile --}}
+                                <li class="nav__menu-item d-block d-md-none">
+                                    {{-- <a href="sign-in.html" class="cmn-button cmn-button--secondary">Sign In</a>
+                                    <a href="sign-up.html" class="cmn-button">Sign Up</a> --}}
+                                    <a href="{{ route('member-ship.index') }}" class="cmn-button cmn-button--secondary">
+                                        Membership </a>
+                                    <a href="{{ route('book.index') }}" class="cmn-button cmn-button--secondary">Book
+                                        Now</a>
+                                </li>
                             </ul>
                             <div class="social">
                                 <a href="#">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Holes;
 use App\Models\AboutUs;
 use App\Models\gallery;
 use App\Models\Partners;
@@ -73,7 +74,7 @@ class FrontEndController extends Controller
         // Group the gallery data into arrays containing 2 records each
         $groupedGallery = collect($gallery)->chunk(1);
 
-        return view('FrontEnd.gallery', compact('groupedGallery'));
+        return view('FrontEnd.gallery', get_defined_vars());
     }
     // indexMembership
 
@@ -82,10 +83,28 @@ class FrontEndController extends Controller
         return view('FrontEnd.membership-form');
     }
 
-    // indexBooking
-    public function indexBooking()
+    // indexJohnSanford
+    public function indexJohnSanford()
     {
-        $hotels=Partners::select('title')->get();
-        return view('FrontEnd.booking-form',get_defined_vars());
+        return view('FrontEnd.johnSanford');
+    }
+
+    // indexJohnSanfordDetails
+    public function indexJohnSanfordDetails()
+    {
+        $holes=Holes::all();
+        $holeSingle=Holes::find($holes[0]->id);
+        return view('FrontEnd.johnSanfordDetails',get_defined_vars());
+    }
+    // singleDetailsJhonSanford
+    public function singleDetailsJhonSanford($id)
+    {
+        $holes=Holes::all();
+        // Check if the id is valid
+        if(!Holes::find($id)){
+            return $this->indexJohnSanfordDetails();
+        }
+        $holeSingle=Holes::find($id);
+        return view('FrontEnd.johnSanfordDetails',get_defined_vars());
     }
 }
