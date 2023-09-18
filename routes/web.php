@@ -13,6 +13,8 @@ use App\Http\Controllers\MemberShipController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\BannerHomePageController;
 use App\Http\Controllers\FacilityHomePageController;
+use App\Http\Controllers\HolesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,8 +44,13 @@ Route::get('/gallery', [FrontEndController::class, 'indexGallery'])->name('Front
 // Route::get('/membership', [FrontEndController::class, 'indexMembership'])->name('FrontEnd.membership');
 Route::resource('member-ship', MemberShipController::class);
 // Booking Section
-Route::get('/booking', [FrontEndController::class, 'indexBooking'])->name('FrontEnd.booking');
 Route::resource('book', BookingController::class);
+// John Sanford
+Route::get('/john-sanford', [FrontEndController::class, 'indexJohnSanford'])->name('FrontEnd.johnSanford');
+// Full Details John Sanford
+Route::get('/john-sanford-details', [FrontEndController::class, 'indexJohnSanfordDetails'])->name('FrontEnd.johnSanfordDetails');
+// frontEnd.singleDetailsJhonSanford
+Route::get('/john-sanford-details/{id}', [FrontEndController::class, 'singleDetailsJhonSanford'])->name('frontEnd.singleDetailsJhonSanford');
 
 // ================== End Front End Routes ==================
 
@@ -82,6 +89,9 @@ Route::group(['middleware' => ['auth']], function () {
     // Awards Section
     Route::resource('awards', AwardController::class);
     Route::delete('/awards-dash-board-delete-multiple', [AwardController::class, 'deleteMultiple'])->name('awards-dash-board-delete-multiple');
+    // john-sanford Holes Section
+    Route::resource('john-sanford-holes', HolesController::class);
+    Route::delete('/holes-dash-board-delete-multiple', [HolesController::class, 'deleteMultiple'])->name('holes-dash-board-delete-multiple');
 });
 
 Auth::routes();

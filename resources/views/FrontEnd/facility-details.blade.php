@@ -3,6 +3,8 @@
         <style>
             .banner--inner {
                 position: relative;
+                background-size: cover !important;
+                background-position: center !important;
             }
 
             .overlay {
