@@ -19,7 +19,7 @@
                     <div class="banner--inner__breadcrumb d-flex justify-content-start justify-content-md-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('FrontEnd.home') }}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Facility
                                 </li>
@@ -36,7 +36,7 @@
         <div class="container">
             <div class="row section__row justify-content-center">
                 @foreach ($facilities as $facility)
-                    <div class="col-sm-10 col-md-6 col-lg-4 col-xxl-3 section__col">
+                    <div class="col-sm-10 col-md-6 col-lg-4 col-xxl-4 section__col">
                         <div class="facility--main__card">
                             <div class="facility--main__card-thumb">
                                 <a href="facility-details.html">
@@ -47,11 +47,15 @@
                                 </a>
                             </div>
                             <div class="facility--main__card-content">
-                                <h5><a href="facility-details.html">{{ $facility->name }}</a></h5>
+                                @php
+                                    $name = strip_tags($facility->name); // Strip HTML tags.
+                                    $facilityName = strlen($name) > 15 ? substr($name, 0, 15) . '...' : $name;
+                                @endphp
+                                <h5><a href="facility-details.html">{{ $facilityName }}</a></h5>
                                 @php
                                     $desc = strip_tags($facility->description); // Strip HTML tags.
                                     $facilityDesc = strlen($desc) > 15 ? substr($desc, 0, 15) . '...' : $desc;
-                                 @endphp
+                                @endphp
                                 <p class="secondary-text">
                                     {{ $facilityDesc }}
                                 </p>
@@ -111,7 +115,7 @@
     <!-- ==== / facility section end ==== -->
 
     <!-- ==== join club section start ==== -->
-    <section class="join--tertiary bg-img" data-background="assetsFront/images/join-bg-three.png">
+    {{-- <section class="join--tertiary bg-img" data-background="assetsFront/images/join-bg-three.png">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-2 col-xl-6 offset-xl-6">
@@ -149,58 +153,26 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ==== / join club section end ==== -->
 
     <!-- ==== sponsor section start ==== -->
-    <div class="sponsor wow fadeInUp" data-wow-duration="0.4s">
+    {{-- <div class="sponsor wow fadeInUp" data-wow-duration="0.4s">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="sponsor__inner">
+                        @foreach ($partners as $image)
                         <div class="sponsor__inner-card">
-                            <img src="assetsFront/images/sponsor/two.png" alt="Sponsor">
+                            <img src="{{ asset('assetsFront/images/partners/'.$image ) }}" alt="Sponsor" style="width: 100%;
+                            height: 50px;
+                            object-fit: contain;">
                         </div>
-                        <div class="sponsor__inner-card">
-                            <img src="assetsFront/images/sponsor/three.png" alt="Sponsor">
-                        </div>
-                        <div class="sponsor__inner-card">
-                            <img src="assetsFront/images/sponsor/four.png" alt="Sponsor">
-                        </div>
-                        <div class="sponsor__inner-card">
-                            <img src="assetsFront/images/sponsor/five.png" alt="Sponsor">
-                        </div>
-                        <div class="sponsor__inner-card">
-                            <img src="assetsFront/images/sponsor/six.png" alt="Sponsor">
-                        </div>
-                        <div class="sponsor__inner-card">
-                            <img src="assetsFront/images/sponsor/one.png" alt="Sponsor">
-                        </div>
-                        <div class="sponsor__inner-card">
-                            <img src="assetsFront/images/sponsor/one.png" alt="Sponsor">
-                        </div>
-                        <div class="sponsor__inner-card">
-                            <img src="assetsFront/images/sponsor/two.png" alt="Sponsor">
-                        </div>
-                        <div class="sponsor__inner-card">
-                            <img src="assetsFront/images/sponsor/three.png" alt="Sponsor">
-                        </div>
-                        <div class="sponsor__inner-card">
-                            <img src="assetsFront/images/sponsor/four.png" alt="Sponsor">
-                        </div>
-                        <div class="sponsor__inner-card">
-                            <img src="assetsFront/images/sponsor/five.png" alt="Sponsor">
-                        </div>
-                        <div class="sponsor__inner-card">
-                            <img src="assetsFront/images/sponsor/six.png" alt="Sponsor">
-                        </div>
-                        <div class="sponsor__inner-card">
-                            <img src="assetsFront/images/sponsor/one.png" alt="Sponsor">
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- ==== / sponsor section end ==== -->
 </x-layouts.app>

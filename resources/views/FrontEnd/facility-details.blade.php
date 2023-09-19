@@ -3,8 +3,6 @@
         <style>
             .banner--inner {
                 position: relative;
-                background-size: cover !important;
-                background-position: center !important;
             }
 
             .overlay {
@@ -47,8 +45,8 @@
                     <div class="banner--inner__breadcrumb d-flex justify-content-start justify-content-md-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item">Facility</li>
+                                <li class="breadcrumb-item"><a href="{{ route('FrontEnd.home') }}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('FrontEnd.facility') }}">Facility</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     {{ $facility->name }}
                                 </li>
@@ -74,30 +72,19 @@
                         <div class="facility__popup">
                             <img src="{{ asset('assetsFront/images/facility/' . $facility->image) }}"
                                 alt="Facility Details">
-                            <div class="play-wrapper">
-                                <a href="{{ $facility->youtube_link }}" target="_blank" title="Youtube Video Player"
-                                    class="play-btn">
-                                    <i class="fa-solid fa-play"></i>
-                                </a>
-                            </div>
+                            @if ($facility->youtube_link != null)
+                                <div class="play-wrapper">
+                                    <a href="{{ $facility->youtube_link }}" target="_blank" title="Youtube Video Player"
+                                        class="play-btn">
+                                        <i class="fa-solid fa-play"></i>
+                                    </a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-xl-4 section__col">
                     <div class="sidebar wow fadeInUp" data-wow-duration="0.4s">
-                        <div class="sidebar__single">
-                            <h5>Search</h5>
-                            <hr>
-                            <form action="#" method="post">
-                                <div class="search_form">
-                                    <input type="text" name="post-search" id="postSearch" placeholder="Search">
-                                    <button type="submit">
-                                        <i class="fa-solid fa-magnifying-glass"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-
                         <div class="sidebar__single">
                             <h5>All Facility</h5>
                             <div class="sidebar__tab">
@@ -135,26 +122,28 @@
     </section>
     <!-- ==== / details end ==== -->
     <!-- ==== gallery slider section start ==== -->
-    <section class="gallery-slider section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section__header--secondary">
-                        <div class="row align-items-center">
-                            <div class="col-lg-8">
-                                <div class="section__header--secondary__content">
-                                    <h2>{{ $facility->name }} Gallery</h2>
+    @if (count($facilityImages) > 0)
+        <section class="gallery-slider section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section__header--secondary">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <div class="section__header--secondary__content">
+                                        <h2>{{ $facility->name }} Gallery</h2>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="section__header--secondary__cta">
-                                    <div class="slider-navigation justify-content-lg-end">
-                                        <button class="next-gallery cmn-button cmn-button--secondary">
-                                            <i class="fa-solid fa-angle-left"></i>
-                                        </button>
-                                        <button class="prev-gallery cmn-button cmn-button--secondary">
-                                            <i class="fa-solid fa-angle-right"></i>
-                                        </button>
+                                <div class="col-lg-4">
+                                    <div class="section__header--secondary__cta">
+                                        <div class="slider-navigation justify-content-lg-end">
+                                            <button class="next-gallery cmn-button cmn-button--secondary">
+                                                <i class="fa-solid fa-angle-left"></i>
+                                            </button>
+                                            <button class="prev-gallery cmn-button cmn-button--secondary">
+                                                <i class="fa-solid fa-angle-right"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -162,15 +151,15 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="gallery-slider__wrapper">
-            @foreach ($facilityImages as $facilityImage)
-                <div class="gallery-slider__single">
-                    <img src="{{ asset('assetsFront/images/facility/images/' . $facilityImage) }}" alt="Gallery">
-                </div>
-            @endforeach
-        </div>
-    </section>
+            <div class="gallery-slider__wrapper">
+                @foreach ($facilityImages as $facilityImage)
+                    <div class="gallery-slider__single">
+                        <img src="{{ asset('assetsFront/images/facility/images/' . $facilityImage) }}" alt="Gallery">
+                    </div>
+                @endforeach
+            </div>
+        </section>
+    @endif
     <!-- ==== / gallery slider section end ==== -->
 
     {{-- Related Facility --}}
@@ -331,6 +320,49 @@
         </div>
     </section>
     <!-- ==== / facility section end ==== --> --}}
+    @if (isset($partners))
+        <section class="section testimonial testimonial--secondary wow fadeInUp" data-wow-duration="0.4s"
+            style="background:white;">
+            <div class="container">
+                <div class="row align-items-center section__row">
+                    <div class="col-lg-12 col-xxl-10 offset-xxl-1 section__col">
+                        @foreach ($partners as $partner)
+                            <div class="testimonial__slider-card">
+                                <div class="d-flex" style="flex-direction: column;    align-items: baseline;">
+                                    <div class="d-flex" style="align-items: center;width: 100%;">
+
+                                        <div class="testimonial__slider-card__author">
+                                            <div class="testimonial__slider-card__author-thumb">
+                                                <img src="{{ asset('assetsFront/images/partners/' . $partner->image) }}"
+                                                    alt="Image">
+                                            </div>
+                                            <div class="testimonial__slider-card__author-info">
+                                                <h4><a href="{{ $partner->link }}"
+                                                        target="_blank">{{ $partner->title }}</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="testimonial__slider-card__body-review" style="margin: 0px 2%">
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                @if ($i <= $partner->stars_count)
+                                                    <i class="golftio-star"></i>
+                                                @else
+                                                    <i class="golftio-star" style="color:#ffd60042;"></i>
+                                                @endif
+                                            @endfor
+                                        </div>
+                                    </div>
+                                    <div class="partner-desc mt-4">
+                                        {!! $partner->description !!}
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
 
 
 </x-layouts.app>

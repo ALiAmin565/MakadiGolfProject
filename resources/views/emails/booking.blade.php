@@ -1,3 +1,6 @@
+<img src="https://madinatmakadigolf.com/img/logo-white.png" alt="Your Logo"
+    style="max-width: 150px; display:block;margin:auto;">
+<br>
 @component('mail::message')
     # Welcome to the first Newletter
     Dear {{ $booking->firstName }},
@@ -5,13 +8,6 @@
     We look forward to communicating more with you. For more information Be sure to check out our website.
 
     Booking Details:
-
-    Name: {{ $booking->firstName }} {{ $booking->surname }}
-
-    Email: {{ $booking->emailAddress }}
-
-    Hotel: {{ $booking->hotelName }}
-
     @php
         if ($booking->hole_18) {
             $resCourse = '18 Holes';
@@ -19,6 +15,12 @@
             $resCourse = '9 Holes';
         }
     @endphp
+    Name: {{ $booking->firstName }} {{ $booking->surname }}
+
+    Email: {{ $booking->emailAddress }}
+
+    Hotel: {{ $booking->hotelName }}
+
     Championship Course: {{ $resCourse }}
 
     Hire Equipments :

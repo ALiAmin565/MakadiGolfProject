@@ -107,7 +107,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item">Full Details</li>
+                                <li class="breadcrumb-item">Golf Course</li>
                             </ol>
                         </nav>
                     </div>

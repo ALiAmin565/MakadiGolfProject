@@ -55,34 +55,39 @@
                 deleteSelectedButton.addEventListener("click", function() {
                     const selectedFacilities = document.querySelectorAll(
                         'input[name="selectedFacilities[]"]:checked');
+
                     if (selectedFacilities.length > 0) {
-                        const facilityIds = Array.from(selectedFacilities).map(checkbox => checkbox.value);
-                        const form = document.createElement("form");
-                        form.setAttribute("method", "POST");
-                        form.setAttribute("action", "{{ route('facilities-dash-board-delete-multiple') }}");
-                        form.classList.add("d-none"); // Hide the form
+                        const confirmation = window.confirm(
+                            "Are you sure you want to delete the selected facilities?");
+                        if (confirmation) {
+                            const facilityIds = Array.from(selectedFacilities).map(checkbox => checkbox.value);
+                            const form = document.createElement("form");
+                            form.setAttribute("method", "POST");
+                            form.setAttribute("action", "{{ route('facilities-dash-board-delete-multiple') }}");
+                            form.classList.add("d-none"); // Hide the form
 
-                        const csrfTokenInput = document.createElement("input");
-                        csrfTokenInput.setAttribute("type", "hidden");
-                        csrfTokenInput.setAttribute("name", "_token");
-                        csrfTokenInput.setAttribute("value", "{{ csrf_token() }}");
-                        const methodInput = document.createElement("input");
-                        methodInput.setAttribute("type", "hidden");
-                        methodInput.setAttribute("name", "_method");
-                        methodInput.setAttribute("value", "DELETE");
+                            const csrfTokenInput = document.createElement("input");
+                            csrfTokenInput.setAttribute("type", "hidden");
+                            csrfTokenInput.setAttribute("name", "_token");
+                            csrfTokenInput.setAttribute("value", "{{ csrf_token() }}");
+                            const methodInput = document.createElement("input");
+                            methodInput.setAttribute("type", "hidden");
+                            methodInput.setAttribute("name", "_method");
+                            methodInput.setAttribute("value", "DELETE");
 
-                        facilityIds.forEach(function(facilityId) {
-                            const input = document.createElement("input");
-                            input.setAttribute("type", "hidden");
-                            input.setAttribute("name", "selectedFacilities[]");
-                            input.setAttribute("value", facilityId);
-                            form.appendChild(input);
-                        });
+                            facilityIds.forEach(function(facilityId) {
+                                const input = document.createElement("input");
+                                input.setAttribute("type", "hidden");
+                                input.setAttribute("name", "selectedFacilities[]");
+                                input.setAttribute("value", facilityId);
+                                form.appendChild(input);
+                            });
 
-                        form.appendChild(csrfTokenInput);
-                        form.appendChild(methodInput);
-                        document.body.appendChild(form);
-                        form.submit();
+                            form.appendChild(csrfTokenInput);
+                            form.appendChild(methodInput);
+                            document.body.appendChild(form);
+                            form.submit();
+                        }
                     } else {
                         // Handle the case where no checkboxes are selected
                         alert("No facilities selected for deletion.");
