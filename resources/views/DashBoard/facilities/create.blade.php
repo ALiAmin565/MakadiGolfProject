@@ -58,6 +58,13 @@
                 <!-- Container for displaying uploaded images -->
                 <div id="uploadedImages"></div>
             </div>
+            {{-- Add Partners  --}}
+            <x-dash-board.select-icon-drop-down  name="partners[]" label="Add partner" :multiple="true"  >
+                @foreach ($partners as $partner)
+                    <option value="{{ $partner->id }}">{{ $partner->title }}</option>
+                @endforeach
+            </x-dash-board.select-icon-drop-down>
+            {{-- Submit --}}
             <div class="text-center">
                 <button type="submit" class="btn btn-gradient-primary m-2 ">Submit</button>
             </div>

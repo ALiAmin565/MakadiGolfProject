@@ -22,8 +22,8 @@ class UpdategalleryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "images" => 'required|array|max:5', // Maximum of 5 images (you can adjust this number as needed)
-            "images.*" => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Each image must be an image and have a maximum size of 2MB (2048 KB)
+            "images" => 'required|array|max:50', // Maximum of 5 images (you can adjust this number as needed)
+            "images.*" => 'required|image|mimes:jpeg,png,jpg,gif|max:10048', // Each image must be an image and have a maximum size of 2MB (2048 KB)
         ];
     }
 }

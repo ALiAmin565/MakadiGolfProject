@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Partners;
 use App\Models\Facilities;
 use Illuminate\Http\Request;
+use App\Models\FacilityImages;
+use App\Models\FacilityPartner;
 use App\Http\Requests\StoreFacilitiesRequest;
 use App\Http\Requests\UpdateFacilitiesRequest;
-use App\Models\FacilityImages;
 
 class FacilitiesController extends Controller
 {
@@ -24,15 +26,26 @@ class FacilitiesController extends Controller
      */
     public function create()
     {
-        return view('DashBoard.facilities.create');
+        $partners = Partners::get();
+        return view('DashBoard.facilities.create', get_defined_vars());
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(UpdateFacilitiesRequest $request)
-    {
+    { 
         $facility=Facilities::SaveModel($request);
+        if($request->partners != [])    
+        {
+            foreach($request->partners as $partnerId)
+            {
+                $facilityPartner = new FacilityPartner();
+                $facilityPartner->facility_id = $facility->id;
+                $facilityPartner->partner_id = $partnerId;
+                $facilityPartner->save();
+            }
+        }
         $facilityId=$facility->id;
         if($request->hasFile('images'))
         FacilityImages::SaveModel($request,$facilityId);
@@ -56,6 +69,8 @@ class FacilitiesController extends Controller
         //  get all images for this facility just image column and push it to array
         $facilityImages = FacilityImages::where('facility_id', $id)->get()->pluck('image')->toArray();
         abort_if(!$facility,'404');
+        $partners = Partners::get();
+        $facilityPartnersIds = FacilityPartner::where('facility_id' , $id)->pluck('partner_id')->toArray();    
         return view('DashBoard.facilities.edit', get_defined_vars());
     }
 
@@ -67,6 +82,29 @@ class FacilitiesController extends Controller
         $facility = Facilities::find($id);
         abort_if(!$facility,'404');
         Facilities::updateModel($request,$id);
+        if($request->partners != [])    
+        {
+            // check if there is any partner for this facility
+            $facilityPartnersIds = FacilityPartner::where('facility_id' , $id)->pluck('partner_id')->toArray();
+            // if there is any partner for this facility
+            if(count($facilityPartnersIds) > 0)
+            {
+                // delete all partners for this facility
+                FacilityPartner::where('facility_id' , $id)->delete();
+            }
+            // add new partners for this facility
+            foreach($request->partners as $partnerId)
+            {
+                $facilityPartner = new FacilityPartner();
+                $facilityPartner->facility_id = $id;
+                $facilityPartner->partner_id = $partnerId;
+                $facilityPartner->save();
+            }
+        }else{
+            // if there is no partners for this facility
+            // delete all partners for this facility
+            FacilityPartner::where('facility_id' , $id)->delete();
+        }
         // if there is new images
         if($request->hasFile('images'))
         FacilityImages::SaveModel($request,$id);

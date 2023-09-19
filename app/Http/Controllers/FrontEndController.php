@@ -11,6 +11,7 @@ use App\Models\Facilities;
 use Illuminate\Http\Request;
 use App\Models\BannerHomePage;
 use App\Models\FacilityImages;
+use App\Models\FacilityPartner;
 use App\Models\FacilityHomePage;
 
 class FrontEndController extends Controller
@@ -27,7 +28,8 @@ class FrontEndController extends Controller
 
     public function indexFacility()
     {
-        $facilities = Facilities::paginate(4);
+        $facilities = Facilities::paginate(9);
+        $partners = Partners::pluck('image')->toArray();
         return view('FrontEnd.facilities', get_defined_vars());
     }
 
@@ -45,9 +47,18 @@ class FrontEndController extends Controller
     public function indexFacilityDetails($id)
     {
         $facility = Facilities::find($id);
+        if (!$facility) {
+            return $this->indexFacilityDetailsHome();
+        }
         $facilities = Facilities::select('id', 'name')->get();
         // get all images for this facility just image column and push it to array
         $facilityImages = FacilityImages::where('facility_id', $id)->get()->pluck('image')->toArray();
+        // Partner
+        $partnersIds = FacilityPartner::where('facility_id' , $id)->pluck('partner_id')->toArray();
+        if(count($partnersIds) > 0)
+        $partners = Partners::whereIn('id' , $partnersIds)->get();
+
+        // dd($partners);
         return view('FrontEnd.facility-details', get_defined_vars());
     }
 
@@ -92,19 +103,19 @@ class FrontEndController extends Controller
     // indexJohnSanfordDetails
     public function indexJohnSanfordDetails()
     {
-        $holes=Holes::all();
-        $holeSingle=Holes::find($holes[0]->id);
-        return view('FrontEnd.johnSanfordDetails',get_defined_vars());
+        $holes = Holes::all();
+        $holeSingle = Holes::find($holes[0]->id);
+        return view('FrontEnd.johnSanfordDetails', get_defined_vars());
     }
     // singleDetailsJhonSanford
     public function singleDetailsJhonSanford($id)
     {
-        $holes=Holes::all();
+        $holes = Holes::all();
         // Check if the id is valid
-        if(!Holes::find($id)){
+        if (!Holes::find($id)) {
             return $this->indexJohnSanfordDetails();
         }
-        $holeSingle=Holes::find($id);
-        return view('FrontEnd.johnSanfordDetails',get_defined_vars());
+        $holeSingle = Holes::find($id);
+        return view('FrontEnd.johnSanfordDetails', get_defined_vars());
     }
 }

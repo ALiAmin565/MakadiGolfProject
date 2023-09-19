@@ -4,7 +4,7 @@
             .banner--secondary {
                 /* background-image: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%), url({{ asset('assetsFront/images/banner/' . $banner->image) }}); */
 
-                background-image: -webkit-gradient(linear, left top, right top, from(#fdfffa), to(rgba(255, 255, 255, 0))),url("{{ asset('assetsFront/images/banner/' . $banner->image) }}");
+                background-image: -webkit-gradient(linear, left top, right top, from(#fdfffa), to(rgba(255, 255, 255, 0))), url("{{ asset('assetsFront/images/banner/' . $banner->image) }}");
                 background-image: linear-gradient(90deg, #fdfffa 0%, rgba(255, 255, 255, 0) 100%), url("{{ asset('assetsFront/images/banner/' . $banner->image) }}");
             }
         </style>
@@ -49,8 +49,12 @@
                                     <i class="{{ $facility->icon }}"></i>
                                 </div>
                                 <div class="facility__card-content">
+                                    @php
+                                        $name = strip_tags($facility->name); // Strip HTML tags.
+                                        $facilityName = strlen($name) > 15 ? substr($name, 0, 15) . '...' : $name;
+                                    @endphp
                                     <h5><a
-                                            href="{{ route('FrontEnd.facilityDetails', $facility->id) }}">{{ $facility->name }}</a>
+                                            href="{{ route('FrontEnd.facilityDetails', $facility->id) }}">{{ $facilityName }}</a>
                                     </h5>
                                     @php
                                         $desc = strip_tags($facility->description); // Strip HTML tags.

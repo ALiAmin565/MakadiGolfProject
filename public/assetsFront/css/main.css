@@ -3234,6 +3234,7 @@ i {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    object-fit: contain;
 }
 
 .testimonial--secondary {

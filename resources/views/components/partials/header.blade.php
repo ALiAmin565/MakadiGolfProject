@@ -54,14 +54,14 @@
                                 {{-- Golf Course --}}
                                 <li class="nav__menu-item nav__menu-item--dropdown">
                                     <a href="javascript:void(0)" class="nav__menu-link nav__menu-link--dropdown">
-                                        Golf Course
+                                        Golf 
                                     </a>
                                     <ul class="nav__dropdown">
                                         <li>
                                             <a class="nav__dropdown-item hide-nav" href="{{ route('FrontEnd.johnSanford') }}">John Sanford</a>
                                         </li>
                                         <li>
-                                            <a class="nav__dropdown-item hide-nav" href="{{ route('FrontEnd.johnSanfordDetails') }}">Full Details
+                                            <a class="nav__dropdown-item hide-nav" href="{{ route('FrontEnd.johnSanfordDetails') }}">Golf Course
                                             </a>
                                         </li>
                                     </ul>

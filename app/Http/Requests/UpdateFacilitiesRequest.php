@@ -24,7 +24,7 @@ class UpdateFacilitiesRequest extends FormRequest
         return [
             'name' => 'string',
             'icon' => 'string',
-            'youtube_link' => 'string',
+            'youtube_link' => 'string|nullable',
             'related_to' => 'string',
             'image' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:5120',
             'description' => 'string',
