@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
+use App\Models\AboutUsIcons;
+use Illuminate\Support\Facades\Request;
 use App\Http\Requests\StoreAboutUsRequest;
 use App\Http\Requests\UpdateAboutUsRequest;
+use App\Http\Requests\UpdateAboutUsIconsRequest;
 
 class AboutUsController extends Controller
 {
@@ -68,5 +71,19 @@ class AboutUsController extends Controller
     public function destroy(AboutUs $aboutUs)
     {
         //
+    }
+
+    public function showEditIconPage()
+    {
+        $aboutUsIcons = AboutUsIcons::first();
+        return view('DashBoard.aboutUsIconsEdit', get_defined_vars());
+    }
+
+    public function updateEditIconPage(UpdateAboutUsIconsRequest $request)
+    {
+        $aboutUsIcons = AboutUsIcons::first();
+        abort_if(!$aboutUsIcons,'404');
+        AboutUsIcons::updateModel($request, $aboutUsIcons->id);
+        return to_route('showEditIconPage');
     }
 }

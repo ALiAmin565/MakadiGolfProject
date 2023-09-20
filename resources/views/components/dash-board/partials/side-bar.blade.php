@@ -30,8 +30,19 @@
                 ],
             ]" />
         {{-- About --}}
-        <x-dash-board.side-bar-item icon="fa-solid fa-circle-info" title="About Us Page"
-            link="about-us-dashboard.index" />
+        <x-dash-board.side-bar-item-array title="About Us Page" numberDropdown="five" icon="fa-solid fa-circle-info"
+            :values="[
+                [
+                    'name' => 'Edit Page',
+                    'action' => 'about-us-dashboard.index',
+                ],
+                [
+                    'name' => 'Edit Icons',
+                    'action' => 'showEditIconPage',
+                ],
+            ]" />
+        {{-- <x-dash-board.side-bar-item icon="fa-solid fa-circle-info" title="About Us Page"
+            link="about-us-dashboard.index" /> --}}
         {{-- Contact Us --}}
         <x-dash-board.side-bar-item-array title="Contact Us Page" numberDropdown="two" icon="fa-solid fa-address-book"
             :values="[

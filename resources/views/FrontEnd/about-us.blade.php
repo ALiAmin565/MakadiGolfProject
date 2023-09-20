@@ -4,6 +4,10 @@
             .banner--inner {
                 background-image: url('assetsFront/images/banner/her.png');
             }
+
+            .odometer-inside {
+                display: flex !important;
+            }
         </style>
     @endpush
     <!-- ==== banner start ==== -->
@@ -19,7 +23,7 @@
                     <div class="banner--inner__breadcrumb d-flex justify-content-start justify-content-md-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('FrontEnd.facility') }}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     About Us
                                 </li>
@@ -42,39 +46,39 @@
                             {{ $aboutUs->title }}
                         </h2>
                         <p class="section__content-text">
-                           {!! $aboutUs->description !!}
+                            {!! $aboutUs->description !!}
                         </p>
                         <div class="about__section-inner">
                             <div class="about__section-inner__single">
                                 <div class="about__section-inner__single-thumb">
-                                    <i class="golftio-flag"></i>
+                                    <i class={{ $aboutUsIcon->icon }}></i>
                                 </div>
                                 <div class="about__section-inner__single-content">
-                                    <h5>Professional Team</h5>
+                                    <h5>{{ $aboutUsIcon->title }}</h5>
                                     <p class="secondary-text">
-                                        Modern & latest equipment with expert coaching
+                                       {!! $aboutUsIcon->description !!}
                                     </p>
                                 </div>
                             </div>
                             <div class="about__section-inner__single">
                                 <div class="about__section-inner__single-thumb">
-                                    <i class="golftio-shot-great-upper"></i>
+                                    <i class={{ $aboutUsIcon->second_icon }}></i>
                                 </div>
                                 <div class="about__section-inner__single-content">
-                                    <h5>Professional Trainings</h5>
+                                    <h5>{{ $aboutUsIcon->second_title }}</h5>
                                     <p class="secondary-text">
-                                        Modern & latest equipment with expert coaching
+                                       {!! $aboutUsIcon->second_description !!}
                                     </p>
                                 </div>
                             </div>
                             <div class="about__section-inner__single">
                                 <div class="about__section-inner__single-thumb">
-                                    <i class="golftio-sticks"></i>
+                                    <i class={{ $aboutUsIcon->third_icon }}></i>
                                 </div>
                                 <div class="about__section-inner__single-content">
-                                    <h5>Practice Facilities</h5>
+                                    <h5>{{ $aboutUsIcon->third_title }}</h5>
                                     <p class="secondary-text">
-                                        Modern & latest equipment with expert coaching
+                                       {!! $aboutUsIcon->third_description !!}
                                     </p>
                                 </div>
                             </div>
@@ -86,7 +90,7 @@
                 </div>
                 <div class="col-lg-6 col-xl-5 offset-xl-1 section__col">
                     <div class="about__thumb wow fadeInUp" data-wow-duration="0.4s">
-                        <img src="assetsFront/images/{{ $aboutUs->image }}" alt="Image" class="unset">
+                        <img src="assetsFront/images/{{ $aboutUs->image }}" alt="Image" />
                         <div class="about__experience">
                             <div class="about__experience-thumb">
                                 <i class="golftio-ball"></i>

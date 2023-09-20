@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Holes;
 use App\Models\AboutUs;
+use App\Models\AboutUsIcons;
 use App\Models\gallery;
 use App\Models\Partners;
 use App\Models\ContactUs;
@@ -22,6 +23,7 @@ class FrontEndController extends Controller
         $facilityPage = FacilityHomePage::first();
         $facilities = Facilities::select('id', 'icon', 'name', 'description')->get();
         $aboutUs = AboutUs::first();
+        $aboutUsIcon=AboutUsIcons::first();
         $partners = Partners::get();
         return view('FrontEnd.home', get_defined_vars());
     }
@@ -66,6 +68,7 @@ class FrontEndController extends Controller
     public function indexAboutUs()
     {
         $aboutUs = AboutUs::first();
+        $aboutUsIcon=AboutUsIcons::first();
         return view('FrontEnd.about-us', get_defined_vars());
     }
 
