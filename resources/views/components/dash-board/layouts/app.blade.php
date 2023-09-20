@@ -4,6 +4,11 @@
 <head>
     <x-dash-board.partials.head />
     @stack('styles')
+    <style> 
+        input[type="file"] {
+            background: white;
+        }
+    </style>
 </head>
 
 <body>

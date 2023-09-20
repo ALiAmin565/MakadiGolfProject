@@ -24,10 +24,25 @@ class UpdateAboutUsRequest extends FormRequest
         return [
             'title' => 'required|string',
             'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             'sub_title' => 'required|string',
             'num_of_years' => 'required|numeric',
-            'youtube_link' => 'required|string',
+            'youtube_link' => 'nullable|string',
+        ];
+    }
+
+    // Make Massage For Error in English
+
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'The about us title field is required.',
+            'description.required' => 'The description field is required.',
+            'image.image' => 'The image must be an image.',
+            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg.',
+            'image.max' => 'The image may not be greater than 4096 kilobytes.',
+            'sub_title.required' => 'The sub title field is required.',
+            'num_of_years.required' => 'The num of years field is required.',
         ];
     }
 }

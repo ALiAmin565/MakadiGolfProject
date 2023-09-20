@@ -90,19 +90,21 @@
                 <div class="col-lg-5 col-xxl-5 d-none d-lg-block">
                     <div class="about--secondary__thumb dir-rtl">
                         <img src="assetsFront/images/{{ $aboutUs->image }}" alt="{{ $aboutUs->sub_title }}"
-                            class="unset">
+                            >
                         <div class="about--secondary__thumb-experience">
                             <h3><span class="odometer" data-odometer-final="30"></span> <span>+</span></h3>
                             <p>Years <br> of experience</p>
                         </div>
                         <div class="about--secondary__modal">
                             <img src="assetsFront/images/{{ $aboutUs->image }}" alt="img">
-                            <div class="play-wrapper">
-                                <a href="{{ $aboutUs->youtube_link }}" target="_blank" title="Youtube Video Player"
-                                    class="play-btn">
-                                    <i class="fa-solid fa-play"></i>
-                                </a>
-                            </div>
+                            @if ($aboutUs->youtube_link)
+                                <div class="play-wrapper">
+                                    <a href="{{ $aboutUs->youtube_link }}" target="_blank" title="Youtube Video Player"
+                                        class="play-btn">
+                                        <i class="fa-solid fa-play"></i>
+                                    </a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -118,25 +120,25 @@
                                         <div class="col-6 col-sm-4 section__col">
                                             <div class="about--secondary__single-item">
                                                 <div class="about--secondary__single-item__icon">
-                                                    <i class="golftio-flag"></i>
+                                                    <i class={{ $aboutUsIcon->icon }}></i>
                                                 </div>
-                                                <h6>Professional Team</h6>
+                                                <h6>{{ $aboutUsIcon->title }}</h6>
                                             </div>
                                         </div>
                                         <div class="col-6 col-sm-4 section__col">
                                             <div class="about--secondary__single-item">
                                                 <div class="about--secondary__single-item__icon">
-                                                    <i class="golftio-shot-upper"></i>
+                                                    <i class={{ $aboutUsIcon->second_icon }}></i>
                                                 </div>
-                                                <h6>Professional Trainings</h6>
+                                                <h6>{{ $aboutUsIcon->second_title }}</h6>
                                             </div>
                                         </div>
                                         <div class="col-6 col-sm-4 section__col">
                                             <div class="about--secondary__single-item">
                                                 <div class="about--secondary__single-item__icon">
-                                                    <i class="golftio-shot-ground"></i>
+                                                    <i class={{ $aboutUsIcon->third_icon }}></i>
                                                 </div>
-                                                <h6>Facilities with Gym</h6>
+                                                <h6>{{ $aboutUsIcon->third_title }}</h6>
                                             </div>
                                         </div>
                                     </div>

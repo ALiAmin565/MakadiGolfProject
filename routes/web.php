@@ -77,6 +77,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/add-facility-image/{id}', [FacilitiesController::class, 'addImageFacility'])->name('addImageFacility');
     // About us Section
     Route::resource('about-us-dashboard', AboutUsController::class);
+    Route::get('/about-us-icons', [AboutUsController::class, 'showEditIconPage'])->name('showEditIconPage');
+    Route::put('/about-us-icons', [AboutUsController::class, 'updateEditIconPage'])->name('updateEditIconPage');
     // Contact us Section
     Route::resource('contact-us-dashboard', ContactUsController::class);
     // Subscriber Section

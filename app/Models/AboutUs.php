@@ -28,7 +28,7 @@ class AboutUs extends Model
             'sub_title' => $request->sub_title,
             'description' => $request->description,
             'num_of_years' => $request->num_of_years,
-            'youtube_link' => $request->youtube_link,
+            'youtube_link' => $request->youtube_link ? $request->youtube_link : null,
             'image' => $existingImagePath, // Initialize with existing image path
         ];
         // Check if a new image is provided in the request
@@ -40,7 +40,7 @@ class AboutUs extends Model
             $imageDirectory = public_path('assetsFront/images');
             // Store the new image in the desired directory with the generated filename
             $newImage->move($imageDirectory,  $newImageFilename);
-            if ($existingImagePath) {
+            if ($existingImagePath && $existingImagePath !== 'About-Us.png') {
                 $fullExistingImagePath = public_path('assetsFront/images/') . $existingImagePath;
                 if (file_exists($fullExistingImagePath)) {
                     unlink($fullExistingImagePath);
