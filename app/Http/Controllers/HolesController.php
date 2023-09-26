@@ -30,7 +30,10 @@ class HolesController extends Controller
      */
     public function store(UpdateHolesRequest $request)
     {
-        // dd($request->all());
+        $request->validate([
+            'image' => 'required',
+            'logo'  => 'required',
+        ]);
         Holes::SaveModel($request);
         return to_route('john-sanford-holes.index');
     }

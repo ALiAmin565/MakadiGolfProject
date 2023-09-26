@@ -76,11 +76,19 @@
                 ],
             ]" />
         {{-- Holes --}}
-        <x-dash-board.side-bar-item-array title="Holes" numberDropdown="one" icon="fa-solid fa-filter"
+        <x-dash-board.side-bar-item-array title="Golf Page" numberDropdown="six" icon="fa-solid fa-golf-ball-tee"
             :values="[
                 [
-                    'name' => 'Edit Holes Info',
+                    'name' => 'John Sanford',
+                    'action' => 'john-sanford.index',
+                ],
+                [
+                    'name' => 'Holes',
                     'action' => 'john-sanford-holes.index',
+                ],
+                [
+                    'name' => 'Upload PDFs',
+                    'action' => 'john-sanford-pdfs-upload',
                 ],
             ]" />
 

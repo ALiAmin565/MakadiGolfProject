@@ -14,6 +14,7 @@ use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\BannerHomePageController;
 use App\Http\Controllers\FacilityHomePageController;
 use App\Http\Controllers\HolesController;
+use App\Http\Controllers\JohnSanfordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,11 +47,11 @@ Route::resource('member-ship', MemberShipController::class);
 // Booking Section
 Route::resource('book', BookingController::class);
 // John Sanford
-Route::get('/john-sanford', [FrontEndController::class, 'indexJohnSanford'])->name('FrontEnd.johnSanford');
+Route::get('/johnSanford', [FrontEndController::class, 'indexJohnSanford'])->name('FrontEnd.johnSanford');
 // Full Details John Sanford
-Route::get('/john-sanford-details', [FrontEndController::class, 'indexJohnSanfordDetails'])->name('FrontEnd.johnSanfordDetails');
-// frontEnd.singleDetailsJhonSanford
-Route::get('/john-sanford-details/{id}', [FrontEndController::class, 'singleDetailsJhonSanford'])->name('frontEnd.singleDetailsJhonSanford');
+Route::get('/golf-course', [FrontEndController::class, 'indexJohnSanfordDetails'])->name('FrontEnd.johnSanfordDetails');
+// frontEnd.singleDetailsJohnSanford
+Route::get('/golf-course/{id}', [FrontEndController::class, 'singleDetailsJohnSanford'])->name('frontEnd.singleDetailsJohnSanford');
 
 // ================== End Front End Routes ==================
 
@@ -92,6 +93,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('awards', AwardController::class);
     Route::delete('/awards-dash-board-delete-multiple', [AwardController::class, 'deleteMultiple'])->name('awards-dash-board-delete-multiple');
     // john-sanford Holes Section
+    Route::resource('john-sanford', JohnSanfordController::class);
+    Route::get('john-sanford-pdfs', [JohnSanfordController::class , 'uploadPdfs' ])->name('john-sanford-pdfs-upload');
+    Route::post('john-sanford-pdfs', [JohnSanfordController::class , 'storePdfs' ])->name('john-sanford-pdfs-store');
     Route::resource('john-sanford-holes', HolesController::class);
     Route::delete('/holes-dash-board-delete-multiple', [HolesController::class, 'deleteMultiple'])->name('holes-dash-board-delete-multiple');
 });

@@ -66,7 +66,7 @@
                 display: block;
             }
 
-            .overlay {
+            .overlayHole {
                 position: absolute;
                 top: 20%;
                 right: 0;
@@ -81,11 +81,11 @@
                 transition: opacity 0.3s ease;
             }
 
-            .overlay:hover {
+            .overlayHole:hover {
                 opacity: 1;
             }
 
-            .overlay i {
+            .overlayHole i {
                 color: #fff;
                 font-size: 24px;
                 cursor: pointer;
@@ -106,7 +106,7 @@
                     <div class="banner--inner__breadcrumb d-flex justify-content-start justify-content-md-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('FrontEnd.home') }}">Home</a></li>
                                 <li class="breadcrumb-item">Golf Course</li>
                             </ol>
                         </nav>
@@ -127,12 +127,18 @@
 
                         <div class="social justify-content-start">
                             @foreach ($holes as $hole)
-                                <a href="{{ route('frontEnd.singleDetailsJhonSanford', $hole->id) }}"
-                                    class="selectHole">
+                                <?php
+                                $currentURL = Request::url();
+                                $urlParts = explode('/', $currentURL);
+                                $urlNumber = end($urlParts);
+                                ?>
+                        
+                                <a href="{{ route('frontEnd.singleDetailsJohnSanford', $hole->id) }}" class="selectHole" style="background-color: {{ $urlNumber == $hole->id ? 'green' : 'transparent' }};color:{{ $urlNumber == $hole->id ? 'white !important' : 'green !important' }} ">
                                     {{ $loop->iteration }}
                                 </a>
                             @endforeach
                         </div>
+                        
 
                         <div class="row hole-card">
                             <div class="col-12 col-xl-8">
@@ -153,7 +159,7 @@
                                 <div class="image-container">
                                     <img src="{{ asset('assetsFront/images/holes/' . $holeSingle->image) }}"
                                         alt="{{ $holeSingle->title }}">
-                                    <div class="overlay">
+                                    <div class="overlayHole">
                                         <i class="fas fa-search-plus"></i> <!-- You can use any icon you prefer -->
                                     </div>
                                 </div>
@@ -168,52 +174,19 @@
 
                     </div>
                 </div>
-                {{-- <div class="col-12 col-xl-4 section__col">
-                    <div class="sidebar wow fadeInUp" data-wow-duration="0.4s">
-                        <div class="sidebar__single">
-                            <h5>Search</h5>
-                            <hr>
-                            <form action="#" method="post">
-                                <div class="search_form">
-                                    <input type="text" name="post-search" id="postSearch" placeholder="Search">
-                                    <button type="submit">
-                                        <i class="fa-solid fa-magnifying-glass"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="sidebar__single">
-                            <h5>Golf Course</h5>
-                            <div class="sidebar__tab">
-                                <ul>
-                                    <li><a href="" class="facility-tab-btn"><i
-                                                class="fa-solid fa-angle-right"></i>john Sanford</a></li>
-                                    <li><a href="" class="facility-tab-btn"><i
-                                                class="fa-solid fa-angle-right"></i>Full Deatils</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="sidebar__single">
-                            <h5>Follow Our Journey</h5>
-                            <hr>
-                            <div class="social justify-content-start">
-                                <a href="#">
-                                    <i class="fa-brands fa-facebook-f"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa-brands fa-twitter"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa-brands fa-linkedin-in"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa-brands fa-square-instagram"></i>
-                                </a>
-                            </div>
+                <div class="col-12 col-xl-4 section__col w-100">
+                    <div class="nav__uncollapsed">
+                        <h2 class="mb-4 mt-2 ">Factsheet & Rating</h2>
+                        <div class="nav__uncollapsed-item d-none d-md-flex justify-content-around m-5">
+                            <a href="{{ asset('uploads/' . $pdf->pdf_fact_sheet) }}"
+                                class="cmn-button cmn-button--secondary" download>
+                                Download Factsheet </a>
+                            <a href="{{ asset('uploads/' . $pdf->pdf_rating) }}" class="cmn-button cmn-button--secondary"
+                                download>
+                                Download Rating </a>
                         </div>
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
     </section>
@@ -246,7 +219,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const overlays = document.querySelectorAll('.overlay');
+            const overlays = document.querySelectorAll('.overlayHole');
             const popup = document.querySelector('.popup');
             const popupImage = document.querySelector('.popup-image');
             const closePopup = document.querySelector('.close-popup');

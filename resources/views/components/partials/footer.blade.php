@@ -37,6 +37,7 @@
                             <li><a href="{{ route('FrontEnd.home') }}">Home</a></li>
                             <li><a href="{{ route('FrontEnd.aboutUs') }}">About Us</a></li>
                             <li><a href="{{ route('FrontEnd.facility') }}">Facility</a></li>
+                            <li><a href="{{ route('FrontEnd.johnSanford') }}">Golf</a></li>
                             <li><a href="{{ route('FrontEnd.gallery') }}">Gallery</a></li>
                             <li><a href="{{ route('FrontEnd.contactUs') }}">Contact Us</a></li>
                         </ul>
