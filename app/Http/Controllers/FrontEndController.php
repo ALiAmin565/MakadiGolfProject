@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Holes;
 use App\Models\AboutUs;
-use App\Models\AboutUsIcons;
 use App\Models\gallery;
 use App\Models\Partners;
 use App\Models\ContactUs;
 use App\Models\Facilities;
+use App\Models\JohnSanford;
+use App\Models\AboutUsIcons;
 use Illuminate\Http\Request;
 use App\Models\BannerHomePage;
 use App\Models\FacilityImages;
@@ -100,18 +101,20 @@ class FrontEndController extends Controller
     // indexJohnSanford
     public function indexJohnSanford()
     {
-        return view('FrontEnd.johnSanford');
+        $johnSanford = JohnSanford::first();
+        return view('FrontEnd.johnSanford', get_defined_vars());
     }
 
     // indexJohnSanfordDetails
     public function indexJohnSanfordDetails()
     {
         $holes = Holes::all();
-        $holeSingle = Holes::find($holes[0]->id);
+        $holeSingle = Holes::first();
+        $pdf= JohnSanford::select('pdf_rating','pdf_fact_sheet')->first();
         return view('FrontEnd.johnSanfordDetails', get_defined_vars());
     }
-    // singleDetailsJhonSanford
-    public function singleDetailsJhonSanford($id)
+    // singleDetailsJohnSanford
+    public function singleDetailsJohnSanford($id)
     {
         $holes = Holes::all();
         // Check if the id is valid
@@ -119,6 +122,7 @@ class FrontEndController extends Controller
             return $this->indexJohnSanfordDetails();
         }
         $holeSingle = Holes::find($id);
-        return view('FrontEnd.johnSanfordDetails', get_defined_vars());
+        $pdf= JohnSanford::select('pdf_rating','pdf_fact_sheet')->first();
+        return view('FrontEnd.JohnSanfordDetails', get_defined_vars());
     }
 }
