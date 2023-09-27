@@ -84,11 +84,7 @@ class FrontEndController extends Controller
 
     public function indexGallery()
     {
-        $gallery = gallery::all();
-
-        // Group the gallery data into arrays containing 2 records each
-        $groupedGallery = collect($gallery)->chunk(1);
-
+        $galleryGroup = gallery::paginate(9);
         return view('FrontEnd.gallery', get_defined_vars());
     }
     // indexMembership

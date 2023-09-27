@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\gallery;
-use App\Http\Requests\UpdategalleryRequest;
+use App\Http\Requests\UpdateGalleryRequest;
 
 class GalleryController extends Controller
 {
@@ -29,7 +29,7 @@ class GalleryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UpdategalleryRequest $request)
+    public function store(UpdateGalleryRequest $request)
     {
         gallery::SaveModel($request);
         return to_route('gallery-dashboard.index');
@@ -54,7 +54,7 @@ class GalleryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdategalleryRequest $request, $id)
+    public function update(UpdateGalleryRequest $request, $id)
     {
         //
     }
