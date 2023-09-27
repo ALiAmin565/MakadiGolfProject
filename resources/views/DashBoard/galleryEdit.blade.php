@@ -31,21 +31,29 @@
         </style>
     @endpush
     <div class="content-wrapper">
-        {{-- Images --}}
-        {{-- @dd($galleries); --}}
         @if (count($galleries) == 0)
             <div class="text-center">
                 <form action={{ route('gallery-dashboard.store') }} method="post" enctype="multipart/form-data">
                     @csrf
                     <h2>Upload Your Gallery</h2>
                     <x-dash-board.upload-image title="Gallery" name="images[]" :multiple="true" />
+                    <!-- Display validation error messages here -->
+                    @if ($errors->any())
+                        <div class="alert alert-danger text-center">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <button type="submit" class="btn btn-gradient-primary me-2">Upload</button>
                     <div class="text-center m-2">
-                        <span> Min 10 images </span>
+                        <span> Max (50) Image </span>
                     </div>
                 </form>
             </div>
-            <div id="uploadedImages" ></div>
+            <div id="uploadedImages"></div>
         @else
             <div class="text-center">
                 <h2>Edit Your Gallery</h2>
@@ -81,6 +89,18 @@
                         <a href="#" style="text-decoration: none; color:white;"> <button type="submit"
                                 id="submitButtonImageGallery" class="btn btn-gradient-primary me-2">Add new
                                 photo</button></a>
+                        @if ($errors->any())
+                            <div class="alert alert-danger text-center">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <div class="text-center m-2">
+                            <span> Max (1) Image , Max size (10M) </span>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -144,7 +164,7 @@
                 for (let i = 0; i < selectedImages.length; i++) {
                     const imageUrl = URL.createObjectURL(selectedImages[i]);
                     const
-                    imgElement = document.createElement('img');
+                        imgElement = document.createElement('img');
                     imgElement.src = imageUrl;
                     imgElement.alt = 'Uploaded Image';
                     imgElement.style.maxHeight = '100px';

@@ -7387,6 +7387,7 @@ i {
     }
     .section__cta {
         margin-top: 30px;
+        display: flex;
     }
     .progress-wrap {
         width: 40px;
