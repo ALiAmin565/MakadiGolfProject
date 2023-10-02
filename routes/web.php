@@ -15,6 +15,7 @@ use App\Http\Controllers\BannerHomePageController;
 use App\Http\Controllers\FacilityHomePageController;
 use App\Http\Controllers\HolesController;
 use App\Http\Controllers\JohnSanfordController;
+use App\Models\Booking;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +62,8 @@ Route::get('/golf-course/{id}', [FrontEndController::class, 'singleDetailsJohnSa
 // Add Group route with middleware auth
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin-dash-board', function () {
-        return view('dashboard');
+        $bookings=Booking::paginate(10);
+        return view('dashboard', get_defined_vars());
     })->name('dashboard');
     // Home Page Section
     Route::get('home-page', function () {

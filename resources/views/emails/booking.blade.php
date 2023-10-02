@@ -2,7 +2,6 @@
     style="max-width: 150px; display:block;margin:auto;">
 <br>
 @component('mail::message')
-    # Welcome to the first Newletter
     Dear {{ $booking->firstName }},
 
     We look forward to communicating more with you. For more information Be sure to check out our website.
@@ -43,6 +42,7 @@
                 $key != 'menLeftHandNumber' &&
                 $key != 'womanRightHandNumber' &&
                 $key != 'womanLeftHandNumber')
+
             {{ ucfirst($key) }}: {{ strip_tags($value) }}
         @endif
     @endforeach

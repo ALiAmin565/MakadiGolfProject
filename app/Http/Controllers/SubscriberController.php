@@ -31,7 +31,7 @@ class SubscriberController extends Controller
         $subscriber = Subscriber::create($request->all());
         if ($subscriber) {
             Mail::to($email)->send(new Subscribe($email, $name));
-            return back()->with('success', 'Thank you for subscribing to our email, please check your inbox');
+            return back()->with('success', 'Thank you for contact us by our email, please check your inbox');
         }
     }
 

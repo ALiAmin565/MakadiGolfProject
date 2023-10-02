@@ -84,7 +84,41 @@
                             </table>
                         </div>
                     </div>
-                    {{ $subscribers->links() }} <!-- This will display the pagination links -->
+                    <div class="pagination" style="justify-content: space-around;">
+                        <ul class="pagination-boxes">
+                            <!-- Previous Page Link -->
+                            @if ($subscribers->onFirstPage())
+                                <li class="disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
+                                    <span aria-hidden="true">&lsaquo;</span>
+                                </li>
+                            @else
+                                <li>
+                                    <a href="{{ $subscribers->url(1) }}" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</a>
+                                </li>
+                            @endif
+                    
+                            <!-- Pagination Elements -->
+                            @foreach ($subscribers->getUrlRange(1, $subscribers->lastPage()) as $page => $url)
+                                @if ($page == $subscribers->currentPage())
+                                    <li class="active" aria-current="page"><span>{{ $page }}</span></li>
+                                @else
+                                    <li><a href="{{ $url }}">{{ $page }}</a></li>
+                                @endif
+                            @endforeach
+                    
+                            <!-- Next Page Link -->
+                            @if ($subscribers->hasMorePages())
+                                <li>
+                                    <a href="{{ $subscribers->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</a>
+                                </li>
+                            @else
+                                <li class="disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
+                                    <span aria-hidden="true">&rsaquo;</span>
+                                </li>
+                            @endif
+                        </ul>
+                    </div>
+                    {{-- {{ $subscribers->links() }} <!-- This will display the pagination links --> --}}
                 </div>
             </div>
         </div>

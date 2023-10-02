@@ -21,6 +21,7 @@ class Booking extends Model
         $booking->hole_9 = $request->hole_9;
         $booking->hole_18 = $request->hole_18;
         $booking->drivingRange = $request->drivingRange;
+        $booking->Trolley = $request->Trolley;
         $booking->rangeBalls = $request->rangeBalls;
         $booking->golfClubs9 = $request->golfClubs9;
         $booking->golfClubs18 = $request->golfClubs18;
