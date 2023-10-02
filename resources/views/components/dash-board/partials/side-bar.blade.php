@@ -9,8 +9,8 @@
                     <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                    <span class="font-weight-bold mb-2">David Grey. H</span>
-                    <span class="text-secondary text-small">Project Manager</span>
+                    <span class="font-weight-bold mb-2">{{ Auth::user()->name }}</span>
+                    {{-- <span class="text-secondary text-small">Project Manager</span> --}}
                 </div>
             </a>
         </li>
@@ -51,7 +51,7 @@
                     'action' => 'contact-us-dashboard.index',
                 ],
                 [
-                    'name' => 'List users',
+                    'name' => 'Users submission',
                     'action' => 'getContactUsUsers.index',
                 ],
             ]" />

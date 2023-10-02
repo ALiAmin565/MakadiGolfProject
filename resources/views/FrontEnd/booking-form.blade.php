@@ -212,7 +212,14 @@
                                             @foreach ($hotels as $hotel)
                                                 <option value="{{ $hotel->title }}">{{ $hotel->title }}</option>
                                             @endforeach
+                                            <option value="Other">Other</option> <!-- Add the "Other" option -->
                                         </select>
+                                    </div>
+                                    <div class="input-single" id="otherHotel"
+                                        style="width: 100% !important;display: none;">
+                                        <label for="contactFirstName">Enter Hotel Name</label>
+                                        <input type="text" name="hotelName" required
+                                            placeholder="Enter other hotel name">
                                     </div>
                                 </div>
                             </div>
@@ -237,31 +244,33 @@
                             <label for="contactPhone" class="titleCheckBox">Hire Equipments </label>
                             <div class="input-group">
                                 <div class="w-100">
-                                    <x-check-box-equipment id="drivingRange" value="15" title="Driving Range"
+                                    <x-check-box-equipment id="drivingRange" value="5" title="Driving Range"
                                         priceId="price1" />
-                                    <x-check-box-equipment id="rangeBalls" value="15"
+                                    <x-check-box-equipment id="rangeBalls" value="3"
                                         title="Range Balls Basket <small>(34 balls)</small>" priceId="price2" />
-                                    <x-check-box-equipment id="golfClubs9" value="15"
+                                    <x-check-box-equipment id="Trolley" value="5" title="Pull Trolley"
+                                        priceId="price12" />
+                                    <x-check-box-equipment id="golfClubs9" value="18"
                                         title="Quality brand golf clubs <small>(9 holes per
                                       round)</small>"
                                         priceId="price3" />
-                                    <x-check-box-equipment id="golfClubs18" value="15"
+                                    <x-check-box-equipment id="golfClubs18" value="27"
                                         title="Quality brand golf clubs <small>(18 holes per
                                         round)</small>"
                                         priceId="price4" />
-                                    <x-check-box-equipment id="golfCar9" value="15"
+                                    <x-check-box-equipment id="golfCar9" value="20"
                                         title="Golf car 9 holes <small>(championship course)</small> per
                                         round"
                                         priceId="price5" />
-                                    <x-check-box-equipment id="golfCar18" value="15"
+                                    <x-check-box-equipment id="golfCar18" value="30"
                                         title="Golf car 18 holes <small>(championship course)</small>
                                         per round"
                                         priceId="price6" />
-                                    <x-check-box-equipment id="golfCar3x18" value="15"
+                                    <x-check-box-equipment id="golfCar3x18" value="75"
                                         title="Golf Car 3 x 18 Holes" priceId="price7" />
-                                    <x-check-box-equipment id="golfCar5x18" value="15"
+                                    <x-check-box-equipment id="golfCar5x18" value="125"
                                         title="Golf Car 5 x 18 Holes" priceId="price8" />
-                                    <x-check-box-equipment id="golfCar3x9" value="15"
+                                    <x-check-box-equipment id="golfCar3x9" value="75"
                                         title="Golf Car 3 x 9 Holes" priceId="price9" />
 
                                 </div>
@@ -446,6 +455,24 @@
                 dateTimeList.removeChild(inputContainer);
                 --x;
             }
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#contactPhone').on('change', function() {
+                    if ($(this).val() === 'Other') {
+                        $('#otherHotel').show();
+                        // checkbox1
+                        // checkbox2
+                        document.getElementById("checkbox1").value = 50;
+                        document.getElementById("checkbox2").value = 85;
+                    } else {
+                        $('#otherHotel').hide();
+                        document.getElementById("checkbox1").value = 45;
+                        document.getElementById("checkbox2").value = 77;
+                    }
+                });
+            });
         </script>
     @endpush
 </x-layouts.app>

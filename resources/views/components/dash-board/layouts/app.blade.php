@@ -4,9 +4,41 @@
 <head>
     <x-dash-board.partials.head />
     @stack('styles')
-    <style> 
+    <style>
         input[type="file"] {
             background: white;
+        }
+
+        .pagination-boxes {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            /* Adjust the spacing between boxes as needed */
+
+        }
+
+        .pagination-boxes li {
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            background-color: #f7f7f7;
+            border-radius: 4px;
+        }
+        .pagination-boxes li a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .pagination-boxes li.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .pagination-boxes li.disabled {
+            pointer-events: none;
+            opacity: 0.5;
         }
     </style>
 </head>

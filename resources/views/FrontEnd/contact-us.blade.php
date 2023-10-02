@@ -148,7 +148,7 @@
                             <div class="input-single">
                                 <label for="contactMessage">Message</label>
                                 <textarea name="message" id="contactMessage" cols="30" rows="4"
-                                    placeholder="I would like to get in touch with you..."></textarea>
+                                    placeholder="I would like to get in touch with you..." required></textarea>
                             </div>
                             <div class="section__cta">
                                 <button type="submit" class="cmn-button">Send Message</button>
