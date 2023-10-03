@@ -19,8 +19,9 @@
                         <h1 class="banner__content-title">{{ $banner->title }}</h1>
                         <p class="primary-text banner__content-text">{!! $banner->description !!}</p>
                         <div class="banner__content-cta">
-                            <a href="join-club.html" class="cmn-button">@lang('Join Our Club')</a>
-                            <a href="about-us.html" class="cmn-button cmn-button--secondary">@lang('About Us')</a>
+                            <a href="{{ route('FrontEnd.contactUs') }}" class="cmn-button">@lang('Contact Us')</a>
+                            <a href="{{ route('FrontEnd.aboutUs') }}"
+                                class="cmn-button cmn-button--secondary">@lang('About Us')</a>
                         </div>
                     </div>
                 </div>
@@ -89,8 +90,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-5 col-xxl-5 d-none d-lg-block">
                     <div class="about--secondary__thumb dir-rtl">
-                        <img src="assetsFront/images/{{ $aboutUs->image }}" alt="{{ $aboutUs->sub_title }}"
-                            >
+                        <img src="assetsFront/images/{{ $aboutUs->image }}" alt="{{ $aboutUs->sub_title }}">
                         <div class="about--secondary__thumb-experience">
                             <h3><span class="odometer" data-odometer-final="30"></span> <span>+</span></h3>
                             <p>Years <br> of experience</p>
@@ -156,7 +156,7 @@
     <!-- ==== / about section end ==== -->
 
     <!-- ==== event section start ==== -->
-    <section class="section event wow fadeInUp" data-wow-duration="0.4s">
+    {{-- <section class="section event wow fadeInUp" data-wow-duration="0.4s">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -190,8 +190,7 @@
                             <p>Friday at 10:00 am</p>
                             <h5>Master Class</h5>
                             <p class="secondary-text"><i class="golftio-location"></i> Parker Rd. Allentown, 31134</p>
-                            {{-- <p>Free</p> --}}
-                            {{-- <a href="sign-up.html" class="cmn-button">Join Now</a> --}}
+              
                         </div>
                     </div>
                 </div>
@@ -207,14 +206,13 @@
                             <p>Saturday at 04:00 pm</p>
                             <h5>Golf Championship</h5>
                             <p class="secondary-text"><i class="golftio-location"></i> Parker Rd. Allentown, 31134</p>
-                            {{-- <p>$40.00</p>
-                            <a href="sign-up.html" class="cmn-button">Join Now</a> --}}
+                         
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ==== / event section end ==== -->
 
     <!-- ==== sponsor section start ==== -->
@@ -240,14 +238,18 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="section__header">
-                        <h5 class="section__header-sub-title">Our Team</h5>
-                        <h2 class="section__header-title">Meet Our Experts</h2>
-                        <p>Golftio Sports Club is a golf club with a history that goes back to XX century. From a
-                            cricket club to soccer tournaments,</p>
+                        <h5 class="section__header-sub-title">{{ $team->sub_title }}</h5>
+                        <h2 class="section__header-title">{{ $team->title }}</h2>
+                        <p>{!! $team->description !!}</p>
                     </div>
                 </div>
             </div>
-            <div class="team__slider--secondary">
+            <div class="row justify-content-center">
+                <div class="col-lg-7" style="margin: auto;">
+                    <img src="assetsFront/images/{{ $team->image }}" alt="img"  style="width:100% !important; height:300px;object-fit:contain;">
+                </div>
+            </div>
+            {{-- <div class="team__slider--secondary">
                 <div class="team__slider-card">
                     <div class="team__slider-card__thumb">
                         <img src="assetsFront/images/team/one.png" alt="Team">
@@ -432,8 +434,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
+            </div> --}}
+            {{-- <div class="row">
                 <div class="col-12">
                     <div class="slider-navigation">
                         <button class="next-team--secondary cmn-button cmn-button--secondary">
@@ -444,13 +446,13 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
     <!-- ==== / team section end ==== -->
 
     <!-- ==== testimonial section start ==== -->
-    <section class="section testimonial testimonial--secondary wow fadeInUp" data-wow-duration="0.4s">
+    {{-- <section class="section testimonial testimonial--secondary wow fadeInUp" data-wow-duration="0.4s">
         <div class="container">
             <div class="row align-items-center section__row">
                 <div class="col-lg-6 col-xxl-6 section__col">
@@ -461,7 +463,7 @@
                             course and the best trainer to receive maximum efficiency. All our trainers are professional
                             golf players with the highest...</p>
                         <div class="section__content-cta">
-                            {{-- <a href="join-club.html" class="cmn-button">Join Our Club</a> --}}
+
                         </div>
                     </div>
                 </div>
@@ -629,7 +631,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ==== / testimonial section end ==== -->
 
     <!-- ==== shop section start ==== -->

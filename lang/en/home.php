@@ -6,5 +6,6 @@ return [
     'play golf like a pro'   => 'Play Golf Like A Pro',
     'Join Our Club' => 'Join Our Club',
     'About Us' => 'About Us',
+    'Contact Us' => 'Contact Us',
 
 ];

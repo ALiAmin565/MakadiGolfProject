@@ -3,13 +3,13 @@
         {{-- Profile --}}
         <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
-                <div class="nav-profile-image">
+                {{-- <div class="nav-profile-image">
                     <img src="{{ asset('assets/images/faces/face1.jpg') }}" alt="profile">
                     <span class="login-status online"></span>
                     <!--change to offline or busy as needed-->
-                </div>
+                </div> --}}
                 <div class="nav-profile-text d-flex flex-column">
-                    <span class="font-weight-bold mb-2">{{ Auth::user()->name }}</span>
+                    <span class="font-weight-bold mb-2 text-capitalize">{{ Auth::user()->name }}</span>
                     {{-- <span class="text-secondary text-small">Project Manager</span> --}}
                 </div>
             </a>
@@ -40,6 +40,14 @@
                     'name' => 'Edit Icons',
                     'action' => 'showEditIconPage',
                 ],
+            ]" />
+        {{-- Team --}}
+        <x-dash-board.side-bar-item-array title="Team Section" numberDropdown="seven" icon="fa-solid fa-people-group"
+            :values="[
+                [
+                    'name' => 'Edit Section',
+                    'action' => 'team.index',
+                ]
             ]" />
         {{-- <x-dash-board.side-bar-item icon="fa-solid fa-circle-info" title="About Us Page"
             link="about-us-dashboard.index" /> --}}
