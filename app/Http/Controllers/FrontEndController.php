@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use App\Models\Holes;
 use App\Models\AboutUs;
 use App\Models\gallery;
@@ -26,6 +27,7 @@ class FrontEndController extends Controller
         $aboutUs = AboutUs::first();
         $aboutUsIcon=AboutUsIcons::first();
         $partners = Partners::get();
+        $team=Team::first();
         return view('FrontEnd.home', get_defined_vars());
     }
 

@@ -1,7 +1,10 @@
 <?php
 
+use App\Models\Booking;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\AwardController;
+use App\Http\Controllers\HolesController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\GalleryController;
@@ -11,11 +14,9 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\MemberShipController;
 use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\JohnSanfordController;
 use App\Http\Controllers\BannerHomePageController;
 use App\Http\Controllers\FacilityHomePageController;
-use App\Http\Controllers\HolesController;
-use App\Http\Controllers\JohnSanfordController;
-use App\Models\Booking;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,6 +101,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('john-sanford-pdfs', [JohnSanfordController::class , 'storePdfs' ])->name('john-sanford-pdfs-store');
     Route::resource('john-sanford-holes', HolesController::class);
     Route::delete('/holes-dash-board-delete-multiple', [HolesController::class, 'deleteMultiple'])->name('holes-dash-board-delete-multiple');
+    // team 
+    Route::resource('team', TeamController::class);
 });
 
 Auth::routes();

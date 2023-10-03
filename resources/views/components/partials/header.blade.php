@@ -79,66 +79,7 @@
                                     </a>
                                 </li>
 
-                                <li class="nav__menu-item nav__menu-item--dropdown">
-                                    <a href="javascript:void(0)" class="nav__menu-link nav__menu-link--dropdown">
-                                        Pages
-                                    </a>
-                                    <ul class="nav__dropdown">
-                                        {{-- <li>
-                                            <a class="nav__dropdown-item hide-nav" href="{{ route('FrontEnd.aboutUs') }}">About Us</a>
-                                        </li> --}}
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="pricing.html">Pricing
-                                                Plan</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="event.html">Event</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="faq.html">FAQ</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="gallery.html">Gallery</a>
-                                        </li>
-
-                                        <li class="nav__menu-link-child">
-                                            <a class="nav__dropdown-item nav__menu-link--dropdown nav__menu-link-childr"
-                                                href="javascript:void(0)">Blog</a>
-                                            <ul class="nav__dropdown-child">
-                                                <li>
-                                                    <a class="nav__dropdown-item hide-nav" href="blog.html">Blog
-                                                        Grid</a>
-                                                </li>
-                                                <li>
-                                                    <a class="nav__dropdown-item hide-nav" href="blog-list.html">Blog
-                                                        List</a>
-                                                </li>
-                                                <li>
-                                                    <a class="nav__dropdown-item hide-nav" href="blog-details.html">Blog
-                                                        Details</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="contact-us.html">Contact
-                                                Us</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="join-club.html">Join
-                                                Club</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="support.html">Support</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="privacy-policy.html">Privacy
-                                                Policy</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav__dropdown-item hide-nav" href="404.html">Error</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                              
                                 <li class="nav__menu-item d-block d-md-none">
                                     {{-- <a href="sign-in.html" class="cmn-button cmn-button--secondary">Sign In</a>
                                     <a href="sign-up.html" class="cmn-button">Sign Up</a> --}}

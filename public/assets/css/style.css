@@ -14298,7 +14298,8 @@ dl {
   .sidebar-icon-only .sidebar {
     width: 70px; }
     .sidebar-icon-only .sidebar .nav {
-      overflow: visible; }
+      overflow: visible;
+      align-items: center; }
       .sidebar-icon-only .sidebar .nav .nav-item {
         position: relative;
         padding: 0; }
