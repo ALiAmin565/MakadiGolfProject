@@ -6,6 +6,9 @@
                 <div class="alert alert-danger text-center">{{ $message }}</div>
             @enderror
         @endforeach
+        @if (session()->has('success'))
+            <div class="alert alert-primary text-center">{{ session()->get('success') }}</div>
+        @endif
         <form class="forms-sample" action="{{ route('team.update', $team->id) }}" method="post"
             enctype="multipart/form-data">
             @csrf

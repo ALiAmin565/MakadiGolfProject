@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Partners;
 use App\Models\Facilities;
+use App\Helpers\LogActivity;
 use Illuminate\Http\Request;
 use App\Models\FacilityImages;
 use App\Models\FacilityPartner;
@@ -49,7 +50,8 @@ class FacilitiesController extends Controller
         $facilityId=$facility->id;
         if($request->hasFile('images'))
         FacilityImages::SaveModel($request,$facilityId);
-        return to_route('facilities.index');
+        LogActivity::addToLog('Facility '. $facility->name .' Was Added Successfully');
+        return redirect()->route('facilities.index')->with('success', 'Facility '. $facility->name .' Was Added Successfully');
     }
 
     /**
@@ -108,7 +110,8 @@ class FacilitiesController extends Controller
         // if there is new images
         if($request->hasFile('images'))
         FacilityImages::SaveModel($request,$id);
-        return to_route('facilities.index');
+        LogActivity::addToLog('Facility '. $facility->name .' Was Updated Successfully');
+        return redirect()->route('facilities.index')->with('success', 'Facility '. $facility->name .' Was Updated Successfully');
     }
 
     /**
@@ -119,7 +122,8 @@ class FacilitiesController extends Controller
         $facility= Facilities::find($id);
         abort_if(!$facility,'404');
         Facilities::deleteModel($id);
-        return to_route('facilities.index');
+        LogActivity::addToLog('Facility '. $facility->name .' Was Deleted Successfully');
+        return redirect()->route('facilities.index')->with('success', 'Facility '. $facility->name .' Was Deleted Successfully');
     }
 
     public function deleteMultiple(Request $request)
@@ -144,7 +148,8 @@ class FacilitiesController extends Controller
                 $facility->delete();
             }
         }
-        return to_route('facilities.index');
+        LogActivity::addToLog('All Selected Facility Was Deleted Successfully('.count($selectedFacilities).')');
+        return redirect()->route('facilities.index')->with('success', 'All Selected Facility Was Deleted Successfully');
     }
 
     public function deleteSelectedImage($imageName)
@@ -155,12 +160,12 @@ class FacilitiesController extends Controller
         }
         $facilityImage = FacilityImages::where('image', $imageName)->first();
         $facilityImage->delete();
-        return back();
+        return back()->with('success', 'Image Was Deleted Successfully');;
     }
 
     public function addImageFacility(Request $request , $facilityId)
     {
         FacilityImages::SaveModel($request,$facilityId);
-        return back();
+        return back()->with('success', 'Image Was Added Successfully');;
     }
 }

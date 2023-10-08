@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\gallery;
+use App\Helpers\LogActivity;
 use App\Http\Requests\UpdateGalleryRequest;
 
 class GalleryController extends Controller
@@ -32,7 +33,8 @@ class GalleryController extends Controller
     public function store(UpdateGalleryRequest $request)
     {
         gallery::SaveModel($request);
-        return to_route('gallery-dashboard.index');
+        LogActivity::addToLog('Gallery Image Added Successfully');
+        return redirect()->route('gallery-dashboard.index')->with('success', 'Images Added Successfully');
     }
 
     /**
@@ -67,6 +69,7 @@ class GalleryController extends Controller
         $gallery= Gallery::find($id);
         abort_if(!$gallery,'404');
         Gallery::deleteModel($id);
-        return to_route('gallery-dashboard.index');
+        LogActivity::addToLog('Gallery Image Deleted Successfully');
+        return redirect()->route('gallery-dashboard.index')->with('success', 'Image Deleted Successfully');
     }
 }

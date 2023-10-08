@@ -31,6 +31,9 @@
         </style>
     @endpush
     <div class="content-wrapper">
+        @if (session()->has('success'))
+        <div class="alert alert-primary text-center">{{ session()->get('success') }}</div>
+        @endif
         @if (count($galleries) == 0)
             <div class="text-center">
                 <form action={{ route('gallery-dashboard.store') }} method="post" enctype="multipart/form-data">

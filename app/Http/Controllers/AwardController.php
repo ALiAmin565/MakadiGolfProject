@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Award;
+use App\Helpers\LogActivity;
 use App\Http\Requests\StoreAwardRequest;
 use App\Http\Requests\UpdateAwardRequest;
 
@@ -31,7 +32,8 @@ class AwardController extends Controller
     public function store(StoreAwardRequest $request)
     {
         $award=Award::SaveModel($request);
-        return to_route('awards.index');
+        LogActivity::addToLog('Award '. $award->name .' With Added Successfully');
+        return redirect()->route('awards.index')->with('success', 'Award Was Added Successfully');
     }
 
     /**
@@ -60,7 +62,8 @@ class AwardController extends Controller
         $award = Award::find($id);
         abort_if(!$award,'404');
         Award::updateModel($request,$id);
-        return to_route('awards.index');
+        LogActivity::addToLog('Award '. $award->name .' With Updated Successfully');
+        return redirect()->route('awards.index')->with('success', 'Award Was Updated Successfully');
     }
 
     /**
@@ -89,6 +92,7 @@ class AwardController extends Controller
                 $award->delete();
             }
         }
-        return to_route('awards.index');
+        LogActivity::addToLog('All Selected Awards With Deleted Successfully ('.count($selectedAwards).')');
+        return redirect()->route('awards.index')->with('success', 'Selected Awards Was Deleted Successfully');
     }
 }

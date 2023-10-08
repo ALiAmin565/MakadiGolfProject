@@ -22,6 +22,9 @@
             $selectedValueTwo = $aboutUsIcons->second_icon;
             $selectedValueThree = $aboutUsIcons->third_icon;
         @endphp
+        @if (session()->has('success'))
+            <div class="alert alert-primary text-center">{{ session()->get('success') }}</div>
+        @endif
         <form class="forms-sample" action="{{ route('updateEditIconPage') }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')

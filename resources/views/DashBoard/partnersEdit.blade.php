@@ -1,10 +1,13 @@
 <x-dash-board.layouts.app>
     <div class="content-wrapper">
+        @if (session()->has('success'))
+            <div class="alert alert-primary text-center">{{ session()->get('success') }}</div>
+        @endif
         <div class="row">
             <div class="col-md-12">
                 <button type="button" class="btn btn-primary" id="selectAll">Select All</button>
                 <button type="button" class="btn btn-secondary" id="deselectAll">Deselect All</button>
-                <button type="button" class="btn btn-gradient-danger" id="deleteSelected" >Delete Selected</button>
+                <button type="button" class="btn btn-gradient-danger" id="deleteSelected">Delete Selected</button>
                 <button type="button" class="btn btn-primary"> <a href="{{ route('partners.create') }}"
                         style="text-decoration:none;color:white;">Add Partner</a></button>
             </div>

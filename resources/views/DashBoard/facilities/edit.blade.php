@@ -31,6 +31,9 @@
         </style>
     @endpush
     <div class="content-wrapper">
+        @if (session()->has('success'))
+            <div class="alert alert-primary text-center">{{ session()->get('success') }}</div>
+        @endif
         <h1 class="text-center"> Edit {{ $facility->name }} </h1>
         <form class="forms-sample" action={{ route('facilities.update', $facility->id) }} method="post"
             enctype="multipart/form-data">
@@ -66,7 +69,8 @@
             <br>
             <x-dash-board.select-icon-drop-down name="partners[]" label="Add partner" :multiple="true">
                 @foreach ($partners as $partner)
-                    <option value="{{ $partner->id }}" @if (in_array($partner->id, $facilityPartnersIds)) selected @endif>{{ $partner->title }}</option>
+                    <option value="{{ $partner->id }}" @if (in_array($partner->id, $facilityPartnersIds)) selected @endif>
+                        {{ $partner->title }}</option>
                 @endforeach
             </x-dash-board.select-icon-drop-down>
             {{-- Images --}}

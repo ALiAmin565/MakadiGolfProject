@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use App\Helpers\LogActivity;
 use App\Http\Requests\StoreTeamRequest;
 use App\Http\Requests\UpdateTeamRequest;
 
@@ -57,7 +58,8 @@ class TeamController extends Controller
         $team= Team::find($id);
         abort_if(!$team,'404');
         Team::updateModel($request,$id);
-        return to_route('team.index');
+        LogActivity::addToLog('Team Section With Updated Successfully');
+        return redirect()->route('team.index')->with('success', 'Team Section With Updated Successfully');
     }
 
     /**

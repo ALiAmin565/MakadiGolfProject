@@ -22,7 +22,20 @@ class UpdateAwardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     */
+
+    public function messages(): array
+    {
+        return [
+            'image.image' => 'Image must be an image!',
+            'image.mimes' => 'Image must be a file of type: jpeg, png, jpg, gif, svg.',
+            'image.max' => 'Image must be at most 5000 kilobytes.',
         ];
     }
 }
