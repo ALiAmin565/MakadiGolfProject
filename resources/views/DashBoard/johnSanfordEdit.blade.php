@@ -1,5 +1,8 @@
 <x-dash-board.layouts.app>
     <div class="content-wrapper">
+        @if (session()->has('success'))
+        <div class="alert alert-primary text-center">{{ session()->get('success') }}</div>
+        @endif
         <h1 class="text-center"> John Sanford Page Edit </h1>
         @foreach (['title', 'description', 'image'] as $field)
             @error($field)

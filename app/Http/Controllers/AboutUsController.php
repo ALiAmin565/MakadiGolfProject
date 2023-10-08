@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
+use App\Helpers\LogActivity;
 use App\Models\AboutUsIcons;
 use Illuminate\Support\Facades\Request;
 use App\Http\Requests\StoreAboutUsRequest;
@@ -61,8 +62,8 @@ class AboutUsController extends Controller
         $abouUs= AboutUs::find($id);
         abort_if(!$abouUs,'404');
         AboutUs::updateModel($request,$id);
-        return to_route('about-us-dashboard.index');
-
+        LogActivity::addToLog('About Us Section With Updated Successfully');
+        return redirect()->route('about-us-dashboard.index')->with('success', 'About Us Section With Updated Successfully');
     }
 
     /**
@@ -84,6 +85,7 @@ class AboutUsController extends Controller
         $aboutUsIcons = AboutUsIcons::first();
         abort_if(!$aboutUsIcons,'404');
         AboutUsIcons::updateModel($request, $aboutUsIcons->id);
-        return to_route('showEditIconPage');
+        LogActivity::addToLog('Updated Icons About Us Section With Updated Successfully');
+        return redirect()->route('showEditIconPage')->with('success', 'Icons Was Updated Successfully');
     }
 }

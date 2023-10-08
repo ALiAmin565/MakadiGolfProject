@@ -1,10 +1,15 @@
 <x-dash-board.layouts.app>
     <div class="content-wrapper">
+        @foreach (['image'] as $field)
+            @error($field)
+                <div class="alert alert-danger text-center">{{ $message }}</div>
+            @enderror
+        @endforeach
         <h1 class="text-center"> Create Award </h1>
         <form class="forms-sample" action={{ route('awards.store') }} method="post" enctype="multipart/form-data">
             @csrf
             {{-- Name --}}
-            <x-dash-board.text-input title="AwardName" name="name" />
+            <x-dash-board.text-input title="AwardName" name="title" />
             {{-- Description --}}
             <x-dash-board.text-area title="AwardDescription" name="description" />
             {{--  Link --}}

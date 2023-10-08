@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactUs;
+use App\Helpers\LogActivity;
 use App\Http\Requests\StoreContactUsRequest;
 use App\Http\Requests\UpdateContactUsRequest;
 
@@ -57,8 +58,8 @@ class ContactUsController extends Controller
         $contactUs= ContactUs::find($id);
         abort_if(!$contactUs,'404');
         ContactUs::updateModel($request,$id);
-        return to_route('contact-us-dashboard.index');
-
+        LogActivity::addToLog('Contact Us Page Updated Successfully');
+        return redirect()->route('contact-us-dashboard.index')->with('success', 'Contact Us Page was Updated Successfully');
     }
 
     /**

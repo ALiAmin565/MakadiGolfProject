@@ -9,6 +9,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\FrontEndController;
+use App\Http\Controllers\HomeTestController;
 use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FacilitiesController;
@@ -106,4 +107,14 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Auth::routes();
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// ================== End Back End Routes ==================
+
+// Add Gate route with middleware auth
+
+
+
+
+
+Route::middleware('can:isAdmin')->group(function () {
+    Route::get('logActivity',[HomeTestController::class, 'logActivity'])->name('logActivity');
+});

@@ -1,5 +1,10 @@
 <x-dash-board.layouts.app>
     <div class="content-wrapper">
+        @foreach (['title', 'description', 'link', 'stars_count', 'image'] as $field)
+            @error($field)
+                <div class="alert alert-danger text-center">{{ $message }}</div>
+            @enderror
+        @endforeach
         <h1 class="text-center"> Create Partner </h1>
         <form class="forms-sample" action={{ route('partners.store') }} method="post" enctype="multipart/form-data">
             @csrf
@@ -14,7 +19,7 @@
             {{-- Image --}}
             <x-dash-board.upload-image title="SinglePartnerImage" name="image" />
             <div class="text-center">
-                <img src="" id="singlePartnerImageShow" alt="" calss="m-auto" height="100px">
+                <img src="" id="singlePartnerImageShow" alt="" calss="m-auto" height="100px" required>
             </div>
 
             <div class="text-center">

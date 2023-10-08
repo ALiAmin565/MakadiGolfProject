@@ -30,6 +30,11 @@
         </style>
     @endpush
     <div class="content-wrapper">
+        @foreach (['image'] as $field)
+            @error($field)
+                <div class="alert alert-danger text-center">{{ $message }}</div>
+            @enderror
+        @endforeach
         <h1 class="text-center"> Edit {{ $award->name }} </h1>
         <form class="forms-sample" action={{ route('awards.update', $award->id) }} method="post"
             enctype="multipart/form-data">
@@ -45,7 +50,7 @@
             {{-- Image --}}
             <x-dash-board.upload-image title="SingleAwardImage" name="image" />
             <div class="text-center">
-                <img src="{{ asset('assetsFront/images/awards/'. $award->image) }}" id="singleawardImageShow"
+                <img src="{{ asset('assetsFront/images/awards/' . $award->image) }}" id="singleawardImageShow"
                     alt="" calss="m-auto" height="150px" style="width: 50%; object-fit:cover;">
             </div>
             {{-- Submit --}}

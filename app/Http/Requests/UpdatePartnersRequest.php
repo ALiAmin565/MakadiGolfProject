@@ -22,7 +22,27 @@ class UpdatePartnersRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'link' => 'required|string|max:255',
+            'stars_count' => 'required|integer',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     */
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Title is required!',
+            'description.required' => 'Description is required!',
+            'link.required' => 'Link is required!',
+            'stars_count.required' => 'Stars Count is required!',
+            'image.image' => 'Image must be an image!',
+            'image.mimes' => 'Image must be a file of type: jpeg, png, jpg, gif, svg.',
+            'image.max' => 'Image must be at most 5000 kilobytes.',
         ];
     }
 }

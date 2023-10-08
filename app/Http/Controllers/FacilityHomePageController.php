@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\LogActivity;
 use App\Models\FacilityHomePage;
 use App\Http\Requests\StoreFacilityHomePageRequest;
 use App\Http\Requests\UpdateFacilityHomePageRequest;
@@ -58,6 +59,7 @@ class FacilityHomePageController extends Controller
         if (!$facilityHomePage)
         abort(404);
         FacilityHomePage::updateModel($request, $id);
+        LogActivity::addToLog('Facility Home Page Updated Successfully');
         return redirect()->route('home-page-facility.index')->with('success', 'Facility Home Page Updated Successfully');
     }
 

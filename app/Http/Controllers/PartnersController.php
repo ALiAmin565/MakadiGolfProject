@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Partners;
+use App\Helpers\LogActivity;
 use App\Http\Requests\UpdatePartnersRequest;
+use Illuminate\Http\Request;
 
 class PartnersController extends Controller
 {
@@ -30,7 +32,8 @@ class PartnersController extends Controller
     public function store(UpdatePartnersRequest $request)
     {
         $partners=Partners::SaveModel($request);
-        return to_route('partners.index');
+        LogActivity::addToLog('Partners Was Added Successfully');
+        return redirect()->route('partners.index')->with('success', 'Partners Was Added Successfully');
     }
 
     /**
@@ -56,10 +59,11 @@ class PartnersController extends Controller
      */
     public function update(UpdatePartnersRequest $request, $id)
     {
-        $facility = Partners::find($id);
-        abort_if(!$facility,'404');
+        $partner = Partners::find($id);
+        abort_if(!$partner,'404');
         Partners::updateModel($request,$id);
-        return to_route('partners.index');
+        LogActivity::addToLog('Partners '. $request->title .' Was Updated Successfully');
+        return redirect()->route('partners.index')->with('success', 'Partners Was Updated Successfully');
     }
 
     /**
@@ -73,7 +77,7 @@ class PartnersController extends Controller
     /**
      * Delete multiple resources from storage.
      */
-    public function deleteMultiple(UpdatePartnersRequest $request)
+    public function deleteMultiple(Request $request)
     {
         $selectedPartners = $request->input('selectedPartners', []);
         foreach ($selectedPartners as $partnersId) {
@@ -88,7 +92,8 @@ class PartnersController extends Controller
                 $partner->delete();
             }
         }
-        return to_route('partners.index');
+        LogActivity::addToLog('Partners Was Deleted Successfully ('.count($selectedPartners).')');
+        return redirect()->route('partners.index')->with('success', 'Partners Was Deleted Successfully');
     }
 
 

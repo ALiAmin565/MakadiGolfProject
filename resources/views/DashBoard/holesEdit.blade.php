@@ -1,5 +1,8 @@
 <x-dash-board.layouts.app>
     <div class="content-wrapper">
+        @if (session()->has('success'))
+            <div class="alert alert-primary text-center">{{ session()->get('success') }}</div>
+        @endif
         <div class="row">
             <div class="col-md-12">
                 <button type="button" class="btn btn-primary" id="selectAll">Select All</button>

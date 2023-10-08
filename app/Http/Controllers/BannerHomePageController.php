@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\LogActivity;
 use App\Models\BannerHomePage;
 use App\Http\Requests\UpdateBannerHomePageRequest;
 
@@ -56,6 +57,7 @@ class BannerHomePageController extends Controller
         $bannerHomePage= BannerHomePage::find($id);
         abort_if(!$bannerHomePage,'404');
         BannerHomePage::updateModel($request,$id);
+        LogActivity::addToLog('Banner With Updated Successfully');
         return redirect()->route('home-page-banner.index')->with('success', 'Facility Home Page Updated Successfully');
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Holes;
+use App\Helpers\LogActivity;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateHolesRequest;
 
@@ -35,7 +36,8 @@ class HolesController extends Controller
             'logo'  => 'required',
         ]);
         Holes::SaveModel($request);
-        return to_route('john-sanford-holes.index');
+        LogActivity::addToLog('Hole '.$request->title.' Added Successfully');
+        return redirect()->route('john-sanford-holes.index')->with('success', 'Hole Added Successfully');
     }
 
     /**
@@ -62,7 +64,8 @@ class HolesController extends Controller
     public function update(UpdateHolesRequest $request, $id)
     {
         Holes::updateModel($request,$id);
-        return to_route('john-sanford-holes.index');
+        LogActivity::addToLog('Hole '.$request->title.' Updated Successfully');
+        return redirect()->route('john-sanford-holes.index')->with('success', 'Hole Updated Successfully');
     }
 
     /**
@@ -76,7 +79,6 @@ class HolesController extends Controller
     public function deleteMultiple(Request $request)
     {
         $selectedHoles = $request->input('selectedHoles', []);
-
         foreach ($selectedHoles as $holeId) {
             $hole = Holes::find($holeId);
             $image = $hole->image;
@@ -93,6 +95,7 @@ class HolesController extends Controller
                 $hole->delete();
             }
         }
-        return to_route('john-sanford-holes.index');
+        LogActivity::addToLog('Holes Deleted Successfully ('.count($selectedHoles).')');
+        return redirect()->route('john-sanford-holes.index')->with('success', 'Holes Deleted Successfully');
     }
 }

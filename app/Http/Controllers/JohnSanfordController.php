@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\JohnSanford;
+use App\Helpers\LogActivity;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreJohnSanfordRequest;
 use App\Http\Requests\UpdateJohnSanfordRequest;
@@ -59,7 +60,8 @@ class JohnSanfordController extends Controller
         $johnSanford = JohnSanford::find($id);
         abort_if(!$johnSanford, '404');
         JohnSanford::updateModel($request, $id);
-        return to_route('john-sanford.index');
+        LogActivity::addToLog('Section JohnSanford Updated Successfully');
+        return redirect()->route('john-sanford.index')->with('success', 'Section JohnSanford Updated Successfully');
     }
 
     /**
@@ -102,6 +104,7 @@ class JohnSanfordController extends Controller
             $johnSanford->pdf_fact_sheet = $fileName;
         }
         $johnSanford->save();
-        return to_route('john-sanford.index');
+        LogActivity::addToLog('Downloading Pdfs Was updated Successfully');
+        return redirect()->route('john-sanford.index')->with('success', 'Downloading Pdfs Was updated Successfully');
     }
 }
