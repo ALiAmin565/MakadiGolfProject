@@ -1987,7 +1987,7 @@ i {
  --------- (4.3) footer styles start ---------
  ==== */
 .footer {
-    padding-top: 50px;
+    padding-top: 10px;
     background-color: #05441a;
 }
 
@@ -2060,9 +2060,9 @@ i {
     margin-bottom: -60px;
 }
 
-.footer .section__col {
+/* .footer .section__col {
     margin-bottom: 60px;
-}
+} */
 
 .footer .copyright {
     padding: 30px 0px;
@@ -2167,9 +2167,9 @@ i {
 }
 
 .about .about__thumb .about__experience {
-    width: 340px;
-    min-width: 340px;
-    height: 340px;
+    width: 192px;
+    min-width: 187px;
+    height: 177px;
     border-radius: 50%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2236,7 +2236,7 @@ i {
     border-radius: 5px;
     border: 1px solid rgba(12, 169, 64, 0.15);
     background-color: #ffffff;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .about .about__thumb .about__experience-thumb i {
@@ -7487,9 +7487,9 @@ i {
         padding: 40px 0px;
     }
     .about .about__thumb .about__experience {
-        width: 220px;
-        min-width: 220px;
-        height: 220px;
+        width: 105px;
+        min-width: 110px;
+        height: 111px;
         border-radius: 50%;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -7521,7 +7521,6 @@ i {
         -ms-flex-pack: center;
         justify-content: center;
         border-radius: 5px;
-        margin-bottom: 18px;
     }
     .about .about__thumb .about__experience-thumb i {
         font-size: 16px;

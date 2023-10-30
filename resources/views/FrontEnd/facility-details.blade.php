@@ -101,17 +101,15 @@
                             <h5>Follow Our Journey</h5>
                             <hr>
                             <div class="social justify-content-start">
-                                <a href="#">
-                                    <i class="fa-brands fa-facebook-f"></i>
+                                <a href="https://www.facebook.com/MAKADIGOLF/?fref=ts&ref=br_tf">
+                                    <i class="fa-brands fa-facebook-f" title="Facebook"></i>
                                 </a>
                                 <a href="#">
-                                    <i class="fa-brands fa-twitter"></i>
+                                    <i class="fa-brands fa-square-instagram" title="Instagram"></i>
                                 </a>
-                                <a href="#">
-                                    <i class="fa-brands fa-linkedin-in"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa-brands fa-square-instagram"></i>
+                                <a
+                                    href="https://www.tripadvisor.com/Attraction_Review-g297549-d7680790-Reviews-Madinat_Makadi_Golf-Hurghada_Red_Sea_and_Sinai.html">
+                                    <i class="fa-solid fa-glasses" title="Tripadvisor"></i>
                                 </a>
                             </div>
                         </div>

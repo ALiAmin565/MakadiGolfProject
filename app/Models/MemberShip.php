@@ -20,6 +20,7 @@ class MemberShip extends Model
         'membershipType',
         'residentOrTourist',
         'hotelName',
+        'addressResidence',
     ];
 
     protected $table = 'member_ships';
@@ -35,8 +36,9 @@ class MemberShip extends Model
             'homeNumber' => $request->homeNumber,
             'emailAddress' => $request->emailAddress,
             'membershipType' => $request->membershipType,
-            'residentOrTourist' => $request->residentOrTourist[0],
+            'residentOrTourist' => $request->residentOrTourist,
             'hotelName' => $request->hotelName,
+            'addressResidence' => $request->addressResidence,
         ];
         return $data;
     }

@@ -5,7 +5,7 @@
 # Welcome 
 Dear {{$name}},
 <br>
-We look forward to communicating more with you. For more information visit our blog.
+We look forward to communicating more with you. For more information visit our website.
 {{-- @component('mail::button', ['url' => 'https://laraveltuts.com'])
 Blog
 @endcomponent --}}

@@ -22,7 +22,27 @@ class UpdateContactUsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'numbers' => 'required|string',
+            'emails' => 'required|string',
+            'location' => 'required|string',
+            'google_map_link' => 'required|string',
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     */
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Title is required!',
+            'description.required' => 'Description is required!',
+            'numbers.required' => 'Numbers is required!',
+            'emails.required' => 'Emails is required!',
+            'location.required' => 'Location is required!',
+            'google_map_link.required' => 'Google Map Link is required!',
         ];
     }
 }

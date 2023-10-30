@@ -56,7 +56,7 @@
                                 <div class="about__section-inner__single-content">
                                     <h5>{{ $aboutUsIcon->title }}</h5>
                                     <p class="secondary-text">
-                                       {!! $aboutUsIcon->description !!}
+                                        {!! $aboutUsIcon->description !!}
                                     </p>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@
                                 <div class="about__section-inner__single-content">
                                     <h5>{{ $aboutUsIcon->second_title }}</h5>
                                     <p class="secondary-text">
-                                       {!! $aboutUsIcon->second_description !!}
+                                        {!! $aboutUsIcon->second_description !!}
                                     </p>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                                 <div class="about__section-inner__single-content">
                                     <h5>{{ $aboutUsIcon->third_title }}</h5>
                                     <p class="secondary-text">
-                                       {!! $aboutUsIcon->third_description !!}
+                                        {!! $aboutUsIcon->third_description !!}
                                     </p>
                                 </div>
                             </div>
@@ -95,11 +95,11 @@
                             <div class="about__experience-thumb">
                                 <i class="golftio-ball"></i>
                             </div>
-                            <h3>
+                            {{-- <h3>
                                 <span class="odometer" data-odometer-final="{{ $aboutUs->num_of_years }}"></span>
                                 <span>+</span>
                             </h3>
-                            <p>Years of experience</p>
+                            <p>Years of experience</p> --}}
                         </div>
                     </div>
                 </div>
@@ -107,5 +107,225 @@
         </div>
     </section>
     <!-- ==== / about section end ==== -->
+
+    <!-- ==== team section start ==== -->
+    <section class="section team wow fadeInUp" data-wow-duration="0.4s">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section__header">
+                        <h5 class="section__header-sub-title">{{ $team->sub_title }}</h5>
+                        <h2 class="section__header-title">{{ $team->title }}</h2>
+                        <p>{!! $team->description !!}</p>
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="row justify-content-center"> --}}
+            {{-- <div class="col-lg-7" style="margin: auto;"> --}}
+            <img src="assetsFront/images/{{ $team->image }}" alt="img"
+                style="width:100% !important;object-fit:contain;">
+            {{-- </div> --}}
+            {{-- </div> --}}
+            {{-- <div class="team__slider--secondary">
+                    <div class="team__slider-card">
+                        <div class="team__slider-card__thumb">
+                            <img src="assetsFront/images/team/one.png" alt="Team">
+                        </div>
+                        <div class="team__slider-card__content">
+                            <h5>Jerome Bell</h5>
+                            <p class="secondary-text">Golfer</p>
+                            <div class="social">
+                                <a href="#">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-square-instagram"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team__slider-card">
+                        <div class="team__slider-card__thumb">
+                            <img src="assetsFront/images/team/two.png" alt="Team">
+                        </div>
+                        <div class="team__slider-card__content">
+                            <h5>Mariah Tal</h5>
+                            <p class="secondary-text">Golfer</p>
+                            <div class="social">
+                                <a href="#">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-square-instagram"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team__slider-card">
+                        <div class="team__slider-card__thumb">
+                            <img src="assetsFront/images/team/three.png" alt="Team">
+                        </div>
+                        <div class="team__slider-card__content">
+                            <h5>Robert Fox</h5>
+                            <p class="secondary-text">Golfer</p>
+                            <div class="social">
+                                <a href="#">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-square-instagram"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team__slider-card">
+                        <div class="team__slider-card__thumb">
+                            <img src="assetsFront/images/team/four.png" alt="Team">
+                        </div>
+                        <div class="team__slider-card__content">
+                            <h5>Andrea Reed</h5>
+                            <p class="secondary-text">Golfer</p>
+                            <div class="social">
+                                <a href="#">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-square-instagram"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team__slider-card">
+                        <div class="team__slider-card__thumb">
+                            <img src="assetsFront/images/team/one.png" alt="Team">
+                        </div>
+                        <div class="team__slider-card__content">
+                            <h5>Jerome Bell</h5>
+                            <p class="secondary-text">Golfer</p>
+                            <div class="social">
+                                <a href="#">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-square-instagram"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team__slider-card">
+                        <div class="team__slider-card__thumb">
+                            <img src="assetsFront/images/team/two.png" alt="Team">
+                        </div>
+                        <div class="team__slider-card__content">
+                            <h5>Mariah Tal</h5>
+                            <p class="secondary-text">Golfer</p>
+                            <div class="social">
+                                <a href="#">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-square-instagram"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team__slider-card">
+                        <div class="team__slider-card__thumb">
+                            <img src="assetsFront/images/team/three.png" alt="Team">
+                        </div>
+                        <div class="team__slider-card__content">
+                            <h5>Robert Fox</h5>
+                            <p class="secondary-text">Golfer</p>
+                            <div class="social">
+                                <a href="#">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-square-instagram"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team__slider-card">
+                        <div class="team__slider-card__thumb">
+                            <img src="assetsFront/images/team/four.png" alt="Team">
+                        </div>
+                        <div class="team__slider-card__content">
+                            <h5>Andrea Reed</h5>
+                            <p class="secondary-text">Golfer</p>
+                            <div class="social">
+                                <a href="#">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-square-instagram"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
+            {{-- <div class="row">
+                    <div class="col-12">
+                        <div class="slider-navigation">
+                            <button class="next-team--secondary cmn-button cmn-button--secondary">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </button>
+                            <button class="prev-team--secondary cmn-button cmn-button--secondary">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div> --}}
+        </div>
+    </section>
+    <!-- ==== / team section end ==== -->
 
 </x-layouts.app>

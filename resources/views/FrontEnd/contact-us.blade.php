@@ -20,7 +20,7 @@
                     <div class="banner--inner__breadcrumb d-flex justify-content-start justify-content-md-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('FrontEnd.home') }}">Home</a></li>
                                 <li class="breadcrumb-item"> Contact Us</li>
                             </ol>
                         </nav>
@@ -39,7 +39,7 @@
                     <div class="section__header">
                         <h2 class="section__header-title">{{ $contactUs->title }}</h2>
                         <p class="secondary-text">
-                          {!! $contactUs->description !!}
+                            {!! $contactUs->description !!}
                         </p>
                     </div>
                 </div>
@@ -163,14 +163,17 @@
 
     <!-- ==== google map start ==== -->
     <div class="map-wrapper">
-        <iframe
-            src="{{ $contactUs->google_map_link }}"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade" width="600" height="450" style="border:0;"
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100"
-            height="800" style="border:0;" allowfullscreen="" loading="lazy"
+        <iframe src="{{ $contactUs->google_map_link }}" width="600" height="450" style="border:0;"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="600" height="450"
+            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            width="100" height="800" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <!-- ==== / google map end ==== -->
+    <div class="section__cta mb-5">
+        <a class="cmn-button"
+            href="https://www.google.com/maps?ll=26.984045,33.892335&z=6&t=m&hl=en&gl=EG&mapclient=embed&cid=3795213861599852084"
+            target="_blank" title="Google-Map">Location</a>
+    </div>
 
 </x-layouts.app>

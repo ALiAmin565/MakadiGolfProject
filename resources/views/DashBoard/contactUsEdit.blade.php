@@ -4,6 +4,13 @@
         @if (session()->has('success'))
             <div class="alert alert-primary text-center">{{ session()->get('success') }}</div>
         @endif
+        @if ($errors->any())
+            <div class="alert alert-danger text-center">
+                @foreach ($errors->all() as $error)
+                    <div>{{ $error }}</div>
+                @endforeach
+            </div>
+        @endif
         <form class="forms-sample" action="{{ route('contact-us-dashboard.update', $contactUs->id) }}" method="post"
             enctype="multipart/form-data">
             @csrf

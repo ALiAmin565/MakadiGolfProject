@@ -27,7 +27,6 @@ class FrontEndController extends Controller
         $aboutUs = AboutUs::first();
         $aboutUsIcon=AboutUsIcons::first();
         $partners = Partners::get();
-        $team=Team::first();
         return view('FrontEnd.home', get_defined_vars());
     }
 
@@ -72,6 +71,7 @@ class FrontEndController extends Controller
     {
         $aboutUs = AboutUs::first();
         $aboutUsIcon=AboutUsIcons::first();
+        $team=Team::first();
         return view('FrontEnd.about-us', get_defined_vars());
     }
 

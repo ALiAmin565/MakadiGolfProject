@@ -35,7 +35,13 @@
                                     </a>
                                 </li>
                                 {{-- Facility --}}
-                                <li class="nav__menu-item nav__menu-item--dropdown">
+
+                                <li>
+                                    <a href="{{ route('FrontEnd.facility') }}" class="nav__menu-link">
+                                        Facilities
+                                    </a>
+                                </li>
+                                {{-- <li class="nav__menu-item nav__menu-item--dropdown">
                                     <a href="javascript:void(0)" class="nav__menu-link nav__menu-link--dropdown">
                                         Facility
                                     </a>
@@ -50,18 +56,20 @@
                                                 Details</a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> --}}
                                 {{-- Golf Course --}}
                                 <li class="nav__menu-item nav__menu-item--dropdown">
                                     <a href="javascript:void(0)" class="nav__menu-link nav__menu-link--dropdown">
-                                        Golf 
+                                        Golf
                                     </a>
                                     <ul class="nav__dropdown">
                                         <li>
-                                            <a class="nav__dropdown-item hide-nav" href="{{ route('FrontEnd.johnSanford') }}">John Sanford</a>
+                                            <a class="nav__dropdown-item hide-nav"
+                                                href="{{ route('FrontEnd.johnSanford') }}">John Sanford</a>
                                         </li>
                                         <li>
-                                            <a class="nav__dropdown-item hide-nav" href="{{ route('FrontEnd.johnSanfordDetails') }}">Golf Course
+                                            <a class="nav__dropdown-item hide-nav"
+                                                href="{{ route('FrontEnd.johnSanfordDetails') }}">Golf Course
                                             </a>
                                         </li>
                                     </ul>
@@ -79,11 +87,12 @@
                                     </a>
                                 </li>
 
-                              
+
                                 <li class="nav__menu-item d-block d-md-none">
                                     {{-- <a href="sign-in.html" class="cmn-button cmn-button--secondary">Sign In</a>
                                     <a href="sign-up.html" class="cmn-button">Sign Up</a> --}}
-                                    <a href="{{ route('member-ship.index') }}" class="cmn-button cmn-button--secondary">
+                                    <a href="{{ route('member-ship.index') }}"
+                                        class="cmn-button cmn-button--secondary">
                                         Membership </a>
                                     <a href="{{ route('book.index') }}" class="cmn-button cmn-button--secondary">Book
                                         Now</a>
@@ -114,7 +123,9 @@
                                 <a href="sign-up.html" class="cmn-button">Sign Up</a> --}}
                                 <a href="{{ route('member-ship.index') }}" class="cmn-button cmn-button--secondary">
                                     Membership </a>
-                                <a href="{{ route('book.index') }}" class="cmn-button cmn-button--secondary">Book
+                                {{-- <a href="{{ route('book.index') }}" class="cmn-button cmn-button--secondary">Book
+                                    Now</a> --}}
+                                <a href="https://madinatmakadigolf.com/ttrequestv2.aspx" class="cmn-button cmn-button--secondary">Book
                                     Now</a>
                             </div>
                             <button class="nav__bar d-block d-xl-none">

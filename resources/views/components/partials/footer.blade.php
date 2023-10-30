@@ -1,29 +1,27 @@
 <!-- ==== footer start ==== -->
 <footer class="footer">
     <div class="container">
-        <div class="row section__row">
+        <div class="row section__row" style="align-items: center;">
             <div class="col-md-6 col-lg-4 col-xl-3 section__col">
                 <div class="footer__single">
                     <a href="{{ route('FrontEnd.home') }}">
-                        <img src="{{ asset('assetsFront/images/Madinat_makadi_Golf_logo.png') }}" alt="Logo" style="width:60% !important">
+                        <img src="{{ asset('assetsFront/images/Madinat_makadi_Golf_logo.png') }}" alt="Logo"
+                            style="width:60% !important">
                     </a>
                     <div class="footer__single-content">
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the industry...
+                            Designed by John Sanford of SGD, Madinat Makadi Resort, Golf & Spa spreads over a vast 1.4 million square meters and includes a world acclaimed 18-hole championship golf course & a 9-hole par 3 executive course, voted Egypt’s No.1 Golf Resort 2014 - 2019 (World Golf Awards)
                         </p>
                         <div class="social">
-                            <a href="#">
-                                <i class="fa-brands fa-facebook-f"></i>
+                            <a href="https://www.facebook.com/MAKADIGOLF/?fref=ts&ref=br_tf">
+                                <i class="fa-brands fa-facebook-f" title="Facebook"></i>
                             </a>
                             <a href="#">
-                                <i class="fa-brands fa-twitter"></i>
+                                <i class="fa-brands fa-square-instagram" title="Instagram"></i>
                             </a>
-                            <a href="#">
-                                <i class="fa-brands fa-square-instagram"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-brands fa-linkedin-in"></i>
+                            <a
+                                href="https://www.tripadvisor.com/Attraction_Review-g297549-d7680790-Reviews-Madinat_Makadi_Golf-Hurghada_Red_Sea_and_Sinai.html">
+                                <i class="fa-solid fa-glasses" title="Tripadvisor"></i>
                             </a>
                         </div>
                     </div>
@@ -46,16 +44,28 @@
             </div>
             <div class="col-md-6 col-lg-3 col-xl-3 section__col">
                 <div class="footer__single">
-                    <h5>Address</h5>
-                    <div class="footer__single-content">
-                        <div class="footer__single-content__group">
-                           {!! $contactUs->numbers !!}
+                    <div class="row">
+                        <h5>Address</h5>
+                        <div class="footer__single-content">
+                            <div class="footer__single-content__group">
+                                {!! $contactUs->numbers !!}
+                            </div>
+                            <div class="footer__single-content__group">
+                                {!! $contactUs->emails !!}
+                            </div>
+                            <div class="footer__single-content__group">
+                                {!! $contactUs->location !!}
+                            </div>
                         </div>
-                        <div class="footer__single-content__group">
-                           {!! $contactUs->emails !!}
-                        </div>
-                        <div class="footer__single-content__group">
-                           {!! $contactUs->location !!}
+                    </div>
+
+                    <div class="row mt-5">
+                        <h5>Club Opening Hours</h5>
+                        <div class="footer__single-content">
+                            <div class="footer__single-content__group" style="color:white;">
+                                Open 7am - sunset daily
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -81,8 +91,8 @@
                 @foreach ($awards as $award)
                     <div class="">
                         <div class="team__slider-card__thumb" style="text-align: center;">
-                            <img src="{{ asset('assetsFront/images/awards/'.$award) }}" alt="Team"
-                                style="height: 15% !important;max-width: 60% !important;">
+                            <img src="{{ asset('assetsFront/images/awards/' . $award) }}" alt="Team"
+                                style="height: 10% !important;max-width: 80% !important;">
                         </div>
                     </div>
                 @endforeach
