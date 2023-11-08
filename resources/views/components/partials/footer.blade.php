@@ -1,7 +1,7 @@
 <!-- ==== footer start ==== -->
 <footer class="footer">
     <div class="container">
-        <div class="row section__row">
+        <div class="row section__row text-center" style="align-items: baseline">
             <div class="col-md-6 col-lg-4 col-xl-3  mb-3">
                 <div class="footer__single">
                     <a href="{{ route('FrontEnd.home') }}">
@@ -22,8 +22,8 @@
                             <a href="https://instagram.com/madinatmakadigolf?igshid=OGQ5ZDc2ODk2ZA==" target="_blank">
                                 <i class="fa-brands fa-square-instagram" title="Instagram"></i>
                             </a>
-                            <a
-                                href="https://www.tripadvisor.com/Attraction_Review-g297549-d7680790-Reviews-Madinat_Makadi_Golf-Hurghada_Red_Sea_and_Sinai.html" target="_blank">
+                            <a href="https://www.tripadvisor.com/Attraction_Review-g297549-d7680790-Reviews-Madinat_Makadi_Golf-Hurghada_Red_Sea_and_Sinai.html"
+                                target="_blank">
                                 <i class="fa-solid fa-glasses" title="Tripadvisor"></i>
                             </a>
                         </div>
@@ -66,7 +66,7 @@
                         <h5>Club Opening Hours</h5>
                         <div class="footer__single-content">
                             <div class="footer__single-content__group" style="color:white;">
-                                Open 7:00 AM 
+                                Open 7:00 AM
                             </div>
 
                         </div>
@@ -96,7 +96,7 @@
                     <div class="elfsight-app-bdf7f867-4688-454b-a5e7-be5fa7f141bc " data-elfsight-app-lazy></div>
                     <div>
                         <p
-                            style="width:100%; height: 50px;background: #05441a;position: relative;z-index: 234564484;top: -55px;">
+                            style="width:100%; height: 50px;background: #05441a;position: relative;z-index: 234564484;top: -55px;left: 10px;">
                         </p>
                     </div>
                 </div>
