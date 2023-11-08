@@ -120,11 +120,30 @@
     <!-- ==== details start ==== -->
     <section class="section details" id="holeSection">
         <div class="container">
+            <h2 class="mb-4 mt-2 text-center">Holes</h2>
+            <div class="section gallery wow fadeInUp text-center" data-wow-duration="0.4s">
+                <div class="container">
+                    <div class="row section__row align-items-center">
+                        @foreach ($holes as $hole)
+                            <div class="col-sm-6 col-lg-4 col-xl-4 section__col">
+                                <div class="gallery__thumb">
+                                    <div class="gallery__thumb-single">
+                                        <div class="zoomable-image">
+                                            <img src="{{ asset('assetsFront/images/holes/' . $hole->image) }}"
+                                                alt="{{ $hole->title }}">
+                                            <h5>{{ $hole->title }}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
             <div class="row section__row">
                 <div class="col-12 col-xl-12 section__col">
                     <div class="facility__details">
                         <h2 class="mb-4 mt-2">Hole By Hole</h2>
-
                         <div class="social justify-content-start">
                             @foreach ($holes as $hole)
                                 <?php
@@ -132,13 +151,14 @@
                                 $urlParts = explode('/', $currentURL);
                                 $urlNumber = end($urlParts);
                                 ?>
-                        
-                                <a href="{{ route('frontEnd.singleDetailsJohnSanford', $hole->id) }}" class="selectHole" style="background-color: {{ $urlNumber == $hole->id ? 'green' : 'transparent' }};color:{{ $urlNumber == $hole->id ? 'white !important' : 'green !important' }} ">
+
+                                <a href="{{ route('frontEnd.singleDetailsJohnSanford', $hole->id) }}" class="selectHole"
+                                    style="background-color: {{ $urlNumber == $hole->id ? 'green' : 'transparent' }};color:{{ $urlNumber == $hole->id ? 'white !important' : 'green !important' }} ">
                                     {{ $loop->iteration }}
                                 </a>
                             @endforeach
                         </div>
-                        
+
 
                         <div class="row hole-card">
                             <div class="col-12 col-xl-8">
@@ -177,12 +197,12 @@
                 <div class="col-12 col-xl-4 section__col w-100">
                     <div class="nav__uncollapsed">
                         <h2 class="mb-4 mt-2 ">Factsheet & Rating</h2>
-                        <div class="nav__uncollapsed-item d-none d-md-flex justify-content-around m-5">
+                        <div class="nav__uncollapsed-item d-md-flex justify-content-around">
                             <a href="{{ asset('uploads/' . $pdf->pdf_fact_sheet) }}"
-                                class="cmn-button cmn-button--secondary" download>
+                                class="cmn-button cmn-button--secondary zIndexStyle" download>
                                 Download Factsheet </a>
-                            <a href="{{ asset('uploads/' . $pdf->pdf_rating) }}" class="cmn-button cmn-button--secondary"
-                                download>
+                            <a href="{{ asset('uploads/' . $pdf->pdf_rating) }}"
+                                class="cmn-button cmn-button--secondary zIndexStyle" download>
                                 Download Rating </a>
                         </div>
                     </div>

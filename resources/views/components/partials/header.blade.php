@@ -123,10 +123,10 @@
                                 <a href="sign-up.html" class="cmn-button">Sign Up</a> --}}
                                 <a href="{{ route('member-ship.index') }}" class="cmn-button cmn-button--secondary">
                                     Membership </a>
-                                {{-- <a href="{{ route('book.index') }}" class="cmn-button cmn-button--secondary">Book
-                                    Now</a> --}}
-                                <a href="https://madinatmakadigolf.com/ttrequestv2.aspx" class="cmn-button cmn-button--secondary">Book
+                                <a href="{{ route('book.index') }}" class="cmn-button cmn-button--secondary">Book
                                     Now</a>
+                                {{-- <a href="https://madinatmakadigolf.com/ttrequestv2.aspx" class="cmn-button cmn-button--secondary">Book
+                                    Now</a> --}}
                             </div>
                             <button class="nav__bar d-block d-xl-none">
                                 <span class="icon-bar top-bar"></span>

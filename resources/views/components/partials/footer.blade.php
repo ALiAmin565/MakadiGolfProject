@@ -1,8 +1,8 @@
 <!-- ==== footer start ==== -->
 <footer class="footer">
     <div class="container">
-        <div class="row section__row" style="align-items: center;">
-            <div class="col-md-6 col-lg-4 col-xl-3 section__col">
+        <div class="row section__row">
+            <div class="col-md-6 col-lg-4 col-xl-3  mb-3">
                 <div class="footer__single">
                     <a href="{{ route('FrontEnd.home') }}">
                         <img src="{{ asset('assetsFront/images/Madinat_makadi_Golf_logo.png') }}" alt="Logo"
@@ -10,31 +10,34 @@
                     </a>
                     <div class="footer__single-content">
                         <p>
-                            Designed by John Sanford of SGD, Madinat Makadi Resort, Golf & Spa spreads over a vast 1.4 million square meters and includes a world acclaimed 18-hole championship golf course & a 9-hole par 3 executive course, voted Egypt’s No.1 Golf Resort 2014 - 2019 (World Golf Awards)
+                            Designed by John Sanford of SGD, Madinat Makadi Resort, Golf & Spa spreads over a vast 1.4
+                            million square meters and includes a world acclaimed 18-hole championship golf course & a
+                            9-hole par 3 executive course, voted Egypt’s No.1 Golf Resort 2014 - 2019 (World Golf
+                            Awards)
                         </p>
                         <div class="social">
-                            <a href="https://www.facebook.com/MAKADIGOLF/?fref=ts&ref=br_tf">
+                            <a href="https://www.facebook.com/MAKADIGOLF/?fref=ts&ref=br_tf" target="_blank">
                                 <i class="fa-brands fa-facebook-f" title="Facebook"></i>
                             </a>
-                            <a href="#">
+                            <a href="https://instagram.com/madinatmakadigolf?igshid=OGQ5ZDc2ODk2ZA==" target="_blank">
                                 <i class="fa-brands fa-square-instagram" title="Instagram"></i>
                             </a>
                             <a
-                                href="https://www.tripadvisor.com/Attraction_Review-g297549-d7680790-Reviews-Madinat_Makadi_Golf-Hurghada_Red_Sea_and_Sinai.html">
+                                href="https://www.tripadvisor.com/Attraction_Review-g297549-d7680790-Reviews-Madinat_Makadi_Golf-Hurghada_Red_Sea_and_Sinai.html" target="_blank">
                                 <i class="fa-solid fa-glasses" title="Tripadvisor"></i>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-2 col-xl-3 section__col">
+            <div class="col-md-6 col-lg-2 col-xl-3  mt-1 mb-3">
                 <div class="footer__single">
                     <h5>Quick Links</h5>
                     <div class="footer__single-content">
                         <ul>
                             <li><a href="{{ route('FrontEnd.home') }}">Home</a></li>
                             <li><a href="{{ route('FrontEnd.aboutUs') }}">About Us</a></li>
-                            <li><a href="{{ route('FrontEnd.facility') }}">Facility</a></li>
+                            <li><a href="{{ route('FrontEnd.facility') }}">Facilites</a></li>
                             <li><a href="{{ route('FrontEnd.johnSanford') }}">Golf</a></li>
                             <li><a href="{{ route('FrontEnd.gallery') }}">Gallery</a></li>
                             <li><a href="{{ route('FrontEnd.contactUs') }}">Contact Us</a></li>
@@ -42,7 +45,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3 col-xl-3 section__col">
+            <div class="col-md-6 col-lg-3 col-xl-3  mt-1 mb-3">
                 <div class="footer__single">
                     <div class="row">
                         <h5>Address</h5>
@@ -63,15 +66,15 @@
                         <h5>Club Opening Hours</h5>
                         <div class="footer__single-content">
                             <div class="footer__single-content__group" style="color:white;">
-                                Open 7am - sunset daily
+                                Open 7:00 AM 
                             </div>
 
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3 col-xl-3 section__col">
-                <h5>Newsletter</h5>
+            <div class="col-md-6 col-lg-3 col-xl-3  mb-3">
+                {{-- <h5>Newsletter</h5>
                 <div class="footer__single">
                     <div class="footer__single-content">
                         <p>Subscribe our newsletter to get our latest update & news</p>
@@ -85,7 +88,43 @@
                             </div>
                         </form>
                     </div>
+                </div> --}}
+                <div class="mb-4">
+                    <div id="dateInfo" class="date-info"></div>
                 </div>
+                <div>
+                    <div class="elfsight-app-bdf7f867-4688-454b-a5e7-be5fa7f141bc " data-elfsight-app-lazy></div>
+                    <div>
+                        <p
+                            style="width:100%; height: 50px;background: #05441a;position: relative;z-index: 234564484;top: -55px;">
+                        </p>
+                    </div>
+                </div>
+
+                <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+                <script>
+                    function updateDateInfo() {
+                        var dateElement = document.getElementById('dateInfo');
+                        var currentDate = new Date();
+
+                        var dayOfWeek = currentDate.toLocaleDateString('en-US', {
+                            weekday: 'long'
+                        });
+                        var dayOfMonth = currentDate.getDate();
+                        var month = currentDate.toLocaleDateString('en-US', {
+                            month: 'long'
+                        });
+                        var year = currentDate.getFullYear();
+
+                        var dateInfo =
+                            `<span class="day-color d-block mb-3">${dayOfWeek}</span>  <br> ${month} ${dayOfMonth}, ${year}`;
+
+                        dateElement.innerHTML = dateInfo;
+                    }
+
+                    // Call the function to update the date information.
+                    updateDateInfo();
+                </script>
             </div>
             <div class="team__slider--secondary">
                 @foreach ($awards as $award)

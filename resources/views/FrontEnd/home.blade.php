@@ -1,15 +1,4 @@
 <x-layouts.app>
-    @push('styleSheet')
-        <style>
-            .banner--secondary {
-                /* background-image: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%), url({{ asset('assetsFront/images/banner/' . $banner->image) }}); */
-                background-image: -webkit-gradient(linear, left top, right top, from(#fdfffa), to(rgba(255, 255, 255, 0))), url("{{ asset('assetsFront/images/banner/' . $banner->image) }}");
-                background-image: linear-gradient(90deg, #fdfffa 0%, rgba(255, 255, 255, 0) 100%), url("{{ asset('assetsFront/images/banner/' . $banner->image) }}");
-                background-size: cover;
-                background-position: center;
-            }
-        </style>
-    @endpush
     <!-- ==== banner section start ==== -->
     <section class="banner--secondary">
         <div class="container">
@@ -232,7 +221,7 @@
         </div>
     </section>
     <!-- ==== / sponsor section end ==== -->
-
+    
     <!-- ==== testimonial section start ==== -->
     {{-- <section class="section testimonial testimonial--secondary wow fadeInUp" data-wow-duration="0.4s">
         <div class="container">
@@ -494,4 +483,16 @@
         </div>
     </section> --}}
     <!-- ==== / shop section end ==== -->
+
+    @push('styleSheet')
+        <style>
+            .banner--secondary {
+                /* background-image: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%), url({{ asset('assetsFront/images/banner/' . $banner->image) }}); */
+                background-image: -webkit-gradient(linear, left top, right top, from(#fdfffa), to(rgba(255, 255, 255, 0))), url("{{ asset('assetsFront/images/banner/' . $banner->image) }}");
+                background-image: linear-gradient(90deg, #fdfffa 0%, rgba(255, 255, 255, 0) 100%), url("{{ asset('assetsFront/images/banner/' . $banner->image) }}");
+                background-size: cover;
+                background-position: center;
+            }
+        </style>
+    @endpush
 </x-layouts.app>

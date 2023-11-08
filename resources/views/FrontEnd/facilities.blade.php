@@ -39,7 +39,7 @@
                     <div class="col-sm-10 col-md-6 col-lg-4 col-xxl-4 section__col">
                         <div class="facility--main__card">
                             <div class="facility--main__card-thumb">
-                                <a href="facility-details.html">
+                                <a href="{{ route('FrontEnd.facilityDetails', $facility->id) }}">
                                     <img src='assetsFront/images/facility/{{ $facility->image }}' alt="Image"
                                         style="width: 100%;
                                         height: 150px;
@@ -51,7 +51,7 @@
                                     $name = strip_tags($facility->name); // Strip HTML tags.
                                     $facilityName = strlen($name) > 15 ? substr($name, 0, 15) . '...' : $name;
                                 @endphp
-                                <h5><a href="facility-details.html">{{ $facilityName }}</a></h5>
+                                <h5><a href="{{ route('FrontEnd.facilityDetails', $facility->id) }}">{{ $facilityName }}</a></h5>
                                 @php
                                     $desc = strip_tags($facility->description); // Strip HTML tags.
                                     $facilityDesc = strlen($desc) > 15 ? substr($desc, 0, 15) . '...' : $desc;

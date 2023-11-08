@@ -13,6 +13,7 @@ class LogActivity
     public static function addToLog($subject)
     {
     	$log = [];
+		$log['id'] = uniqid();
     	$log['subject'] = $subject;
     	$log['url'] = Request::fullUrl();
     	$log['method'] = Request::method();
