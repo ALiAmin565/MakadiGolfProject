@@ -2,6 +2,7 @@
 
 use App\Models\Booking;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\AwardController;
 use App\Http\Controllers\HolesController;
@@ -104,6 +105,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/holes-dash-board-delete-multiple', [HolesController::class, 'deleteMultiple'])->name('holes-dash-board-delete-multiple');
     // team 
     Route::resource('team', TeamController::class);
+    // FAQ
+    Route::resource('faq', FaqController::class);
+    Route::delete('/faq-delete-multiple', [FaqController::class, 'deleteMultiple'])->name('faq-dash-board-delete-multiple');
+
+
 });
 
 Auth::routes();

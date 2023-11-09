@@ -16,6 +16,7 @@ use App\Models\BannerHomePage;
 use App\Models\FacilityImages;
 use App\Models\FacilityPartner;
 use App\Models\FacilityHomePage;
+use App\Models\Faq;
 
 class FrontEndController extends Controller
 {
@@ -27,6 +28,7 @@ class FrontEndController extends Controller
         $aboutUs = AboutUs::first();
         $aboutUsIcon=AboutUsIcons::first();
         $partners = Partners::get();
+        $faqs=Faq::get();
         return view('FrontEnd.home', get_defined_vars());
     }
 

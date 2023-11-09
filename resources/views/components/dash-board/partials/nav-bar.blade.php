@@ -21,7 +21,7 @@
                 </a>
                 <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                     @if (Gate::forUser(Auth::user())->allows('isAdmin'))
-                    <a class="dropdown-item" href="{{ route('logActivity') }}">
+                    <a class="dropdown-item" href="{{ route('logActivity') }}" target="_blank">
                             <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
                     @endif
                     <div class="dropdown-divider"></div>

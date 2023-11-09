@@ -10,7 +10,7 @@ class LogActivity extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id','subject', 'url', 'method', 'ip', 'agent', 'user_id'
+        'id','subject', 'url', 'method', 'ip', 'agent', 'user_id','name'
     ];
 
     protected $table = 'log_activity';
