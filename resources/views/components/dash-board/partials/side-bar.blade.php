@@ -18,7 +18,6 @@
         <x-dash-board.side-bar-item icon="fa-solid fa-gauge" title="DashBoard" link="dashboard" />
         {{-- Home Page  --}}
         <x-dash-board.side-bar-item icon="fa-solid fa-house" title="Home Page" link="home-page.index" />
-
         {{-- Facilities --}}
         {{-- <x-dash-board.side-bar-item icon="mdi mdi-home menu-icon" title="Facilities" link="facilities.index" /> --}}
         {{-- Replace facilities inside dropDown --}}
@@ -47,7 +46,7 @@
                 [
                     'name' => 'Edit Section',
                     'action' => 'team.index',
-                ]
+                ],
             ]" />
         {{-- <x-dash-board.side-bar-item icon="fa-solid fa-circle-info" title="About Us Page"
             link="about-us-dashboard.index" /> --}}
@@ -99,7 +98,8 @@
                     'action' => 'john-sanford-pdfs-upload',
                 ],
             ]" />
-
+        {{-- FAQ --}}
+        <x-dash-board.side-bar-item icon="fa-solid fa-wave-square" title="FAQ" link="faq.index" />
 
     </ul>
 </nav>
