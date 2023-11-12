@@ -3,6 +3,8 @@
 use App\Models\Booking;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\AwardController;
 use App\Http\Controllers\HolesController;
@@ -58,7 +60,13 @@ Route::get('/golf-course', [FrontEndController::class, 'indexJohnSanfordDetails'
 Route::get('/golf-course/{id}', [FrontEndController::class, 'singleDetailsJohnSanford'])->name('frontEnd.singleDetailsJohnSanford');
 
 // ================== End Front End Routes ==================
-
+Route::get('/download/{filename}', function ($filename) {
+    $path = storage_path('app/uploads/' . $filename);
+    if (!Storage::disk('uploads')->exists($filename)) {
+        abort(404);
+    }
+    return Response::download($path, $filename);
+})->name('download-pdfs');
 
 
 // ================== Back End Routes ==================

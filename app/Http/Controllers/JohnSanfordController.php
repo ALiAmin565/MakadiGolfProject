@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\JohnSanford;
 use App\Helpers\LogActivity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreJohnSanfordRequest;
 use App\Http\Requests\UpdateJohnSanfordRequest;
 use Illuminate\Support\Facades\Request as FacadesRequest;
@@ -81,26 +82,26 @@ class JohnSanfordController extends Controller
     public function storePdfs(Request $request)
     {
         $request->validate([
-            'pdf_rating' => 'required|mimes:pdf|max:10000',
-            'pdf_fact_sheet' => 'required|mimes:pdf|max:10000',
+            'pdf_rating' => 'mimes:pdf|max:10000',
+            'pdf_fact_sheet' => 'mimes:pdf|max:10000',
         ]);
         $johnSanford = JohnSanford::first();
         if ($request->hasFile('pdf_rating')) {
             if ($johnSanford->pdf_rating) {
-                unlink(public_path('uploads/' . $johnSanford->pdf_rating));
+                Storage::disk('uploads')->delete($johnSanford->pdf_rating);
             }
             $file = $request->file('pdf_rating');
             $fileName = time() . '_rating.' . $file->getClientOriginalExtension();
-            $request->pdf_rating->move(public_path('uploads'), $fileName);
+             $file->move(storage_path('app/uploads'), $fileName);
             $johnSanford->pdf_rating = $fileName;
         }
         if ($request->hasFile('pdf_fact_sheet')) {
             if ($johnSanford->pdf_fact_sheet) {
-                unlink(public_path('uploads/' . $johnSanford->pdf_fact_sheet));
+                Storage::disk('uploads')->delete($johnSanford->pdf_fact_sheet);
             }
             $file = $request->file('pdf_fact_sheet');
-            $fileName = time() . '_factSheet.' . $file->getClientOriginalExtension();
-            $request->pdf_fact_sheet->move(public_path('uploads'), $fileName);
+            $fileName = time() . '_fact_sheet.' . $file->getClientOriginalExtension();
+             $file->move(storage_path('app/uploads'), $fileName);
             $johnSanford->pdf_fact_sheet = $fileName;
         }
         $johnSanford->save();

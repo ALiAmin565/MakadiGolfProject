@@ -21,74 +21,60 @@
             }
         </style>
         <style>
-            /* Add styles for the image popup */
-            .popup {
+            /* Add this to your existing stylesheet or create a new one */
+            .popup-container {
                 display: none;
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: rgba(0, 0, 0, 0.7);
-                z-index: 1000;
-                text-align: center;
+                background: rgba(0, 0, 0, 0.8);
+                justify-content: center;
+                align-items: center;
+                /* z-index: 999; */
+                /* Set a high z-index to ensure the popup appears over other elements */
             }
+
 
             .popup-content {
-                position: absolute;
-                top: 60%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: #fff;
-                padding: 20px;
-                width: 70%;
-                border-radius: 10px;
-                height: 90%;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-                z-index: 10000;
-            }
-
-            .close-popup {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                font-size: 24px;
-                cursor: pointer;
+                position: relative;
             }
 
             .popup-image {
-                max-width: 90%;
-                max-height: 90%;
-            }
-
-            /* Styles to show the popup */
-            .popup.active {
+                max-width: 25%;
+                max-height: 25%;
                 display: block;
+                margin: auto;
             }
 
-            .overlayHole {
+            .close-btn {
                 position: absolute;
-                top: 20%;
-                right: 0;
-                width: 35%;
-                height: 80%;
-                background: rgba(0, 0, 0, 0.7);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 10px;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
-
-            .overlayHole:hover {
-                opacity: 1;
-            }
-
-            .overlayHole i {
+                top: 10px;
+                right: 10px;
+                background: none;
+                border: none;
                 color: #fff;
                 font-size: 24px;
                 cursor: pointer;
+                outline: none;
+            }
+
+            /* Add overlay styles */
+            .popup-container:hover {
+                background: rgba(0, 0, 0, 0.8);
+            }
+
+            .no-scroll {
+                overflow: hidden;
+            }
+
+            /* on mobile */
+            @media (max-width: 600px) {
+                .popup-image {
+                    max-width: 50%;
+                    max-height: 75%;
+                }
             }
         </style>
     @endpush
@@ -124,19 +110,22 @@
             <div class="section gallery wow fadeInUp text-center" data-wow-duration="0.4s">
                 <div class="container">
                     <div class="row section__row align-items-center">
-                        @foreach ($holes as $hole)
-                            <div class="col-sm-6 col-lg-4 col-xl-4 section__col">
-                                <div class="gallery__thumb">
-                                    <div class="gallery__thumb-single">
-                                        <div class="zoomable-image">
-                                            <img src="{{ asset('assetsFront/images/holes/' . $hole->image) }}"
-                                                alt="{{ $hole->title }}">
-                                            <h5>{{ $hole->title }}</h5>
-                                        </div>
-                                    </div>
+                        <div class="row">
+                            @foreach ($holes as $hole)
+                                <div class="col-6 col-md-3 mb-3">
+                                    <img src="{{ asset('assetsFront/images/holes/' . $hole->image) }}"
+                                        class="img-fluid popup-trigger" alt="Hole Image" style="height: 250px">
                                 </div>
+                            @endforeach
+                        </div>
+                        <!-- Popup Container -->
+                        <div class="popup-container">
+                            <div class="popup-content">
+                                <img src="" class="popup-image" alt="Popup Image">
+                                <button class="close-btn">&times;</button>
                             </div>
-                        @endforeach
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -179,17 +168,17 @@
                                 <div class="image-container">
                                     <img src="{{ asset('assetsFront/images/holes/' . $holeSingle->image) }}"
                                         alt="{{ $holeSingle->title }}">
-                                    <div class="overlayHole">
+                                    {{-- <div class="overlayHole">
                                         <i class="fas fa-search-plus"></i> <!-- You can use any icon you prefer -->
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
-                            <div class="popup">
+                            {{-- <div class="popup">
                                 <div class="popup-content">
                                     <span class="close-popup">&times;</span>
                                     <img src="" alt="" class="popup-image">
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
 
                     </div>
@@ -198,12 +187,16 @@
                     <div class="nav__uncollapsed">
                         <h2 class="mb-4 mt-2 ">Factsheet & Rating</h2>
                         <div class="nav__uncollapsed-item d-md-flex justify-content-around">
-                            <a href="{{ asset('uploads/' . $pdf->pdf_fact_sheet) }}"
+                            <a href="{{ route('download-pdfs', ['filename' => $pdf->pdf_fact_sheet]) }}"
                                 class="cmn-button cmn-button--secondary zIndexStyle" download>
-                                Download Factsheet </a>
-                            <a href="{{ asset('uploads/' . $pdf->pdf_rating) }}"
+                                Download Factsheet
+                            </a>
+
+                            <a href="{{ route('download-pdfs', ['filename' => $pdf->pdf_rating]) }}"
                                 class="cmn-button cmn-button--secondary zIndexStyle" download>
-                                Download Rating </a>
+                                Download Rating
+                            </a>
+
                         </div>
                     </div>
                 </div>
@@ -235,41 +228,30 @@
         </script>
     @endpush
 
-
-
     <script>
+        // Add this to your existing JavaScript file or within a script tag in your Blade file
+
         document.addEventListener('DOMContentLoaded', function() {
-            const overlays = document.querySelectorAll('.overlayHole');
-            const popup = document.querySelector('.popup');
+            const popupContainer = document.querySelector('.popup-container');
             const popupImage = document.querySelector('.popup-image');
-            const closePopup = document.querySelector('.close-popup');
+            const closeBtn = document.querySelector('.close-btn');
+            const popupTriggers = document.querySelectorAll('.popup-trigger');
+            const body = document.querySelector('body');
 
-            overlays.forEach(function(overlay) {
-                overlay.addEventListener('click', function() {
-                    // Get the larger image URL
-                    const imageUrl = this.previousElementSibling.src;
-
-                    // Set the image source in the popup
-                    popupImage.src = imageUrl;
-
-                    // Show the popup
-                    popup.classList.add('active');
+            popupTriggers.forEach(function(trigger) {
+                trigger.addEventListener('click', function() {
+                    const imagePath = trigger.getAttribute('src');
+                    popupImage.setAttribute('src', imagePath);
+                    popupContainer.style.display = 'flex';
+                    body.classList.add('no-scroll'); // Add class to body to disable scrolling
                 });
             });
 
-            // Close the popup when the close button is clicked
-            closePopup.addEventListener('click', function() {
-                popup.classList.remove('active');
-            });
-
-            // Close the popup when the background is clicked
-            popup.addEventListener('click', function(event) {
-                if (event.target === this) {
-                    popup.classList.remove('active');
-                }
+            closeBtn.addEventListener('click', function() {
+                popupContainer.style.display = 'none';
+                body.classList.remove('no-scroll'); // Remove class to enable scrolling
             });
         });
     </script>
-
 
 </x-layouts.app>
